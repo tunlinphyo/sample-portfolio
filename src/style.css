@@ -1,0 +1,84 @@
+@layer utils, component, page;
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap") layer(utils);
+/* @import url('https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&display=swap') layer(utils); */
+@import url("https://unpkg.com/open-props") layer(utils);
+
+@import url("./styles/effect.css") layer(component);
+
+@import url("./styles/header.css") layer(page);
+@import url("./styles/nav.css") layer(page);
+@import url("./styles/project.css") layer(page);
+@import url("./styles/hero.css") layer(page);
+
+:root {
+  --font-custom: "Poppins", sans-serif;
+  --font-mono: "IBM Plex Mono", monospace;
+
+  --surface-0: light-dark(var(--stone-4), var(--stone-12));
+  --surface-1: light-dark(var(--stone-3), var(--stone-11));
+  --surface-2: light-dark(var(--stone-2), var(--stone-10));
+  --surface-3: light-dark(var(--stone-1), var(--stone-9));
+  --surface-4: light-dark(var(--stone-0), var(--stone-8));
+
+  --text-1: light-dark(var(--stone-10), var(--stone-3));
+  --text-2: light-dark(var(--stone-8), var(--stone-5));
+  --text-3: light-dark(var(--stone-6), var(--stone-7));
+
+  --accent: light-dark(var(--cyan-5), var(--cyan-3));
+  --icon-color: light-dark(var(--stone-8), var(--stone-5));
+
+  --font-1: clamp(2rem, 8vw, 6rem);
+  --font-2: clamp(2.2rem, 5vw, 5rem);
+  
+  --size-large: clamp(1rem, 2vw, 4rem);
+  --size-xlarge: clamp(1rem, 5vw, 10rem);
+
+  --line-width: 1px;
+  @media (min-width: 992px) {
+    --line-width: 2px;
+  }
+}
+
+:where(html) {
+  margin: 0;
+  padding: 0;
+  color-scheme: light dark;
+}
+
+:where(*, *::before, *::after) {
+  box-sizing: border-box;
+}
+
+:where(body) {
+  font-family: var(--font-custom);
+  font-weight: 400;
+  font-style: normal;
+  font-size: 16px;
+  line-height: 1.2;
+  /* background-color: var(--surface-1); */
+  background-image: linear-gradient(-24deg, var(--surface-0), var(--surface-2));
+  color: var(--text-1);
+
+  scroll-behavior: smooth;
+}
+
+:where(main) {
+  width: 100%;
+  height: 100%;
+}
+
+@layer utils {
+  :where(html, body) {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+  }
+  :where(h1,h2,h3,h4,h5,button,ul,ol,li,input) {
+    all: unset;
+  }
+  :where(button) {
+    cursor: pointer;
+  }
+}

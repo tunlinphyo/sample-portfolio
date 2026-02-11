@@ -1,0 +1,150 @@
+:where(.project) {
+  --padding: clamp(1rem, 5vw, 5rem);
+  position: absolute;
+  z-index: 2;
+
+  position-anchor: --project-detail;
+  top: anchor(top);
+  left: anchor(left);
+  bottom: anchor(bottom);
+  
+  pointer-events: none;
+  justify-content: stretch;
+  align-items: center;
+  padding: var(--size-2);
+  
+  &[open] {
+    display: grid;
+    opacity: 1;
+    scale: 1;
+    z-index: 10;
+
+    .display {
+      scale: 1;
+      rotate: var(--degree);
+
+      @starting-style {
+        scale: 0.9;
+        rotate: 0deg;
+      }
+    }
+  }
+
+  .display {
+    aspect-ratio: 9/6.5;
+    height: 55vh;
+    max-height: 420px;
+    rotate: 0deg;
+    padding: var(--size-3);
+
+    background-color: light-dark(var(--stone-1), var(--stone-11));
+    box-shadow: 0 2px 2px light-dark(var(--stone-4), var(--stone-12)), inset 0 1px 1px light-dark(white, var(--stone-9));
+
+    transition: all 1s var(--ease-spring-3);
+    scale: 0.9;
+
+    display: grid;
+    grid-template-rows: 1fr auto;
+    gap: var(--size-2);
+
+    border-radius: 20px;
+    @supports(corner-shape: squircle) {
+      border-radius: 40px;
+      corner-shape: squircle;
+    }
+
+    .browser {
+      --control: 10px;
+      width: 100%;
+      overflow: clip;
+      background-color: light-dark(#fff, #333);
+      box-shadow: 0 1px 1px light-dark(var(--stone-4), var(--stone-12)), inset 0 1px 1px light-dark(white, var(--stone-9));
+
+      border-radius: 10px;
+      @supports(corner-shape: squircle) {
+        border-radius: 20px;
+        corner-shape: squircle;
+      }
+
+      .bar {
+        width: 100%;
+        height: 30px;
+        display: grid;
+        grid-template-columns: .5fr 1fr .5fr;
+        justify-content: space-between;
+        align-items: center;
+        padding-inline: var(--size-2);
+
+        .controls {
+          display: flex;
+          gap: calc(var(--control) * 0.5);
+
+          & > div {
+            width: var(--control);
+            aspect-ratio: 1;
+            border-radius: 50%;
+
+            &.red {
+              background-color: rgb(236,103,101);
+            }
+            &.yellow {
+              background-color: rgb(242,202,68);
+            }
+            &.green {
+              background-color: rgb(101,196,102);
+            }
+          }
+        }
+
+        .search-bar {
+          height: 20px;
+          background-color: light-dark(#EEE, #444);
+
+          border-radius: 5px;
+        }
+      }
+
+      .content {
+        width: 100%;
+        aspect-ratio: 16/9;
+        overflow: hidden;
+
+        & img {
+          width: 100%;
+          height: auto;
+        }
+      }
+    }
+
+    .project-info {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      & h4 {
+        font-size: clamp(1rem, 2vw, 2rem);
+        color: var(--accent);
+      }
+
+      .tech-stacks {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: var(--size-3);
+
+        .logo {
+          width: 32px;
+          aspect-ratio: 1;
+          display: grid;
+          place-content: center;
+
+          img {
+            max-width: 100%;
+            max-height: 100%;
+            display: block;
+          }
+        }
+      }
+    }
+  }
+}

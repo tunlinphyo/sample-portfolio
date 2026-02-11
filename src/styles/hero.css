@@ -1,0 +1,59 @@
+:where(section.hero) {
+  width: 100%;
+  height: 100%;
+  padding: var(--size-large) var(--size-xlarge);
+
+  display: grid;
+  place-content: center;
+  /* justify-content: flex-start; */
+
+  & h1 {
+    --line-color: var(--text-2);
+
+    font-size: var(--font-1);
+    font-weight: 700;
+    color: var(--line-color);
+    
+    line-height: 1.2;
+    @media (min-width: 992px) {
+      line-height: 1;
+    }
+
+    :where(& > span) {
+      display: block;
+
+      @supports(-webkit-text-stroke-width: 1px) {
+        -webkit-text-stroke-width: var(--line-width);
+        -webkit-text-stroke-color: var(--line-color);
+  
+        text-stroke: var(--line-width) var(--line-color);
+        color: transparent;
+      }
+
+      & em {
+        -webkit-text-stroke-width: initial;
+        -webkit-text-stroke-color: initial;
+        text-stroke: initial;
+        color: var(--line-color);
+        
+        &[data-effect-parent] {
+          /* color: var(--accent); */
+          
+          [data-effect="text-hover"] {
+            --shadow-color: var(--line-color);
+            
+            --y: 1.2em;
+            @media (min-width: 992px) {
+              --y: 1em;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .what-i-do {
+    margin-block-start: var(--size-large);
+    max-width: 32rem;
+  }
+}

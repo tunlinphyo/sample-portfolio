@@ -1,0 +1,40 @@
+[data-effect="text-hover"] {
+  --duration: .5s;
+  --shadow-color: currentColor;
+  --easing: var(--ease-spring-1);
+  --y: 1em;
+  display: inline-block;
+  overflow-y: clip;
+
+  > * {
+    display: inline-block;
+    text-shadow: 0 var(--y) 0 var(--shadow-color);
+    transition: translate var(--duration) var(--easing);
+    transition-delay: calc(sibling-index() * .03s);
+
+    &[data-shadow] {
+      position: relative;
+      text-shadow: none;
+
+      &::before {
+        content: attr(data-shadow);
+        position: absolute;
+        inset: 0;
+        translate: var(--x, 0) var(--y);
+        color: var(--shadow-color);
+      }
+    }
+  }
+
+  &:hover {
+    > * {
+      translate: 0 calc(var(--y) * -1);
+    }
+  }
+}
+
+[data-effect-parent]:hover {
+  [data-effect="text-hover"] > * {
+    translate: 0 calc(var(--y) * -1);
+  }
+}
