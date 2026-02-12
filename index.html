@@ -116,231 +116,288 @@
             </ul>
           </div>
         </div>
-        
+
       </header>
 
+      <button class="button-fade-close">
+        <span class="bg"></span>
+        <div class="rope"></div>
+      </button>
+
       <nav>
-            <!-- <h2>PROJECTS</h2> -->
         <button class="button-menu" toggletarget="navigation">
           <div class="blob-container"></div>
         </button>
 
-        <div class="anchor-container"></div>
-
-        <hover-group>
-          <div class="projects">
-            <hover-view class="project" id="cuuvel" style="--degree: 3deg">
-              <div class="display">
-                <div class="project-info">
-                  <h4>Cuuvel Dashboard</h4>
-                  <div class="tech-stacks">
-                    <!-- <div class="logo">
-                      <img src="/logos/vue.png" alt="Vue.js">
-                    </div> -->
-                    <div class="logo">
-                      <img src="/logos/primevue.png" alt="Vue.js">
-                    </div>
-                    <div class="logo" style="scale:1.3">
-                      <img src="/logos/chartjs.svg" alt="Chart.js">
-                    </div>
-                    <div class="logo">
-                      <img src="/logos/node.svg" alt="Node.js">
-                    </div>
-                  </div>
+        <div class="projects">
+          <div class="project" id="kawagoe" popover style="--degree: 3deg">
+            <div class="project-info">
+              <h4>Cuuvel Dashboard</h4>
+              <div class="tech-stacks">
+                <div class="logo" data-hover="Vue.js">
+                  <img src="/logos/primevue.png" alt="Vue.js">
                 </div>
-                <div class="browser">
-                  <div class="bar">
-                    <div class="controls">
-                      <div class="red"></div>
-                      <div class="yellow"></div>
-                      <div class="green"></div>
-                    </div>
-                    <div class="search-bar"></div>
-                    <div></div>
-                  </div>
-                  <div class="content">
-                    <img src="/projects/cuuvel.png" alt="Cuuvel Dashboard">
-                  </div>
+                <div class="logo" data-hover="Chart.js" style="scale:1.3">
+                  <img src="/logos/chartjs.svg" alt="Chart.js">
+                </div>
+                <div class="logo" data-hover="Node.js">
+                  <img src="/logos/node.svg" alt="Node.js">
                 </div>
               </div>
-            </hover-view>
-            <hover-view class="project" id="ec-cube" style="--degree: -2deg">
-              <div class="display">
-                <div class="project-info">
-                  <h4>Ec-cube Plugins</h4>
-                  <div class="tech-stacks">
-                    <div class="logo">
-                      <img src="/logos/ec-cube.png" alt="Ec-cube">
-                    </div>
-                    <div class="logo" style="scale:1.1">
-                      <img src="/logos/editorjs.png" alt="Editor.js">
-                    </div>
-                  </div>
+            </div>
+            <div class="browser">
+              <div class="bar">
+                <div class="controls">
+                  <div class="red"></div>
+                  <div class="yellow"></div>
+                  <div class="green"></div>
                 </div>
-                <div class="browser">
-                  <div class="bar">
-                    <div class="controls">
-                      <div class="red"></div>
-                      <div class="yellow"></div>
-                      <div class="green"></div>
-                    </div>
-                    <div class="search-bar"></div>
-                    <div></div>
-                  </div>
-                  <div class="content">
-                    <img src="/projects/plugins.png" alt="Ec-cube Plugins">
-                  </div>
-                </div>
+                <div class="search-bar"></div>
+                <div></div>
               </div>
-            </hover-view>
-            <hover-view class="project" id="yomiuri" style="--degree: -4deg">
-              <div class="display">
-                <div class="project-info">
-                  <h4>Yomiuri Shimbun</h4>
-                  <div class="tech-stacks">
-                    <div class="logo">
-                      <img src="/logos/ec-cube.png" alt="Ec-cube">
-                    </div>
-                    <!-- <div class="logo" style="scale:1.1">
-                        <img src="/logos/php.png" alt="PHP">
-                      </div> -->
-                    <div class="logo" style="scale:0.9">
-                      <img src="/logos/symfony.webp" alt="Symfony">
-                    </div>
-                  </div>
-                </div>
-                <div class="browser">
-                  <div class="bar">
-                    <div class="controls">
-                      <div class="red"></div>
-                      <div class="yellow"></div>
-                      <div class="green"></div>
-                    </div>
-                    <div class="search-bar"></div>
-                    <div></div>
-                  </div>
-                  <div class="content">
-                    <img src="/projects/yomiuri.png" alt="Yomiuri Shimbun">
-                  </div>
-                </div>
+              <div class="content">
+                <img src="/projects/cuuvel.png" alt="Cuuvel Dashboard">
               </div>
-            </hover-view>
-            <hover-view class="project" id="coremobile" style="--degree: 2deg">
-              <div class="display">
-                <div class="project-info">
-                  <h4>Core Mobile</h4>
-                  <div class="tech-stacks">
-                    <div class="logo">
-                      <img src="/logos/react.png" alt="React">
-                    </div>
-                    <div class="logo" style="overflow:hidden;border-radius:4px">
-                      <img src="/logos/typescript.svg" alt="TypeScript">
-                    </div>
-                  </div>
-                </div>
-                <div class="browser">
-                  <div class="bar">
-                    <div class="controls">
-                      <div class="red"></div>
-                      <div class="yellow"></div>
-                      <div class="green"></div>
-                    </div>
-                    <div class="search-bar"></div>
-                    <div></div>
-                  </div>
-                  <div class="content">
-                    <img src="/projects/coremobile.png" alt="Core Mobile">
-                  </div>
-                </div>
-              </div>
-            </hover-view>
-            <hover-view class="project" id="united-arrow" style="--degree: -3deg">
-              <div class="display">
-                <div class="project-info">
-                  <h4>United Arrow</h4>
-                  <div class="tech-stacks">
-                    <div class="logo">
-                      <img src="/logos/vue.png" alt="Vue.js">
-                    </div>
-                    <div class="logo">
-                      <img src="/logos/ec-cube.png" alt="Ec-cube">
-                    </div>
-                  </div>
-                </div>
-                <div class="browser">
-                  <div class="bar">
-                    <div class="controls">
-                      <div class="red"></div>
-                      <div class="yellow"></div>
-                      <div class="green"></div>
-                    </div>
-                    <div class="search-bar"></div>
-                    <div></div>
-                  </div>
-                  <div class="content">
-                    <img src="/projects/ua.png" alt="United Arrow">
-                  </div>
-                </div>
-              </div>
-            </hover-view>
-            <hover-view class="project" id="inhouse" style="--degree: 5deg">
-              <div class="display">
-                <div class="project-info">
-                  <h4>Inhouse Furniture</h4>
-                  <div class="tech-stacks">
-                    <div class="logo" style="scale:0.9">
-                      <img src="/logos/svelte.png" alt="Svelte.js">
-                    </div>
-                    <div class="logo" style="overflow:hidden;border-radius:4px">
-                      <img src="/logos/typescript.svg" alt="TypeScript">
-                    </div>
-                  </div>
-                </div>
-                <div class="browser">
-                  <div class="bar">
-                    <div class="controls">
-                      <div class="red"></div>
-                      <div class="yellow"></div>
-                      <div class="green"></div>
-                    </div>
-                    <div class="search-bar"></div>
-                    <div></div>
-                  </div>
-                  <div class="content">
-                    <img src="/projects/inhouse.png" alt="Inhouse Furniture">
-                  </div>
-                </div>
-              </div>
-            </hover-view>
+            </div>
           </div>
-  
-          <aside id="navigation" class="wheel" style="--count: 6">
-            <div class="wheel-item" style="--index: 1">
-              <hover-item hovertarget="cuuvel">0<span>1</span></hover-item>
-              <div class="anchor"></div>
+          <div class="project" id="lottery" popover style="--degree: -2deg">
+            <div class="project-info">
+              <h4>Form Lottery Pay</h4>
+              <div class="tech-stacks">
+                <div class="logo" data-hover="Vue.js">
+                  <img src="/logos/vue.png" alt="Vue.js">
+                </div>
+                <div class="logo" data-hover="PrimeVue">
+                  <img src="/logos/primevue.png" alt="PrimeVue">
+                </div>
+                <div class="logo" data-hover="TypeScript" style="border-radius:4px">
+                  <img src="/logos/typescript.svg" alt="TypeScript">
+                </div>
+              </div>
             </div>
-            <div class="wheel-item" style="--index: 2">
-              <hover-item hovertarget="ec-cube">02</hover-item>
-              <div class="anchor"></div>
+            <div class="browser">
+              <div class="bar">
+                <div class="controls">
+                  <div class="red"></div>
+                  <div class="yellow"></div>
+                  <div class="green"></div>
+                </div>
+                <div class="search-bar"></div>
+                <div></div>
+              </div>
+              <div class="content">
+                <img src="/projects/lottery.png" alt="Ec-cube Plugins">
+              </div>
             </div>
-            <div class="wheel-item" style="--index: 3">
-              <hover-item hovertarget="yomiuri">03</hover-item>
-              <div class="anchor"></div>
+          </div>
+          <div class="project" id="cuuvel" popover style="--degree: 3deg">
+            <div class="project-info">
+              <h4>Cuuvel Dashboard</h4>
+              <div class="tech-stacks">
+                <div class="logo" data-hover="Vue.js">
+                  <img src="/logos/primevue.png" alt="Vue.js">
+                </div>
+                <div class="logo" data-hover="Chart.js" style="scale:1.3">
+                  <img src="/logos/chartjs.svg" alt="Chart.js">
+                </div>
+                <div class="logo" data-hover="Node.js">
+                  <img src="/logos/node.svg" alt="Node.js">
+                </div>
+              </div>
             </div>
-            <div class="wheel-item" style="--index: 4">
-              <hover-item hovertarget="coremobile">04</hover-item>
-              <div class="anchor"></div>
+            <div class="browser">
+              <div class="bar">
+                <div class="controls">
+                  <div class="red"></div>
+                  <div class="yellow"></div>
+                  <div class="green"></div>
+                </div>
+                <div class="search-bar"></div>
+                <div></div>
+              </div>
+              <div class="content">
+                <img src="/projects/cuuvel.png" alt="Cuuvel Dashboard">
+              </div>
             </div>
-            <div class="wheel-item" style="--index: 5">
-              <hover-item hovertarget="united-arrow">05</hover-item>
-              <div class="anchor"></div>
+          </div>
+          <div class="project" id="ec-cube" popover style="--degree: -2deg">
+            <div class="project-info">
+              <h4>Ec-cube Plugins</h4>
+              <div class="tech-stacks">
+                <div class="logo" data-hover="Ec-cube 4">
+                  <img src="/logos/ec-cube.png" alt="Ec-cube">
+                </div>
+                <div class="logo" data-hover="Editor.js" style="scale:1.1">
+                  <img src="/logos/editorjs.png" alt="Editor.js">
+                </div>
+              </div>
             </div>
-            <div class="wheel-item" style="--index: 6">
-              <hover-item hovertarget="inhouse">06</hover-item>
-              <div class="anchor"></div>
+            <div class="browser">
+              <div class="bar">
+                <div class="controls">
+                  <div class="red"></div>
+                  <div class="yellow"></div>
+                  <div class="green"></div>
+                </div>
+                <div class="search-bar"></div>
+                <div></div>
+              </div>
+              <div class="content">
+                <img src="/projects/plugins.png" alt="Ec-cube Plugins">
+              </div>
             </div>
-          </aside>
-        </hover-group>
+          </div>
+          <div class="project" id="yomiuri" popover style="--degree: -4deg">
+            <div class="project-info">
+              <h4>Yomiuri Shimbun</h4>
+              <div class="tech-stacks">
+                <div class="logo" data-hover="Ec-cube 4">
+                  <img src="/logos/ec-cube.png" alt="Ec-cube">
+                </div>
+                <!-- <div class="logo" style="scale:1.1">
+                    <img src="/logos/php.png" alt="PHP">
+                  </div> -->
+                <div class="logo" data-hover="Symfony" style="scale:0.9">
+                  <img src="/logos/symfony.webp" alt="Symfony">
+                </div>
+              </div>
+            </div>
+            <div class="browser">
+              <div class="bar">
+                <div class="controls">
+                  <div class="red"></div>
+                  <div class="yellow"></div>
+                  <div class="green"></div>
+                </div>
+                <div class="search-bar"></div>
+                <div></div>
+              </div>
+              <div class="content">
+                <img src="/projects/yomiuri.png" alt="Yomiuri Shimbun">
+              </div>
+            </div>
+          </div>
+          <div class="project" id="coremobile" popover style="--degree: 2deg">
+            <div class="project-info">
+              <h4>Core Mobile</h4>
+              <div class="tech-stacks">
+                <div class="logo" data-hover="React">
+                  <img src="/logos/react.png" alt="React">
+                </div>
+                <div class="logo" data-hover="TypeScript" style="border-radius:4px">
+                  <img src="/logos/typescript.svg" alt="TypeScript">
+                </div>
+              </div>
+            </div>
+            <div class="browser">
+              <div class="bar">
+                <div class="controls">
+                  <div class="red"></div>
+                  <div class="yellow"></div>
+                  <div class="green"></div>
+                </div>
+                <div class="search-bar"></div>
+                <div></div>
+              </div>
+              <div class="content">
+                <img src="/projects/coremobile.png" alt="Core Mobile">
+              </div>
+              <!-- <div class="mouse"></div> -->
+            </div>
+          </div>
+          <div class="project" id="united-arrow" popover style="--degree: -3deg">
+            <div class="project-info">
+              <h4>United Arrow</h4>
+              <div class="tech-stacks">
+                <div class="logo" data-hover="Vue.js">
+                  <img src="/logos/vue.png" alt="Vue.js">
+                </div>
+                <div class="logo" data-hover="Ec-cube 4">
+                  <img src="/logos/ec-cube.png" alt="Ec-cube">
+                </div>
+              </div>
+            </div>
+            <div class="browser">
+              <div class="bar">
+                <div class="controls">
+                  <div class="red"></div>
+                  <div class="yellow"></div>
+                  <div class="green"></div>
+                </div>
+                <div class="search-bar"></div>
+                <div></div>
+              </div>
+              <div class="content">
+                <img src="/projects/ua.png" alt="United Arrow">
+              </div>
+            </div>
+          </div>
+          <div class="project" id="inhouse" popover style="--degree: 5deg">
+            <div class="project-info">
+              <h4>Inhouse Furniture</h4>
+              <div class="tech-stacks">
+                <div class="logo" data-hover="Svelte.js" style="scale:0.9">
+                  <img src="/logos/svelte.png" alt="Svelte.js">
+                </div>
+                <div class="logo" data-hover="TypeScript" style="border-radius:4px">
+                  <img src="/logos/typescript.svg" alt="TypeScript">
+                </div>
+              </div>
+            </div>
+            <div class="browser">
+              <div class="bar">
+                <div class="controls">
+                  <div class="red"></div>
+                  <div class="yellow"></div>
+                  <div class="green"></div>
+                </div>
+                <div class="search-bar"></div>
+                <div></div>
+              </div>
+              <div class="content">
+                <img src="/projects/inhouse.png" alt="Inhouse Furniture">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <aside id="navigation" toggle class="wheel" style="--count: 7">
+
+          <h2>Recent Works</h2>
+
+          <div class="wheel-item" style="--index: 1">
+            <button hoverclick="manual" popovertarget="inhouse">0<span>1</span></button>
+            <div class="anchor"></div>
+          </div>
+          <div class="wheel-item" style="--index: 2">
+            <button hoverclick="manual" popovertarget="lottery">02</button>
+            <div class="anchor"></div>
+          </div>
+          <div class="wheel-item" style="--index: 3">
+            <button hoverclick="manual" popovertarget="cuuvel">03</button>
+            <div class="anchor"></div>
+          </div>
+          <div class="wheel-item" style="--index: 4">
+            <button hoverclick="manual" popovertarget="ec-cube">04</button>
+            <div class="anchor"></div>
+          </div>
+          <div class="wheel-item" style="--index: 5">
+            <button hoverclick="manual" popovertarget="yomiuri">05</button>
+            <div class="anchor"></div>
+          </div>
+          <div class="wheel-item" style="--index: 6">
+            <button hoverclick="manual" popovertarget="coremobile">06</button>
+            <div class="anchor"></div>
+          </div>
+          <div class="wheel-item" style="--index: 7">
+            <button hoverclick="manual" popovertarget="united-arrow">07</button>
+            <div class="anchor"></div>
+          </div>
+          <!-- <div class="wheel-item" style="--index: 8">
+            <button hoverclick popovertarget="inhouse">08</button>
+            <div class="anchor"></div>
+          </div> -->
+        </aside>
 
         <div class="nav-blob"></div>
       </nav>
@@ -352,10 +409,10 @@
             <em data-effect-parent>
               <span data-effect="text-hover">
                 <!-- Frontend / Software -->
-                <span data-shadow="S">F</span><span data-shadow="o" style="--x: 0.06em">r</span><span data-shadow="f"
-                  style="--x: 0.26em">o</span><span data-shadow="t">n</span><span data-shadow="w"
-                  style="--x: -0.25em">t</span><span data-shadow="a" style="--x: 0.2em">e</span><span data-shadow="r"
-                  style="--x: 0.25em">n</span><span data-shadow="e">d</span>
+                <span data-shadow="F">S</span><span data-shadow="r" style="--x: -0.06em">o</span><span data-shadow="o"
+                  style="--x: -0.26em">f</span><span data-shadow="n">t</span><span data-shadow="t"
+                  style="--x: 0.25em">w</span><span data-shadow="e" style="--x: -0.2em">a</span><span data-shadow="n"
+                  style="--x: -0.25em">r</span><span data-shadow="d">e</span>
               </span>
               Engineer
             </em>
@@ -363,7 +420,7 @@
           <span>base in <em>Tokyo</em></span>
         </h1>
         <p class="what-i-do">
-          Senior Frontend Engineer specializing in CSS, modern Web APIs, 
+          Senior Frontend Engineer specializing in CSS, modern Web APIs,
           and scalable frontend architecture.
         </p>
       </section>

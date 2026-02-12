@@ -3,7 +3,7 @@
   --shadow-color: currentColor;
   --easing: var(--ease-spring-1);
   --y: 1em;
-  display: inline-block;
+  display: inline-flex;
   overflow-y: clip;
 
   > * {

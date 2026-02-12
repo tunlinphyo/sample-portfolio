@@ -3,7 +3,7 @@
   z-index: 2;
   inset: 0 0 auto;
   padding: var(--size-large) var(--size-xlarge);
-  
+
   display: flex;
   justify-content: center;
   align-items: center;
@@ -14,7 +14,51 @@
     font-size: .9rem;
     color: var(--text-2);
   }
-  
+
+  [popover] {
+    --duration: .6s;
+
+    position: fixed;
+    top: anchor(bottom);
+    border: none;
+    border-radius: 30px;
+    background-color: var(--surface-4);
+    box-shadow: 0 1px 2px light-dark(var(--stone-5), var(--stone-11)), inset 0 1px 2px light-dark(white, var(--stone-7));
+    padding: 0;
+
+    opacity: 0;
+    transform: scale(0);
+    @supports (position-area: bottom) {
+      position-area: bottom;
+    }
+
+    @supports (corner-shape: squircle) {
+      border-radius: 60px;
+      corner-shape: squircle;
+    }
+
+    &:popover-open {
+      opacity: 1;
+      transform: scale(1);
+      transition:
+        opacity var(--duration) var(--ease-spring-3),
+        transform var(--duration) var(--ease-spring-3);
+
+      @starting-style {
+        opacity: 0;
+        transform: scale(0);
+      }
+    }
+
+    @supports (animation-name: test-starting-style) {
+      --duration: 1s;
+      transition:
+        opacity .15s var(--ease-in-1),
+        transform .15s var(--ease-in-1),
+        display .15s allow-discrete,
+        overlay .15s allow-discrete;
+    }
+  }
 }
 
 .contacts {
@@ -38,8 +82,7 @@
       bottom: anchor(bottom);
       right: anchor(right);
       background-color: transparent;
-      /* background-image: linear-gradient(to top, var(--surface-1), var(--surface-3)); */
-      box-shadow: 0 1px 1px light-dark(var(--stone-5), var(--stone-11)), inset 0 1px 1px light-dark(var(--stone-0), var(--stone-8));
+      box-shadow: 0 1px 1px light-dark(var(--stone-5), var(--stone-12)), inset 0 1px 1px light-dark(white, var(--stone-8));
 
       transition: all .7s var(--ease-spring-3);
 
@@ -61,7 +104,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    
+
     & li {
 
       @media (orientation: landscape) {
@@ -96,7 +139,7 @@
   }
 
   .popover-content {
-    width: 80vw;
+    width: 90vw;
     max-width: 400px;
     padding: var(--size-3) var(--size-5) var(--size-4);
     position-anchor: --contact-popover;
@@ -156,50 +199,5 @@
         }
       }
     }
-  }
-}
-
-[popover] {
-  --duration: .6s;
-
-  position: fixed;
-  border: none;
-  border-radius: 30px;
-  background-color: var(--surface-4);
-  /* background-image: linear-gradient(-10deg, var(--surface-1), var(--surface-4)); */
-  box-shadow: 0 1px 2px light-dark(var(--stone-5), var(--stone-11)), inset 0 1px 2px light-dark(white, var(--stone-7));
-  padding: 0;
-
-  opacity: 0;
-  transform: scale(0);
-  @supports (position-area: bottom) {
-    position-area: bottom;
-  }
-
-  @supports (corner-shape: squircle) {
-    border-radius: 60px;
-    corner-shape: squircle;
-  }
-
-  &:popover-open {
-    opacity: 1;
-    transform: scale(1);
-    transition:
-      opacity var(--duration) var(--ease-spring-3),
-      transform var(--duration) var(--ease-spring-3);
-
-    @starting-style {
-      opacity: 0;
-      transform: scale(0);
-    }
-  }
-
-  @supports (animation-name: test-starting-style) {
-    --duration: 1s;
-    transition:
-      opacity var(--duration) var(--ease-spring-3),
-      transform var(--duration) var(--ease-spring-3),
-      display var(--duration) allow-discrete,
-      overlay var(--duration) allow-discrete;
   }
 }

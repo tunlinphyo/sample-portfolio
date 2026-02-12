@@ -1,0 +1,146 @@
+
+:where(.button-menu) {
+  pointer-events: auto;
+  position: absolute;
+  z-index: 3;
+  bottom: calc(50% - 1.4rem);
+  right: var(--size-xlarge);
+
+  @media (max-width:760px) {
+    bottom: var(--size-xlarge);
+    right: calc(50% - 1.4rem);
+  }
+
+  width: 2.8rem;
+  aspect-ratio: 1;
+  border-radius: 50%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    transition: transform .7s var(--ease-spring-3);
+  }
+
+  &:not([active])::before {
+    width: var(--size-4);
+    height: var(--size-6);
+    border: 2px solid var(--accent);
+    border-radius: 25px;
+  }
+  &:not([active])::after {
+    width: 2px;
+    height: 10px;
+    transform: translate(0, -5px);
+    background-color: var(--accent);
+  }
+
+  &[active]::before,
+  &[active]::after {
+    width: var(--size-5);
+    height: 2px;
+    background-color: var(--surface-1);
+  }
+  &[active]::before {
+    transform: translate(0, 0) rotate(45deg);
+  }
+  &[active]::after {
+    transform: translate(0, 0) rotate(-45deg);
+  }
+
+  .blob-container {
+    anchor-name: --navigation;
+    position: absolute;
+    inset: -1px;
+  }
+
+  &:hover {
+    .blob-container {
+      scale: 1.5;
+    }
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 4px;
+  }
+}
+
+:where(.button-fade-close) {
+  position: fixed;
+  z-index: 5;
+  top: calc(50% - 1.4rem);
+  left: calc(50% - 1.4rem);
+
+  width: 2.8rem;
+  height: 2.8rem;
+  border-radius: 50%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  pointer-events: none;
+  opacity: 0;
+  scale: 0;
+  translate: 0 -55vw;
+  transition: all .7s var(--ease-spring-3);
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    z-index: 1;
+    width: var(--size-5);
+    height: 2px;
+    background-color: light-dark(var(--stone-3), var(--stone-10));
+  }
+
+  &::before {
+    transform: translate(0, 0) rotate(45deg);
+  }
+  &::after {
+    transform: translate(0, 0) rotate(-45deg);
+  }
+
+  .bg{
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background-color: light-dark(var(--stone-12), var(--stone-0));
+    border-radius: 50%;
+    pointer-events: none;
+  }
+
+  .rope {
+    position: absolute;
+    z-index: -1;
+    width: 2px;
+    height: 10vw;
+    top: 2rem;
+    left: calc(50% - 1px);
+    background-color: light-dark(var(--stone-8), var(--stone-6));
+    opacity: 0;
+    scale: 1 0;
+    transform-origin: top center;
+    transition: scale .7s var(--ease-spring-3), opacity .7s var(--ease-spring-3);
+  }
+}
+
+
+@media not all and (hover: hover) and (pointer: fine) {
+  :where(body:has(nav [popover]:popover-open)) {
+    .button-fade-close {
+      opacity: 1;
+      scale: 1;
+
+      .rope {
+        opacity: 1;
+        scale: 1;
+      }
+    }
+  }
+}
