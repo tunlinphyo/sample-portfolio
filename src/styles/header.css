@@ -9,184 +9,197 @@
   align-items: center;
   pointer-events: none;
 
-  .contacts {
+  h2 {
+    font-weight: 800;
+    font-size: .9rem;
+    color: var(--text-2);
+  }
+  
+}
+
+.contacts {
+  display: flex;
+  justify-content: flex-start;
+
+  @media (orientation: portrait) {
+    anchor-name: --contact-popover;
+  }
+
+  .container {
+    anchor-name: --contact-heilight;
+    padding-inline: var(--size-2);
+    pointer-events: auto;
+
+    .heilight {
+      position-anchor: --contact-heilight;
+      position: absolute;
+      top: anchor(top);
+      left: anchor(left);
+      bottom: anchor(bottom);
+      right: anchor(right);
+      background-color: transparent;
+      /* background-image: linear-gradient(to top, var(--surface-1), var(--surface-3)); */
+      box-shadow: 0 1px 1px light-dark(var(--stone-5), var(--stone-11)), inset 0 1px 1px light-dark(var(--stone-0), var(--stone-8));
+
+      transition: all .7s var(--ease-spring-3);
+
+      border-radius: 12px;
+      @supports(corner-shape: squircle) {
+        border-radius: 60px;
+        corner-shape: squircle;
+      }
+    }
+  }
+
+  .buttons-group {
+    position: relative;
+    z-index: 1;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
+    align-items: center;
+    
+    & li {
 
-    .container {
-      anchor-name: --contact-heilight;
-      padding-inline: var(--size-2);
-      pointer-events: auto;
+      @media (orientation: landscape) {
+        anchor-name: --contact-popover;
+        anchor-scope: --contact-popover;
+      }
 
-      .heilight {
-        position-anchor: --contact-heilight;
-        position: absolute;
-        top: anchor(top);
-        left: anchor(left);
-        bottom: anchor(bottom);
-        right: anchor(right);
-        background-color: var(--surface-3);
-        /* background-image: linear-gradient(to top, var(--surface-1), var(--surface-3)); */
-        box-shadow: 0 1px 1px light-dark(var(--stone-5), var(--stone-11)), inset 0 1px 1px light-dark(var(--stone-0), var(--stone-8));
-
-        transition: all .7s var(--ease-spring-3);
+      & button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: light-dark(var(--stone-0), var(--stone-11));
+        padding: var(--size-2) var(--size-3);
 
         border-radius: 12px;
         @supports(corner-shape: squircle) {
-          border-radius: 60px;
+          border-radius: 120px;
           corner-shape: squircle;
         }
-      }
-    }
 
-    .buttons-group {
-      position: relative;
-      z-index: 1;
-      margin: 0;
-      padding: 0;
-      list-style: none;
-
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      
-      & li {
-        anchor-scope: --contact-popover;
-        anchor-name: --contact-popover;
-
-        & button {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          color: light-dark(var(--stone-0), var(--stone-11));
-          padding: var(--size-2) var(--size-3);
-
-          border-radius: 12px;
-          @supports(corner-shape: squircle) {
-            border-radius: 120px;
-            corner-shape: squircle;
-          }
-
-          &:hover {
-            anchor-name: --contact-heilight;
-          }
-
-          &:focus-visible {
-            anchor-name: --contact-heilight;
-            outline: 2px solid var(--accent);
-            outline-offset: 2px;
-          }
+        &:hover {
+          anchor-name: --contact-heilight;
         }
-      }
-    }
 
-    .popover-content {
-      width: 80vw;
-      max-width: 400px;
-      padding: var(--size-3) var(--size-5) var(--size-4);
-      position-anchor: --contact-popover;
-      transform-origin: top center;
-
-      & h2 {
-        font-size: clamp(1.2rem, 5vw, 3rem);
-        font-weight: 400;
-        color: var(--muted-text);
-      }
-
-      & p {
-        color: var(--base-text);
-      }
-
-      .link {
-        margin-block: var(--size-2);
-
-        & a {
-          display: inline-block;
-          text-decoration: none;
-          color: var(--accent);
-          position: relative;
-
-
-          border-radius: 12px;
-          @supports(corner-shape: squircle) {
-            border-radius: 120px;
-            corner-shape: squircle;
-          }
-
-          &:focus-visible {
-            outline: 2px solid var(--accent);
-            outline-offset: 4px;
-          }
-
-          &::after {
-            content: "";
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            scale: 0 1;
-            opacity: 0;
-            transform-origin: left center;
-            height: 1rem;
-            border-bottom: 3px double var(--accent);
-            transition: scale .6s var(--ease-spring-3), opacity 0s linear .6s;
-            overflow-y: clip;
-
-          }
-
-          &:hover::after {
-            scale: 1;
-            opacity: 1;
-            transition: scale .6s var(--ease-spring-3), opacity 0s linear;
-          }
+        &:focus-visible {
+          anchor-name: --contact-heilight;
+          outline: 2px solid var(--accent);
+          outline-offset: 2px;
         }
       }
     }
   }
 
+  .popover-content {
+    width: 80vw;
+    max-width: 400px;
+    padding: var(--size-3) var(--size-5) var(--size-4);
+    position-anchor: --contact-popover;
+    transform-origin: top;
 
-  [popover] {
-    --duration: .6s;
-
-    position: fixed;
-    border: none;
-    border-radius: 30px;
-    background-color: var(--surface-4);
-    /* background-image: linear-gradient(-10deg, var(--surface-1), var(--surface-4)); */
-    box-shadow: 0 1px 2px light-dark(var(--stone-5), var(--stone-11)), inset 0 1px 2px light-dark(white, var(--stone-7));
-    padding: 0;
-
-    opacity: 0;
-    transform: scale(0);
-    @supports (position-area: bottom) {
-      position-area: bottom;
+    & h2 {
+      font-size: clamp(1.2rem, 5vw, 3rem);
+      font-weight: 400;
+      color: var(--text-2);
     }
 
-    @supports (corner-shape: squircle) {
-      border-radius: 60px;
-      corner-shape: squircle;
+    & p {
+      color: var(--text-1);
     }
 
-    &:popover-open {
-      opacity: 1;
-      transform: scale(1);
-      transition:
-        opacity var(--duration) var(--ease-spring-3),
-        transform var(--duration) var(--ease-spring-3);
+    .link {
+      margin-block: var(--size-2);
 
-      @starting-style {
-        opacity: 0;
-        transform: scale(0);
+      & a {
+        display: inline-block;
+        text-decoration: none;
+        color: var(--accent);
+        position: relative;
+
+
+        border-radius: 12px;
+        @supports(corner-shape: squircle) {
+          border-radius: 120px;
+          corner-shape: squircle;
+        }
+
+        &:focus-visible {
+          outline: 2px solid var(--accent);
+          outline-offset: 4px;
+        }
+
+        &::after {
+          content: "";
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 100%;
+          scale: 0 1;
+          opacity: 0;
+          transform-origin: left center;
+          height: 1rem;
+          border-bottom: 3px double var(--accent);
+          transition: scale .6s var(--ease-spring-3), opacity 0s linear .6s;
+          overflow-y: clip;
+
+        }
+
+        &:hover::after {
+          scale: 1;
+          opacity: 1;
+          transition: scale .6s var(--ease-spring-3), opacity 0s linear;
+        }
       }
     }
+  }
+}
 
-    @supports (animation-name: test-starting-style) {
-      --duration: 1s;
-      transition:
-        opacity var(--duration) var(--ease-spring-3),
-        transform var(--duration) var(--ease-spring-3),
-        display var(--duration) allow-discrete,
-        overlay var(--duration) allow-discrete;
+[popover] {
+  --duration: .6s;
+
+  position: fixed;
+  border: none;
+  border-radius: 30px;
+  background-color: var(--surface-4);
+  /* background-image: linear-gradient(-10deg, var(--surface-1), var(--surface-4)); */
+  box-shadow: 0 1px 2px light-dark(var(--stone-5), var(--stone-11)), inset 0 1px 2px light-dark(white, var(--stone-7));
+  padding: 0;
+
+  opacity: 0;
+  transform: scale(0);
+  @supports (position-area: bottom) {
+    position-area: bottom;
+  }
+
+  @supports (corner-shape: squircle) {
+    border-radius: 60px;
+    corner-shape: squircle;
+  }
+
+  &:popover-open {
+    opacity: 1;
+    transform: scale(1);
+    transition:
+      opacity var(--duration) var(--ease-spring-3),
+      transform var(--duration) var(--ease-spring-3);
+
+    @starting-style {
+      opacity: 0;
+      transform: scale(0);
     }
+  }
+
+  @supports (animation-name: test-starting-style) {
+    --duration: 1s;
+    transition:
+      opacity var(--duration) var(--ease-spring-3),
+      transform var(--duration) var(--ease-spring-3),
+      display var(--duration) allow-discrete,
+      overlay var(--duration) allow-discrete;
   }
 }

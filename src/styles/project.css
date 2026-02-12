@@ -6,12 +6,12 @@
   position-anchor: --project-detail;
   top: anchor(top);
   left: anchor(left);
+  right: anchor(right);
   bottom: anchor(bottom);
   
   pointer-events: none;
-  justify-content: stretch;
+  justify-content: center;
   align-items: center;
-  padding: var(--size-2);
   
   &[open] {
     display: grid;
@@ -32,8 +32,7 @@
 
   .display {
     aspect-ratio: 9/6.5;
-    height: 55vh;
-    max-height: 420px;
+    width: min(95vw, 85vh);
     rotate: 0deg;
     padding: var(--size-3);
 
@@ -124,6 +123,7 @@
       & h4 {
         font-size: clamp(1rem, 2vw, 2rem);
         color: var(--accent);
+        font-weight: 600;
       }
 
       .tech-stacks {

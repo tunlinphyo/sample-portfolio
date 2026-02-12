@@ -4,7 +4,6 @@
   inset: 0;
   padding: var(--size-large) var(--size-xlarge);
   pointer-events: none;
-
   
   .anchor-container {
     anchor-name: --project-detail;
@@ -19,7 +18,7 @@
   }
 
   .wheel {
-    --step: calc(50deg / var(--count));
+    --step: calc(70deg / var(--count));
     --offset: calc((var(--count) - 1) / 2);
     --degree: 0deg;
     --bg: var(--surface-1);
@@ -40,9 +39,9 @@
     justify-content: flex-end;
     align-items: center;
 
-    @media (max-width: 400px) {
-      --step: 16deg;
-    }
+    /* @media (orientation: portrait) {
+      writing-mode: vertical-rl;
+    } */
 
     &[open] {
       opacity: 1;
@@ -71,7 +70,8 @@
       transition: transform 1s var(--ease-spring-3), opacity 1s var(--ease-spring-3);
       display: flex;
       align-items: baseline;
-      font-size: clamp(2rem, 4vw, 4rem);
+      font-size: var(--font-2);
+      /* font-family: var(--font-mono); */
 
       &:has(hover-item:hover) {
         .anchor {
@@ -99,8 +99,14 @@
           --line-width: 2px;
         }
 
+        & > span {
+          display: inline-block;
+          width: .6em;
+          text-align: center;
+        }
+
         &:hover {
-          transform: translate(-1vw, 0) scale(1.2);
+          transform: scale(1.2);
           /* --stroke-color: var(--accent);
           --fill-color: var(--accent); */
           color: var(--accent);
@@ -114,8 +120,8 @@
 
       .anchor {
         position: relative;
-        width: .7em;
-        translate: 0 0.05em;
+        width: .6em;
+        translate: 0.5rem 0.05em;
         display: inline-block;
         aspect-ratio: 1;
         rotate: calc(var(--degree) * -1);
@@ -128,11 +134,19 @@
     pointer-events: auto;
     position: absolute;
     z-index: 3;
-    top: calc(50% - var(--size-5));
     /* bottom: var(--size-xlarge); */
+    
+    top: calc(50% - 1.4rem);
     right: var(--size-xlarge);
+    /* @media (orientation: landscape) {
+    }
 
-    width: var(--size-8);
+    @media (orientation: portrait) {
+      bottom: var(--size-large);
+      left: calc(50% - 1.4rem);
+    } */
+
+    width: 2.8rem;
     aspect-ratio: 1;
     border-radius: 50%;
 
@@ -189,7 +203,7 @@
     transition: all .7s var(--ease-spring-3);
     border-radius: 50%;
 
-    background-color: var(--surface-3);
+    background-color: transparent;
     box-shadow: 0 1px 1px light-dark(var(--stone-5), var(--stone-11)), inset 0 1px 1px light-dark(var(--stone-0), var(--stone-8));
 
     background-color: var(--accent);
