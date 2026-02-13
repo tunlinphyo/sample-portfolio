@@ -23,6 +23,7 @@
     border: none;
     border-radius: 30px;
     background-color: var(--surface-4);
+    background-image: linear-gradient(to top, var(--surface-1), var(--surface-3));
     box-shadow: 0 1px 2px light-dark(var(--stone-5), var(--stone-11)), inset 0 1px 2px light-dark(white, var(--stone-7));
     padding: 0;
 
@@ -50,7 +51,9 @@
       }
     }
 
-    @supports (animation-name: test-starting-style) {
+    /* @supports (animation-name: test-starting-style) { */
+    /* Disabled on safari because of a bug */
+    @supports(corner-shape: squircle) {
       --duration: 1s;
       transition:
         opacity .15s var(--ease-in-1),
@@ -146,8 +149,8 @@
     transform-origin: top;
 
     & h2 {
-      font-size: clamp(1.2rem, 5vw, 3rem);
-      font-weight: 400;
+      font-size: var(--font-3);
+      font-weight: 500;
       color: var(--text-2);
     }
 

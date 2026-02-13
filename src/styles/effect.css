@@ -1,7 +1,7 @@
 [data-effect="text-hover"] {
-  --duration: .5s;
+  --duration: .6s;
   --shadow-color: currentColor;
-  --easing: var(--ease-spring-1);
+  --easing: var(--ease-spring-2);
   --y: 1em;
   display: inline-flex;
   overflow-y: clip;

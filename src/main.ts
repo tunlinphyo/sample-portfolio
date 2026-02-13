@@ -1,3 +1,3 @@
 import './polyfills/toggle'
-// import './polyfills/hover'
+import './polyfills/hover'
 import './style.css'

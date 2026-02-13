@@ -1,0 +1,63 @@
+footer {
+  position: fixed;
+  z-index: 0;
+  bottom: var(--size-large);
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .button-testimonials {
+    position: relative;
+
+    .dot {
+      width: 10px;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background-color: var(--text-2);
+      transition: scale .6s var(--ease-spring-3);
+    }
+
+    .text {
+      position: absolute;
+      white-space: nowrap;
+      bottom: 0;
+      left: 50%;
+      translate: -50% 0;
+      padding: var(--size-2) var(--size-3);
+      box-shadow: 0 1px 1px light-dark(var(--stone-5), var(--stone-12)), inset 0 1px 1px light-dark(white, var(--stone-8));
+      /* outline: 2px solid var(--text-2); */
+      color: var(--text-1);
+      border-radius: 50vh;
+      scale: 0;
+      transform-origin: bottom center;
+      transition: scale .1s var(--ease-1);
+    }
+
+    &:is(:hover,:focus-visible) {
+      .dot {
+        scale: 0;
+        transition: scale .1s var(--ease-1);
+      }
+      .text {
+        scale: 1;
+        transition: scale .6s var(--ease-spring-3);
+      }
+    }
+
+    /* --theme: var(--text-2);
+    padding: var(--size-2) var(--size-3);
+    border-radius: var(--radius-round);
+    background-color: var(--theme);
+    color: var(--theme);
+    clip-path: circle(5px);
+    transition: background-color .2s var(--ease-3) .1s, clip-path .3s var(--ease-3), outline-offset 145ms var(--ease-2);
+
+    &:is(:hover,:focus-visible) {
+      outline: 2px solid var(--theme);
+      background-color: transparent;
+      clip-path: circle(100%);
+    } */
+  }
+}

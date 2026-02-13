@@ -1,5 +1,5 @@
 :where(nav) {
-  --accent-top: light-dark(var(--cyan-0), var(--cyan-1));
+  --accent-top: light-dark(var(--cyan-2), var(--cyan-1));
   --accent-bottom: light-dark(var(--cyan-9), var(--cyan-12));
   position: fixed;
   z-index: 3;
@@ -35,6 +35,10 @@
       transition:
         opacity var(--duration) var(--ease-spring-3),
         transform var(--duration) var(--ease-spring-3);
+        
+      @media not all and (hover: hover) and (pointer: fine) {
+        transition-delay: 0.1s;
+      }
 
       @starting-style {
         opacity: 0;

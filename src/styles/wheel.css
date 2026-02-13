@@ -1,6 +1,6 @@
 
 :where(.wheel) {
-  --step: calc(80deg / var(--count));
+  --step: calc(74deg / var(--count));
   --offset: calc((var(--count) - 1) / 2);
   --degree: 0deg;
   --bg: var(--surface-1);

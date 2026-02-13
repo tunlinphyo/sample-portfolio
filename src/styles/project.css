@@ -1,15 +1,19 @@
 :where(.project) {
-  --padding: clamp(1rem, 5vw, 5rem);
+  --padding: clamp(.5rem, 3vw, 1rem);
   position: fixed;
   z-index: 2;
   inset: 0;
   margin: auto;
 
-  aspect-ratio: 9/6.4;
+  /* aspect-ratio: 9/6.4; */
+  height: auto;
   max-width: auto;
   max-height: auto;
-  padding: var(--size-3);
+  padding: var(--padding);
   overflow: auto;
+
+  align-self: center;
+  justify-self: center;
 
   @media (orientation: landscape) {
     width: 95vh;
@@ -19,7 +23,7 @@
   }
   @media (max-width: 600px) {
     width: 100vw;
-    aspect-ratio: 9/8;
+    /* aspect-ratio: 9/8; */
   }
 
   background-color: light-dark(var(--stone-2), var(--stone-11));
@@ -168,7 +172,7 @@
     & h4 {
       font-size: var(--font-3);
       color: var(--text-2);
-      font-weight: 700;
+      font-weight: 500;
     }
 
     @media (max-width: 600px) {
