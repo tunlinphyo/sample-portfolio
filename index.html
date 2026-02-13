@@ -8,9 +8,7 @@
   </head>
   <body>
     <main>
-
       <header>
-        <!-- <h2>トゥン　リン　ピョー</h2> -->
 
         <div class="contacts">
           <div class="container">
@@ -119,15 +117,35 @@
 
       </header>
 
-      <button class="button-fade-close" inert>
-        <span class="bg"></span>
-        <div class="rope"></div>
-      </button>
+      <section class="hero">
+        <h1>
+          <span>I'm <em>Tun</em>,</span>
+          <span>a
+            <em data-effect-parent>
+              <span class="sr-only">Software / Frontend</span>
+              <span data-effect="text-hover" aria-hidden="true">
+                <span data-shadow="F">S</span><span data-shadow="r" style="--x: -0.06em">o</span><span data-shadow="o"
+                  style="--x: -0.26em">f</span><span data-shadow="n">t</span><span data-shadow="t"
+                  style="--x: 0.25em">w</span><span data-shadow="e" style="--x: -0.2em">a</span><span data-shadow="n"
+                  style="--x: -0.25em">r</span><span data-shadow="d">e</span>
+              </span>
+              Engineer
+            </em>
+          </span>
+          <span>based in <em>Tokyo</em></span>
+        </h1>
+        <p class="what-i-do">
+          Senior Frontend Engineer specializing in CSS, modern Web APIs,
+          and scalable frontend architecture.
+        </p>
+      </section>
 
-      <nav>
-        <button class="button-menu" toggletarget="navigation">
-          <div class="blob-container"></div>
-        </button>
+      <dialog id="navigation" class="navigations">
+        <form method="dialog">
+          <button class="navigation-close">
+            <div class="blob-container"></div>
+          </button>
+        </form>
 
         <div class="projects">
           <div class="project" id="kawagoe" popover style="--degree: 3deg">
@@ -254,9 +272,6 @@
                 <div class="logo" data-hover="Ec-cube 4">
                   <img src="/logos/ec-cube.png" alt="Ec-cube">
                 </div>
-                <!-- <div class="logo" style="scale:1.1">
-                    <img src="/logos/php.png" alt="PHP">
-                  </div> -->
                 <div class="logo" data-hover="Symfony" style="scale:0.9">
                   <img src="/logos/symfony.webp" alt="Symfony">
                 </div>
@@ -302,7 +317,6 @@
               <div class="content">
                 <img src="/projects/coremobile.png" alt="Core Mobile">
               </div>
-              <!-- <div class="mouse"></div> -->
             </div>
           </div>
           <div class="project" id="united-arrow" popover style="--degree: -3deg">
@@ -361,7 +375,7 @@
           </div>
         </div>
 
-        <aside id="navigation" toggle class="wheel" style="--count: 7">
+        <div class="wheel" dialogclose style="--count: 7">
 
           <h2>Recent Works</h2>
 
@@ -397,36 +411,32 @@
             <button hoverclick popovertarget="inhouse">08</button>
             <div class="anchor"></div>
           </div> -->
-        </aside>
+        </div>
+
+        <button type="button" id="fadeButton" class="button-fade-close">
+          <span class="bg"></span>
+          <div class="rope"></div>
+        </button>
 
         <div class="nav-blob"></div>
-      </nav>
+      </dialog>
 
-      <section class="hero">
-        <h1>
-          <span>I'm <em>Tun</em>,</span>
-          <span>a
-            <em data-effect-parent>
-              <span data-effect="text-hover">
-                <!-- Frontend / Software -->
-                <span data-shadow="F">S</span><span data-shadow="r" style="--x: -0.06em">o</span><span data-shadow="o"
-                  style="--x: -0.26em">f</span><span data-shadow="n">t</span><span data-shadow="t"
-                  style="--x: 0.25em">w</span><span data-shadow="e" style="--x: -0.2em">a</span><span data-shadow="n"
-                  style="--x: -0.25em">r</span><span data-shadow="d">e</span>
-              </span>
-              Engineer
-            </em>
-          </span>
-          <span>based in <em>Tokyo</em></span>
-        </h1>
-        <p class="what-i-do">
-          Senior Frontend Engineer specializing in CSS, modern Web APIs,
-          and scalable frontend architecture.
-        </p>
-      </section>
+      <dialog id="testimonial" class="testimonials">
+        <form method="dialog">
+          <button class="testimonial-close">
+            <div class="blob-container"></div>
+          </button>
+        </form>
+
+        <div class="testimonial-blob"></div>
+      </dialog>
 
       <footer>
-        <button class="button-testimonials">
+        <button class="button-footer" dialogtarget="navigation">
+          <div class="dot"></div>
+          <div class="text">Recent Works</div>
+        </button>
+        <button class="button-footer" dialogtarget="testimonial">
           <div class="dot"></div>
           <div class="text">What people say</div>
         </button>

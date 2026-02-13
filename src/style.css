@@ -3,21 +3,20 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap") layer(utils);
 /* @import url('https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&display=swap') layer(utils); */
 @import url("https://unpkg.com/open-props") layer(utils);
-/* @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&display=swap') layer(utils); */
 
 @import url("./styles/effect.css") layer(component);
 @import url("./styles/buttons.css") layer(component);
 @import url("./styles/wheel.css") layer(component);
+@import url("./styles/dialog.css") layer(component);
+@import url("./styles/popover.css") layer(component);
 
 @import url("./styles/header.css") layer(page);
-@import url("./styles/nav.css") layer(page);
 @import url("./styles/project.css") layer(page);
 @import url("./styles/hero.css") layer(page);
 @import url("./styles/footer.css") layer(page);
 
 :root {
   --font-custom: "Poppins", sans-serif;
-  --font-mono: "IBM Plex Mono", monospace;
 
   --surface-0: light-dark(var(--stone-4), var(--stone-12));
   --surface-1: light-dark(var(--stone-3), var(--stone-11));
@@ -91,6 +90,19 @@
   }
   :where(button) {
     cursor: pointer;
+  }
+
+  :where(.sr-only) {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    clip-path: inset(50%);
+    white-space: nowrap;
+    border: 0;
   }
 
   [data-hover] {

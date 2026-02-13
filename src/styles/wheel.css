@@ -1,6 +1,6 @@
 
 :where(.wheel) {
-  --step: calc(74deg / var(--count));
+  --step: calc(76deg / var(--count));
   --offset: calc((var(--count) - 1) / 2);
   --degree: 0deg;
   --bg: var(--surface-1);
@@ -10,12 +10,6 @@
   position: absolute;
   z-index: 0;
   inset: 0;
-
-  transition: opacity .4s ease-in-out;
-  background: radial-gradient(circle at 100%, var(--bg) 0%, var(--bg-opacity) 60%, #0000 100%);
-
-  opacity: 0;
-  pointer-events: none;
 
   display: flex;
   justify-content: flex-end;
@@ -33,26 +27,7 @@
     left: 50%;
     translate: -50% -50%;
     opacity: 0;
-    transition: opacity .4s ease-in-out;
-  }
-
-  &[open] {
-    opacity: 1;
-    pointer-events: auto;
-
-    h2 {
-      opacity: 1;
-    }
-
-    .wheel-item {
-      opacity: 1;
-      --degree: calc(((var(--index) - 1) - var(--offset)) * var(--step) * -1);
-
-      @starting-style {
-        transform: translate(var(--move-x), 0) rotate(0deg);
-        opacity: 0;
-      }
-    }
+    transition: opacity .2s var(--ease-out-5);
   }
 
   .wheel-item {
@@ -64,17 +39,10 @@
     white-space: nowrap;
     transform: translate(var(--move-x), 0) rotate(var(--degree));
     opacity: 0;
-    transition: transform 1s var(--ease-spring-3), opacity 1s var(--ease-spring-3);
+    transition: transform 1s var(--ease-spring-3), opacity .25s var(--ease-1);
     display: flex;
     align-items: baseline;
     font-size: var(--font-2);
-    /* font-family: var(--font-mono); */
-
-    &:has(button:hover) {
-      .anchor {
-        anchor-name: --navigation;
-      }
-    }
 
     & button {
       --line-width: 1px;
@@ -97,16 +65,15 @@
         text-align: center;
       }
 
-      &:hover {
+      &:is(:hover,:focus-visible) {
         transform: scale(1.2);
         color: var(--accent);
         text-shadow: 0 1px 1px var(--accent-bottom), 0 -1px 1px var(--accent-top);
-        /* box-shadow: 0 1px 1px light-dark(var(--cyan-7), var(--cyan-11)), inset 0 1px 1px light-dark(var(--cyan-3), var(--cyan-6)); */
       }
 
-      &:focus-within {
+      /* &:focus-within {
         color: var(--accent);
-      }
+      } */
     }
 
     .anchor {
@@ -116,6 +83,37 @@
       display: inline-block;
       aspect-ratio: 1;
       rotate: calc(var(--degree) * -1);
+    }
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  :where(.wheel-item) {
+    &:has(button:hover) {
+      .anchor {
+        anchor-name: --navigation;
+      }
+    }
+  }
+}
+
+:where(dialog.navigations[open]) {
+  h2 {
+    opacity: 1;
+    transition: opacity .5s var(--ease-in-1);
+
+    @starting-style {
+      opacity: 0;
+    }
+  }
+
+  .wheel-item {
+    opacity: 1;
+    --degree: calc(((var(--index) - 1) - var(--offset)) * var(--step) * -1);
+
+    @starting-style {
+      transform: translate(var(--move-x), 0) rotate(0deg);
+      opacity: 0;
     }
   }
 }
