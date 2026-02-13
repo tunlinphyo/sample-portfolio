@@ -1,0 +1,113 @@
+:where(.message) {
+  --padding: clamp(1rem, 3vw, 3rem);
+  --duration: 1s;
+
+  position: fixed;
+  z-index: 2;
+  inset: 0;
+  margin: auto;
+  width: min(98vw, 84vh);
+  height: 40vh;
+  padding: 0;
+  
+  background-color: color-mix(in srgb, var(--surface-2), transparent 60%);
+  backdrop-filter: blur(5px);
+  box-shadow: 0 2px 2px light-dark(var(--stone-6), var(--stone-12)), inset 0 1px 1px light-dark(white, var(--stone-9));
+
+  border-radius: 50px;
+  @supports(corner-shape: squircle) {
+    border-radius: 100px;
+    corner-shape: squircle;
+  }
+
+  opacity: 0;
+  transform: scale(0.5) translate(0, -50vh);
+
+  &:popover-open {
+    opacity: 1;
+
+    transform: scale(1) translate(0, -15vh);
+    transition:
+      opacity var(--duration) var(--ease-spring-3),
+      transform var(--duration) var(--ease-spring-3);
+
+    @starting-style {
+      opacity: 0;
+      transform: scale(0.5) translate(0, 10vh);
+    }
+  }
+
+  @supports (animation-name: test-starting-style) {
+    transition:
+      opacity .15s var(--ease-in-1),
+      transform .15s var(--ease-in-1),
+      display .15s allow-discrete,
+      overlay .15s allow-discrete;
+  }
+}
+
+:where(.message) {
+  .message-container {
+    width: 100%;
+    height: 100%;
+    padding: var(--padding);
+    padding-block-end: calc(var(--padding) * 0.1);
+
+    display: grid;
+    place-content: center;
+    gap: 2rem;
+  }
+
+  & blockquote {
+    all: unset;
+    text-align: left;
+    color: var(--text-1);
+    font-size: clamp(1.2rem, 1.4vw, 1.4rem);
+    font-weight: 500;
+    padding-inline-start: 0.5em;
+
+    &::before {
+      content: "\201F";
+      display: block;
+      font-size: 5em;
+      line-height: 0.1;
+      color: var(--accent);
+      translate: -0.1em;
+    }
+  }
+
+  .quoter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+
+    .avatar {
+      width: 50px;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      overflow: clip;
+      outline: 2px solid var(--accent);
+      outline-offset: -2px;
+
+      & img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+
+    .about-quoter {
+      .name {
+        font-size: 1rem;
+        color: var(--text-0);
+        font-weight: 500;
+      }
+      .position {
+        font-size: 1rem;
+        color: var(--text-2);
+      }
+    }
+  }
+}

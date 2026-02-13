@@ -17,7 +17,7 @@
   &::backdrop {
     opacity: 0;
     transition: opacity var(--delay) var(--ease-1);
-    background-image: radial-gradient(circle at 100%, var(--bg) 0%, var(--bg-opacity) 60%, #0000 100%);
+    background-image: radial-gradient(circle at 100%, var(--bg) 0%, var(--bg-opacity) 50%, transparent 100%);
   }
 
   &[open] {
@@ -30,7 +30,7 @@
     }
   }
 
-  @supports(corner-shape: squircle) {
+  @supports(animation-name: test-starting-style) {
     transition:
       display var(--delay) allow-discrete,
       overlay var(--delay) allow-discrete;
@@ -52,7 +52,7 @@
   opacity: 0;
 
   background-color: var(--accent);
-  box-shadow: 0 1px 1px light-dark(var(--cyan-7), var(--cyan-11)), inset 0 1px 1px light-dark(var(--cyan-3), var(--cyan-6));
+  box-shadow: 0 1px 1px var(--accent-bottom), inset 0 1px 1px var(--accent-top);
 }
 
 :where(.testimonials) {
@@ -65,7 +65,7 @@
   &::backdrop {
     opacity: 0;
     transition: opacity var(--delay) var(--ease-1);
-    background-image: radial-gradient(circle at center, #0000 0%, var(--bg-opacity) 45%, var(--bg) 100%);
+    background-image: radial-gradient(circle at center, transparent 0%, var(--bg-opacity) 45%, var(--bg) 100%);
   }
 
   &[open] {
@@ -78,7 +78,7 @@
     }
   }
 
-  @supports(corner-shape: squircle) {
+  @supports(animation-name: test-starting-style) {
     transition:
       display var(--delay) allow-discrete,
       overlay var(--delay) allow-discrete;
@@ -100,5 +100,5 @@
   opacity: 0;
 
   background-color: var(--accent);
-  box-shadow: 0 1px 1px light-dark(var(--cyan-7), var(--cyan-11)), inset 0 1px 1px light-dark(var(--cyan-3), var(--cyan-6));
+  box-shadow: 0 1px 1px var(--accent-bottom), inset 0 1px 1px var(--accent-top);
 }

@@ -1,5 +1,6 @@
 :where(.project) {
   --padding: clamp(.5rem, 3vw, 1rem);
+  --duration: 1s;
   position: fixed;
   z-index: 2;
   inset: 0;
@@ -24,8 +25,12 @@
     width: 100vw;
   }
 
-  background-color: light-dark(var(--stone-2), var(--stone-11));
-  box-shadow: 0 2px 2px light-dark(var(--stone-4), var(--stone-12)), inset 0 1px 1px light-dark(white, var(--stone-9));
+  /* background-color: light-dark(var(--stone-2), var(--stone-11));
+  box-shadow: 0 2px 2px light-dark(var(--stone-4), var(--stone-12)), inset 0 1px 1px light-dark(white, var(--stone-9)); */
+
+  background-color: color-mix(in srgb, var(--surface-3), transparent 60%);
+  backdrop-filter: blur(5px);
+  box-shadow: 0 2px 2px light-dark(var(--stone-5), var(--stone-12)), inset 0 1px 1px light-dark(white, var(--stone-9));
 
   border-radius: 30px;
   @supports(corner-shape: squircle) {
@@ -37,10 +42,6 @@
   transform: scale(0.8) rotate(0deg);
 
   &:popover-open {
-    pointer-events: auto;
-    opacity: 1;
-    scale: 1;
-
     opacity: 1;
     transform: scale(1) rotate(var(--degree));
     transition:
@@ -58,7 +59,6 @@
   }
 
   @supports (animation-name: test-starting-style) {
-    --duration: 1s;
     transition:
       opacity .15s var(--ease-in-1),
       transform .15s var(--ease-in-1),

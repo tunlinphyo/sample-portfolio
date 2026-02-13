@@ -65,7 +65,8 @@
   z-index: 3;
   left: calc(50% - 1.4rem);
   /* top: calc(50% - 1.4rem); */
-  bottom: var(--size-xlarge);
+  bottom: calc(var(--size-xlarge) + 2vh);
+  
 
   width: 2.8rem;
   aspect-ratio: 1;

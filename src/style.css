@@ -9,9 +9,11 @@
 @import url("./styles/wheel.css") layer(component);
 @import url("./styles/dialog.css") layer(component);
 @import url("./styles/popover.css") layer(component);
+@import url("./styles/circle.css") layer(component);
 
 @import url("./styles/header.css") layer(page);
 @import url("./styles/project.css") layer(page);
+@import url("./styles/message.css") layer(page);
 @import url("./styles/hero.css") layer(page);
 @import url("./styles/footer.css") layer(page);
 
@@ -26,6 +28,7 @@
 
   --surface-r-1: light-dark(var(--stone-12), var(--stone-4));
 
+  --text-0: light-dark(var(--stone-12), var(--stone-0));
   --text-1: light-dark(var(--stone-10), var(--stone-3));
   --text-2: light-dark(var(--stone-8), var(--stone-5));
   --text-3: light-dark(var(--stone-6), var(--stone-7));
@@ -33,6 +36,8 @@
   --text-r-1: light-dark(var(--stone-3), var(--stone-10));
 
   --accent: light-dark(var(--cyan-6), var(--cyan-4));
+  --accent-top: light-dark(var(--cyan-2), var(--cyan-1));
+  --accent-bottom: light-dark(var(--cyan-9), var(--cyan-12));
   --icon-color: light-dark(var(--stone-8), var(--stone-5));
 
   --font-1: clamp(2.5rem, 6vw, 6rem);
