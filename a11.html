@@ -1,0 +1,306 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tun Lin Phyo | Portfolio</title>
+  </head>
+  <body>
+    <a class="sr-only sr-only-focusable" href="#main">Skip to main content</a>
+
+    <main id="main" tabindex="-1" aria-label="Portfolio main content">
+      <header aria-label="Header">
+
+        <div class="contacts" aria-label="Contact links">
+          <div class="container">
+            <div class="heilight" aria-hidden="true"></div>
+
+            <ul class="buttons-group" aria-label="Contact options">
+              <li>
+                <button
+                  type="button"
+                  data-contact="github"
+                  popovertarget="github-popover"
+                  aria-haspopup="dialog"
+                  aria-controls="github-popover"
+                  aria-label="Open GitHub contact popover"
+                >
+                  <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false">
+                    <g fill="var(--icon-color)">
+                      <!-- paths unchanged -->
+                    </g>
+                  </svg>
+                </button>
+
+                <div
+                  id="github-popover"
+                  popover
+                  class="popover-content github"
+                  role="dialog"
+                  aria-modal="false"
+                  aria-labelledby="github-popover-title"
+                  tabindex="-1"
+                >
+                  <h2 id="github-popover-title">GitHub</h2>
+                  <p>
+                    Open-source builds, UI experiments, and production-ready components.
+                    I document architecture choices and performance tradeoffs so others can
+                    reuse and extend the work.
+                  </p>
+                  <div class="link">
+                    <a href="/" aria-label="Visit Tun's GitHub profile">Visit GitHub profile</a>
+                  </div>
+                </div>
+              </li>
+
+              <li>
+                <button
+                  type="button"
+                  data-contact="linkedin"
+                  popovertarget="linkedin-popover"
+                  aria-haspopup="dialog"
+                  aria-controls="linkedin-popover"
+                  aria-label="Open LinkedIn contact popover"
+                >
+                  <svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true" focusable="false">
+                    <g fill="var(--icon-color)">
+                      <!-- paths unchanged -->
+                    </g>
+                  </svg>
+                </button>
+
+                <div
+                  id="linkedin-popover"
+                  popover
+                  class="popover-content linkedin"
+                  role="dialog"
+                  aria-modal="false"
+                  aria-labelledby="linkedin-popover-title"
+                  tabindex="-1"
+                >
+                  <h2 id="linkedin-popover-title">LinkedIn</h2>
+                  <p>
+                    Career timeline, project impact, and leadership highlights.
+                    If you want the full story behind shipped work, connect here.
+                  </p>
+                  <div class="link">
+                    <a
+                      href="https://www.linkedin.com/in/your-handle/"
+                      aria-label="Connect with Tun on LinkedIn"
+                    >Connect on LinkedIn</a>
+                  </div>
+                </div>
+              </li>
+
+              <li>
+                <button
+                  type="button"
+                  data-contact="resume"
+                  popovertarget="resume-popover"
+                  aria-haspopup="dialog"
+                  aria-controls="resume-popover"
+                  aria-label="Open resume popover"
+                >
+                  <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false">
+                    <g fill="var(--icon-color)">
+                      <!-- paths unchanged -->
+                    </g>
+                  </svg>
+                </button>
+
+                <div
+                  id="resume-popover"
+                  popover
+                  class="popover-content resume"
+                  role="dialog"
+                  aria-modal="false"
+                  aria-labelledby="resume-popover-title"
+                  tabindex="-1"
+                >
+                  <h2 id="resume-popover-title">Resume</h2>
+                  <p>
+                    A concise summary of roles, stack, and recent results.
+                    Download the PDF for a full overview.
+                  </p>
+                  <div class="link">
+                    <a href="/cv.pdf" download aria-label="Download CV as PDF">Download CV (PDF)</a>
+                  </div>
+                </div>
+              </li>
+
+              <li>
+                <button
+                  type="button"
+                  data-contact="email"
+                  popovertarget="email-popover"
+                  aria-haspopup="dialog"
+                  aria-controls="email-popover"
+                  aria-label="Open email contact popover"
+                >
+                  <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false">
+                    <g fill="var(--icon-color)">
+                      <!-- paths unchanged -->
+                    </g>
+                  </svg>
+                </button>
+
+                <div
+                  id="email-popover"
+                  popover
+                  class="popover-content email"
+                  role="dialog"
+                  aria-modal="false"
+                  aria-labelledby="email-popover-title"
+                  tabindex="-1"
+                >
+                  <h2 id="email-popover-title">Email</h2>
+                  <p>
+                    For collaborations, contract work, or product questions,
+                    email is the fastest way to reach me.
+                  </p>
+                  <div class="link">
+                    <a href="mailto:hello@yourdomain.com" aria-label="Send email to Tun">Send me an email</a>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+      </header>
+
+      <section class="hero" aria-labelledby="hero-title">
+        <h1 id="hero-title">
+          <span>I'm <em>Tun</em>,</span>
+          <span>a
+            <em data-effect-parent>
+              <span class="sr-only">Software / Frontend</span>
+              <span data-effect="text-hover" aria-hidden="true">
+                <span data-shadow="F">S</span><span data-shadow="r" style="--x: -0.06em">o</span><span data-shadow="o"
+                  style="--x: -0.26em">f</span><span data-shadow="n">t</span><span data-shadow="t"
+                  style="--x: 0.25em">w</span><span data-shadow="e" style="--x: -0.2em">a</span><span data-shadow="n"
+                  style="--x: -0.25em">r</span><span data-shadow="d">e</span>
+              </span>
+              Engineer
+            </em>
+          </span>
+          <span>based in <em>Tokyo</em></span>
+        </h1>
+        <p class="what-i-do">
+          Senior Frontend Engineer specializing in CSS, modern Web APIs,
+          and scalable frontend architecture.
+        </p>
+      </section>
+
+      <dialog id="navigation" class="navigations" aria-labelledby="navigation-title">
+        <form method="dialog">
+          <button type="submit" class="navigation-close" aria-label="Close Recent Works dialog">
+            <div class="blob-container" aria-hidden="true"></div>
+          </button>
+        </form>
+
+        <h2 id="navigation-title">Recent Works</h2>
+
+        <!-- projects unchanged, but make images more descriptive where needed -->
+        <!-- (keep your existing project blocks; just ensure meaningful alt text) -->
+
+        <button type="button" id="fadeButton" class="button-fade-close" aria-label="Close Recent Works dialog">
+          <span class="bg" aria-hidden="true"></span>
+          <div class="rope" aria-hidden="true"></div>
+        </button>
+
+        <div class="navigation-blob" aria-hidden="true"></div>
+      </dialog>
+
+      <dialog id="testimonial" class="testimonials" aria-labelledby="testimonial-title">
+        <form method="dialog">
+          <button type="submit" class="testimonial-close" aria-label="Close testimonials dialog">
+            <div class="blob-container" aria-hidden="true"></div>
+          </button>
+        </form>
+
+        <h2 id="testimonial-title">What People Say</h2>
+
+        <div class="messages" aria-label="Testimonials">
+          <!-- Make avatar decorative, keep quote readable -->
+          <div class="message" id="message-1" popover role="dialog" aria-modal="false" aria-labelledby="message-1-title" tabindex="-1">
+            <div class="message-container">
+              <h3 id="message-1-title" class="sr-only">Testimonial from Person One</h3>
+              <blockquote>
+                Tun consistently delivers stable, well-structured front-end systems with
+                strong attention to maintainability, performance, and long-term code quality.
+              </blockquote>
+              <div class="quoter">
+                <div class="avatar">
+                  <img src="/people/1.jpg" alt="" />
+                </div>
+                <div class="about-quoter">
+                  <h4 class="name">Person One</h4>
+                  <div class="position">CEO at Abc Company</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Repeat the same pattern for message-2..6:
+               - role="dialog"
+               - aria-labelledby
+               - sr-only h3 title
+               - avatar alt="" -->
+        </div>
+
+        <div class="circle" aria-label="Open a testimonial">
+          <div class="peoples" style="--count: 6" aria-label="Testimonial authors">
+            <button type="button" popovertarget="message-1" class="people" style="--index: 1" aria-label="Open testimonial from Person One">
+              <img src="/people/1.jpg" alt="" />
+            </button>
+            <button type="button" popovertarget="message-2" class="people" style="--index: 2" aria-label="Open testimonial from Person Two">
+              <img src="/people/2.jpg" alt="" />
+            </button>
+            <button type="button" popovertarget="message-3" class="people" style="--index: 3" aria-label="Open testimonial from Person Three">
+              <img src="/people/3.jpg" alt="" />
+            </button>
+            <button type="button" popovertarget="message-4" class="people" style="--index: 4" aria-label="Open testimonial from Person Four">
+              <img src="/people/4.jpg" alt="" />
+            </button>
+            <button type="button" popovertarget="message-5" class="people" style="--index: 5" aria-label="Open testimonial from Person Five">
+              <img src="/people/5.jpg" alt="" />
+            </button>
+            <button type="button" popovertarget="message-6" class="people" style="--index: 6" aria-label="Open testimonial from Person Six">
+              <img src="/people/8.jpg" alt="" />
+            </button>
+          </div>
+        </div>
+
+        <div class="testimonial-blob" aria-hidden="true"></div>
+      </dialog>
+
+      <footer aria-label="Footer navigation">
+        <button
+          type="button"
+          class="button-footer"
+          dialogtarget="navigation"
+          aria-haspopup="dialog"
+          aria-controls="navigation"
+        >
+          <div class="dot" aria-hidden="true"></div>
+          <div class="text">Recent Works</div>
+        </button>
+
+        <button
+          type="button"
+          class="button-footer"
+          dialogtarget="testimonial"
+          aria-haspopup="dialog"
+          aria-controls="testimonial"
+        >
+          <div class="dot" aria-hidden="true"></div>
+          <div class="text">What People Say</div>
+        </button>
+      </footer>
+
+    </main>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

@@ -25,15 +25,22 @@
       }
     }
   }
+}
 
-  &:hover {
+@media (hover: hover) and (pointer: fine) {
+  [data-effect="text-hover"]:hover {
     > * {
+      translate: 0 calc(var(--y) * -1);
+    }
+  }
+  [data-effect-parent]:hover {
+    [data-effect="text-hover"] > * {
       translate: 0 calc(var(--y) * -1);
     }
   }
 }
 
-[data-effect-parent]:hover {
+:has(dialog[open]:not([data-closing])) {
   [data-effect="text-hover"] > * {
     translate: 0 calc(var(--y) * -1);
   }

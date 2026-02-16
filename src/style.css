@@ -10,6 +10,9 @@
 @import url("./styles/dialog.css") layer(component);
 @import url("./styles/popover.css") layer(component);
 @import url("./styles/circle.css") layer(component);
+@import url("./styles/contact.css") layer(component);
+@import url("./styles/smoke-letters.css") layer(component);
+@import url("./styles/blobs.css") layer(component);
 
 @import url("./styles/header.css") layer(page);
 @import url("./styles/project.css") layer(page);
@@ -40,7 +43,7 @@
   --accent-bottom: light-dark(var(--cyan-9), var(--cyan-12));
   --icon-color: light-dark(var(--stone-8), var(--stone-5));
 
-  --font-1: clamp(2.5rem, 6vw, 6rem);
+  --font-1: clamp(2.5rem, 7vw, 5.5rem);
   --font-2: clamp(2.2rem, 5.5vw, 5rem);
   --font-3: clamp(1.6rem, 3vw, 2.5rem);
 
@@ -72,7 +75,7 @@
   line-height: 1.2;
 
   background-color: var(--surface-1);
-  background-image: linear-gradient(-10deg, var(--surface-1), var(--surface-2));
+  /* background-image: linear-gradient(-10deg, var(--surface-1), var(--surface-2)); */
   color: var(--text-1);
 
   scroll-behavior: smooth;
@@ -131,8 +134,20 @@
       pointer-events: none;
     }
 
-    &:hover::before {
-      scale: 1;
+    &:is(:hover,:focus-visible) {
+      &::before {
+        scale: 1;
+      }
     }
   }
+}
+
+@keyframes AnimateOutline {
+  from { outline-offset: -2px; }
+  to { outline-offset: 2px; }
+}
+
+@keyframes AnimateOutline4 {
+  from { outline-offset: -2px; }
+  to { outline-offset: 4px; }
 }

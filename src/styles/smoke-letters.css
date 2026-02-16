@@ -1,0 +1,43 @@
+
+.smoke {
+  position:absolute;
+  inset:0;
+  display:grid;
+  place-items:center;
+  pointer-events:none;
+}
+
+.smoke > span {
+  position:absolute;
+  opacity:0;
+  color: var(--text-1);
+  transform: translate(0, 0) scale(1);
+  filter: blur(0px);
+  /* slight stagger */
+  animation-delay: calc(var(--i) * 0.1s);
+}
+
+/* trigger on hover or active */
+:is(button:hover, button:focus-visible) {
+  .smoke > span {
+    animation: smokeUp 1.5s var(--ease-out-1) infinite;
+    animation-delay: calc(var(--i) * 0.1s);
+  }
+}
+
+@keyframes smokeUp{
+  0%, 33.333% {
+    opacity:0;
+    transform: translate(0, 0) rotate(0deg) scale(1);
+    filter: blur(0px);
+  }
+  40% { opacity:1; }
+  100% {
+    opacity:0;
+    transform:
+      translate(calc((var(--i) - 2.5) * -5px), -100px)
+      rotate(calc((var(--i) - 2.5) * -30deg))
+      scale(1);
+      filter: blur(1px);
+  }
+}

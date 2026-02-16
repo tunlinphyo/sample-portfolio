@@ -3,6 +3,10 @@
   height: 100%;
   padding: var(--size-large) var(--size-xlarge);
 
+  position: relative;
+  z-index: 1;
+  background-color: color-mix(in srgb, var(--surface-1), transparent 20%);
+
   display: grid;
   place-content: center;
   /* justify-content: flex-start; */

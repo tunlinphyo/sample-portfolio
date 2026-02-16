@@ -2,10 +2,7 @@ import './polyfills/dialog'
 import './polyfills/hover'
 import './style.css'
 
-
-document.addEventListener('DOMContentLoaded', () => {
-  inertFadeButton()
-})
+document.addEventListener('DOMContentLoaded', inertFadeButton)
 
 
 function inertFadeButton() {

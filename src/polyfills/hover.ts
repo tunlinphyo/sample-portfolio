@@ -42,6 +42,4 @@ function hoverPolyfill() {
   }
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-  hoverPolyfill()
-})
+document.addEventListener('DOMContentLoaded', hoverPolyfill)

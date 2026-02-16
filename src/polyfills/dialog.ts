@@ -1,37 +1,87 @@
-
 function dialogPolyfill() {
-  const elems = document.querySelectorAll('[dialogtarget]')
-  const dialodElems = document.querySelectorAll('dialog') as NodeListOf<HTMLDialogElement>
-  const hasCursorPointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches
+  const triggers = document.querySelectorAll<HTMLElement>('[dialogtarget]')
+  const dialogs = document.querySelectorAll<HTMLDialogElement>('dialog')
 
-  for (const elem of Array.from(elems)) {
-    elem.addEventListener('click', handleClick)
+  const CLOSE_ATTR = 'data-closing'
+  const CLOSE_MS = 500
+
+  // --- open ---
+  for (const el of Array.from(triggers)) {
+    el.addEventListener('click', onTriggerClick)
   }
 
-  for (const elem of Array.from(dialodElems)) {
-    if (hasCursorPointer) {
-      elem.addEventListener('click', (event) => handleClose(event, elem))
-    }
+  // --- close (button + backdrop click + esc) ---
+  for (const dlg of Array.from(dialogs)) {
+    dlg.addEventListener('click', (e) => onDialogClick(e, dlg))
+
+    // Esc key: prevent instant close so we can animate
+    dlg.addEventListener('cancel', (e) => {
+      e.preventDefault()
+      closeWithAnimation(dlg)
+    })
   }
 
-  function handleClick(event: Event) {
-    const targetEl = event.target as HTMLElement
-    const dataEl = targetEl.closest('[dialogtarget]') as HTMLElement
-    if (dataEl) {
-      const id = dataEl.getAttribute('dialogtarget')
-      const dialog = id ? document.getElementById(id) as HTMLDialogElement : null
-      dialog?.showModal()
-    }
+  function onTriggerClick(event: Event) {
+    const target = event.target as HTMLElement
+    const trigger = target.closest<HTMLElement>('[dialogtarget]')
+    if (!trigger) return
+
+    const id = trigger.getAttribute('dialogtarget')
+    const dlg = id ? (document.getElementById(id) as HTMLDialogElement | null) : null
+    if (!dlg) return
+
+    // if it was mid-closing, cancel closing and reopen cleanly
+    dlg.removeAttribute(CLOSE_ATTR)
+
+    // show
+    if (!dlg.open) dlg.showModal()
   }
 
-  function handleClose(event: Event, dialogEl: HTMLDialogElement) {
-    const targetEl = event.target as HTMLElement
-    if (targetEl.hasAttribute('dialogclose')) {
-      dialogEl.close()
+  function onDialogClick(event: MouseEvent, dlg: HTMLDialogElement) {
+    const target = event.target as HTMLElement
+
+    // close button inside dialog
+    if (target.closest('[dialogclose]')) {
+      closeWithAnimation(dlg)
+      return
     }
+
+    // optional: backdrop click closes (only when clicking the dialog surface itself)
+    // Uncomment if you want that behavior:
+    // if (target === dlg) closeWithAnimation(dlg)
+  }
+
+  function closeWithAnimation(dlg: HTMLDialogElement) {
+    if (!dlg.open) return
+
+    // Avoid stacking multiple close handlers
+    if (dlg.hasAttribute(CLOSE_ATTR)) return
+
+    dlg.setAttribute(CLOSE_ATTR, '')
+
+    const done = () => {
+      cleanup()
+      dlg.removeAttribute(CLOSE_ATTR)
+      // only close if still open
+      if (dlg.open) dlg.close()
+    }
+
+    const onEnd = (e: Event) => {
+      // Only react to transition on the dialog itself (not children)
+      if (e.target !== dlg) return
+      done()
+    }
+
+    const cleanup = () => {
+      dlg.removeEventListener('transitionend', onEnd)
+      clearTimeout(timer)
+    }
+
+    dlg.addEventListener('transitionend', onEnd, { passive: true })
+
+    // Safari sometimes drops transitionend -> hard fallback
+    const timer = window.setTimeout(done, CLOSE_MS + 80)
   }
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-  dialogPolyfill()
-})
+document.addEventListener('DOMContentLoaded', dialogPolyfill)

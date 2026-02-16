@@ -1,10 +1,42 @@
-:where(dialog) {
+:where(dialog, polyfill-dialog) {
   border: none;
   outline: none;
   width: 100%;
   max-width: 100%;
   height: 100%;
   max-height: 100%;
+
+  h2 {
+    pointer-events: none;
+    width: max-content;
+    font-size: var(--font-1);
+    color: light-dark(var(--stone-0), var(--stone-12));
+    font-weight: 700;
+    position: absolute;
+    z-index: 0;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    opacity: 0;
+    transition: opacity .4s var(--ease-out-1);
+  }
+
+  &[open] {
+    h2 {
+      opacity: 1;
+      transition: opacity .5s var(--ease-in-1);
+
+      @starting-style {
+        opacity: 0;
+      }
+    }
+  }
+
+  &[data-closing] {
+    h2 {
+      opacity: 0;
+    }
+  }
 }
 
 :where(.navigations) {
@@ -17,11 +49,11 @@
   &::backdrop {
     opacity: 0;
     transition: opacity var(--delay) var(--ease-1);
-    background-image: radial-gradient(circle at 100%, var(--bg) 0%, var(--bg-opacity) 50%, transparent 100%);
+    background-image: radial-gradient(circle at 100%, var(--bg) 0%, var(--bg-opacity) 60%, transparent 100%);
   }
 
   &[open] {
-    &::backdrop, .nav-blob {
+    &::backdrop, .navigation-blob {
       opacity: 1;
 
       @starting-style {
@@ -30,14 +62,20 @@
     }
   }
 
-  @supports(animation-name: test-starting-style) {
+  &[data-closing] {
+    &::backdrop, .navigation-blob {
+      opacity: 0;
+    }
+  }
+
+  /* @supports(animation-name: test-starting-style) {
     transition:
       display var(--delay) allow-discrete,
       overlay var(--delay) allow-discrete;
-  }
+  } */
 }
 
-:where(.nav-blob) {
+:where(.navigation-blob) {
   position-anchor: --navigation;
   position: absolute;
   z-index: 1;
@@ -78,11 +116,17 @@
     }
   }
 
-  @supports(animation-name: test-starting-style) {
+  &[data-closing] {
+    &::backdrop, .testimonial-blob {
+      opacity: 0;
+    }
+  }
+
+  /* @supports(animation-name: test-starting-style) {
     transition:
       display var(--delay) allow-discrete,
       overlay var(--delay) allow-discrete;
-  }
+  } */
 }
 
 :where(.testimonial-blob) {

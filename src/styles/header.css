@@ -8,66 +8,6 @@
   justify-content: center;
   align-items: center;
   pointer-events: none;
-
-  h2 {
-    font-weight: 800;
-    font-size: .9rem;
-    color: var(--text-2);
-  }
-
-  [popover] {
-    --duration: .6s;
-
-    position: fixed;
-    top: anchor(bottom);
-    border: none;
-    padding: 0;
-
-    /* background-color: var(--surface-4);
-    background-image: linear-gradient(to top, var(--surface-1), var(--surface-3));
-    box-shadow: 0 1px 2px light-dark(var(--stone-5), var(--stone-11)), inset 0 1px 2px light-dark(white, var(--stone-7)); */
-
-    background-color: color-mix(in srgb, var(--surface-4), transparent 60%);
-    backdrop-filter: blur(5px);
-    box-shadow: 0 2px 2px light-dark(var(--stone-5), var(--stone-11)), inset 0 1px 1px light-dark(white, var(--stone-9));
-
-
-    opacity: 0;
-    transform: scale(0);
-    @supports (position-area: bottom) {
-      position-area: bottom;
-    }
-
-    border-radius: 30px;
-    @supports (corner-shape: squircle) {
-      border-radius: 60px;
-      corner-shape: squircle;
-    }
-
-    &:popover-open {
-      opacity: 1;
-      transform: scale(1);
-      transition:
-        opacity var(--duration) var(--ease-spring-3),
-        transform var(--duration) var(--ease-spring-3);
-
-      @starting-style {
-        opacity: 0;
-        transform: scale(0);
-      }
-    }
-
-    /* @supports (animation-name: test-starting-style) { */
-    /* Disabled on safari because of a bug */
-    @supports(corner-shape: squircle) {
-      --duration: 1s;
-      transition:
-        opacity .15s var(--ease-in-1),
-        transform .15s var(--ease-in-1),
-        display .15s allow-discrete,
-        overlay .15s allow-discrete;
-    }
-  }
 }
 
 .contacts {
@@ -75,7 +15,7 @@
   justify-content: flex-start;
 
   @media (orientation: portrait) {
-    anchor-name: --contact-popover;
+    /* anchor-name: --contact-popover; */
   }
 
   .container {
@@ -90,7 +30,8 @@
       left: anchor(left);
       bottom: anchor(bottom);
       right: anchor(right);
-      background-color: transparent;
+      
+      background-color: color-mix(in srgb, var(--surface-2), transparent 60%);
       box-shadow: 0 1px 1px light-dark(var(--stone-5), var(--stone-12)), inset 0 1px 1px light-dark(white, var(--stone-8));
 
       transition: all .7s var(--ease-spring-3);
@@ -116,10 +57,10 @@
 
     & li {
 
-      @media (orientation: landscape) {
+      /* @media (orientation: landscape) {
         anchor-name: --contact-popover;
         anchor-scope: --contact-popover;
-      }
+      } */
 
       & button {
         display: flex;
@@ -142,69 +83,7 @@
           anchor-name: --contact-heilight;
           outline: 2px solid var(--accent);
           outline-offset: 2px;
-        }
-      }
-    }
-  }
-
-  .popover-content {
-    width: 90vw;
-    max-width: 400px;
-    padding: var(--size-3) var(--size-5) var(--size-4);
-    position-anchor: --contact-popover;
-    transform-origin: top;
-
-    & h2 {
-      font-size: var(--font-3);
-      font-weight: 500;
-      color: var(--text-2);
-    }
-
-    & p {
-      color: var(--text-1);
-    }
-
-    .link {
-      margin-block: var(--size-2);
-
-      & a {
-        display: inline-block;
-        text-decoration: none;
-        color: var(--accent);
-        position: relative;
-
-
-        border-radius: 12px;
-        @supports(corner-shape: squircle) {
-          border-radius: 120px;
-          corner-shape: squircle;
-        }
-
-        &:focus-visible {
-          outline: 2px solid var(--accent);
-          outline-offset: 4px;
-        }
-
-        &::after {
-          content: "";
-          position: absolute;
-          bottom: 0;
-          left: 0;
-          width: 100%;
-          scale: 0 1;
-          opacity: 0;
-          transform-origin: left center;
-          height: 1rem;
-          border-bottom: 3px double var(--accent);
-          transition: scale .6s var(--ease-spring-3), opacity 0s linear .6s;
-          overflow-y: clip;
-
-        }
-
-        &:hover::after {
-          scale: 1;
-          opacity: 1;
-          transition: scale .6s var(--ease-spring-3), opacity 0s linear;
+          animation: AnimateOutline .2s var(--ease-3);
         }
       }
     }

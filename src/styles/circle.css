@@ -7,21 +7,6 @@
   justify-content: center;
   align-items: flex-end;
 
-  h2 {
-    pointer-events: none;
-    width: max-content;
-    font-size: var(--font-1);
-    color: light-dark(var(--stone-0), var(--stone-12));
-    font-weight: 700;
-    position: absolute;
-    z-index: 0;
-    top: 50%;
-    left: 50%;
-    translate: -50% -50%;
-    opacity: 0;
-    transition: opacity .4s var(--ease-out-1);
-  }
-
   .peoples {
     --space: min(25vw, 25vh);
     position: relative;
@@ -39,13 +24,14 @@
 
     .people {
       --distance: calc(50% + ((var(--index) - 1) * 50%) / max(1, (var(--count) - 1)));
-      --offset: clamp(2px, 1vw, 4px);
+      --offset: clamp(1px, 1vw, 2px);
+      --radius: var(--radius-round);
 
       pointer-events: auto;
       position: absolute;
-      width: clamp(4rem, 6vw, 5rem);
+      width: clamp(4rem, 8vw, 5rem);
       aspect-ratio: 1;
-      border-radius: 50%;
+      border-radius: var(--radius);
       box-shadow: var(--shadow-3);
 
       transition: all .5s var(--ease-in-3);
@@ -56,12 +42,13 @@
       offset-anchor: auto;
 
       img {
-        max-width: 100%;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
         display: block;
         pointer-events: none;
-        border-radius: 50%;
-        outline: var(--offset) solid var(--surface-4);
-        outline-offset: calc(var(--offset) * -1);
+        border-radius: var(--radius);
+        border: var(--offset) solid light-dark(var(--stone-0), var(--stone-12));
       }
 
       &::before {
@@ -69,14 +56,14 @@
         position: absolute;
         inset: 0;
         display: block;
-        border-radius: 50%;
+        border-radius: var(--radius);
       }
 
       &:is(:hover,:focus-visible) {
         scale: 1.1;
 
         img {
-          outline-color: var(--accent);
+          border-color: var(--accent);
         }
       }
 
@@ -89,23 +76,25 @@
 
 @keyframes move { to { offset-distance: 100%; } }
 
-:where(dialog.testimonials[open]) {
-  h2 {
-    opacity: 1;
-    transition: opacity .5s var(--ease-in-1);
-
-    @starting-style {
-      opacity: 0;
+:where(dialog.testimonials) {
+  &[open] {
+    .peoples {
+      .people {
+        offset-distance: var(--distance);
+        transition: all 1.2s var(--ease-spring-3);
+  
+        @starting-style {
+          offset-distance: 40%;
+        }
+      }
     }
   }
 
-  .peoples {
-    .people {
-      offset-distance: var(--distance);
-      transition: all 1s var(--ease-spring-3);
-
-      @starting-style {
+  &[data-closing] {
+    .peoples {
+      .people {
         offset-distance: 40%;
+        transition: all .5s var(--ease-in-3);
       }
     }
   }
