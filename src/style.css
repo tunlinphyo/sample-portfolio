@@ -43,7 +43,7 @@
   --accent-bottom: light-dark(var(--cyan-9), var(--cyan-12));
   --icon-color: light-dark(var(--stone-8), var(--stone-5));
 
-  --font-1: clamp(2.5rem, 7vw, 5.5rem);
+  --font-1: clamp(2.5rem, 8vw, 5.5rem);
   --font-2: clamp(2.2rem, 5.5vw, 5rem);
   --font-3: clamp(1.6rem, 3vw, 2.5rem);
 
