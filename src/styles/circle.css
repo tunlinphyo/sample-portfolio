@@ -24,7 +24,7 @@
 
     .people {
       --distance: calc(50% + ((var(--index) - 1) * 50%) / max(1, (var(--count) - 1)));
-      --offset: clamp(1px, 1vw, 2px);
+      --offset: clamp(1px, 1vw, 3px);
       --radius: var(--radius-round);
 
       pointer-events: auto;
@@ -48,7 +48,7 @@
         display: block;
         pointer-events: none;
         border-radius: var(--radius);
-        border: var(--offset) solid light-dark(var(--stone-0), var(--stone-12));
+        border: var(--offset) solid var(--text-dialog-header);
       }
 
       &::before {
@@ -82,7 +82,7 @@
       .people {
         offset-distance: var(--distance);
         transition: all 1.2s var(--ease-spring-3);
-  
+
         @starting-style {
           offset-distance: 40%;
         }

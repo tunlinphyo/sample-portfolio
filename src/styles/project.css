@@ -15,22 +15,9 @@
   align-self: center;
   justify-self: center;
 
-  @media (orientation: landscape) {
-    width: 90vh;
-  }
-  @media (orientation: portrait) {
-    width: max(30rem, 95vw);
-  }
-  @media (max-width: 600px) {
-    width: 100vw;
-  }
-
-  /* background-color: light-dark(var(--stone-2), var(--stone-11));
-  box-shadow: 0 2px 2px light-dark(var(--stone-4), var(--stone-12)), inset 0 1px 1px light-dark(white, var(--stone-9)); */
-
-  background-color: color-mix(in srgb, var(--surface-3), transparent 60%);
+  background-color: var(--popover-bg);
   backdrop-filter: blur(5px);
-  box-shadow: 0 2px 2px light-dark(var(--stone-5), var(--stone-12)), inset 0 1px 1px light-dark(white, var(--stone-9));
+  box-shadow: 0 2px 2px var(--popover-shadow-bottom), inset 0 1px 1px var(--popover-shadow-top);
 
   border-radius: 30px;
   @supports(corner-shape: squircle) {
@@ -40,6 +27,16 @@
 
   opacity: 0;
   transform: translate(0, -5vh) scale(0.5) rotate(0deg);
+
+  @media (orientation: landscape) {
+    width: 90vh;
+  }
+  @media (orientation: portrait) {
+    width: max(30rem, 95vw);
+  }
+  @media (max-width: 600px) {
+    width: 100vw;
+  }
 
   &:popover-open {
     opacity: 1;
@@ -68,8 +65,8 @@
   --control: 10px;
   width: 100%;
   overflow: clip;
-  background-color: light-dark(#fff, #333);
-  box-shadow: 0 1px 1px light-dark(var(--stone-4), var(--stone-12)), inset 0 1px 1px light-dark(white, var(--stone-9));
+  background-color: var(--browser-bg);
+  box-shadow: 0 1px 1px var(--browser-shadow-bottom), inset 0 1px 1px var(--browser-shadow-top);
 
   border-radius: 15px;
   @supports(corner-shape: squircle) {
@@ -109,7 +106,7 @@
 
     .search-bar {
       height: 20px;
-      background-color: light-dark(#EEE, #444);
+      background-color: var(--searchbar-bg);
 
       border-radius: 5px;
     }

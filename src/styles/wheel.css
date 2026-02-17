@@ -8,10 +8,6 @@
   --move-x: min(35vw, 35vh);
   --wheel-font-size: clamp(3rem, 7vw, 5rem);
 
-  @media (orientation: portrait) {
-    --step: calc(90deg / var(--count));
-  }
-
   position: absolute;
   z-index: 0;
   inset: 0;
@@ -19,8 +15,14 @@
   display: flex;
   justify-content: flex-end;
   align-items: center;
+  counter-reset: project-list-counter;
+
+  @media (orientation: portrait) {
+    --step: calc(90deg / var(--count));
+  }
 
   .wheel-item {
+    counter-increment: project-list-counter;
     position: absolute;
     z-index: 2;
     right: 0;
@@ -36,30 +38,23 @@
 
     /* outline: 1px dotted hotpink; */
 
+    &:first-child {
+      & button::before {
+        content: "0 " counter(project-list-counter);
+      }
+    }
+
     & button {
-      --line-width: 1px;
-      --xy: calc(var(--line-width) * 2);
-      --stroke-color: light-dark(var(--stone-8), var(--stone-6));
-      --fill-color: color-mix(in srgb, var(--surface-1), transparent 90%);
       font-weight: 700;
       color: var(--text-2);
       display: block;
 
       transform-origin: right center;
       transition: transform 1.2s var(--ease-spring-3);
-      
-      @media (min-width: 992px) {
-        --line-width: 2px;
+
+      &::before {
+        content: counter(project-list-counter, decimal-leading-zero);
       }
-      
-      /* position: relative;
-      &::after {
-        content: '';
-        position: absolute;
-        z-index: 2;
-        inset: 0;
-        background-color: #f00;
-      } */
 
       & > span {
         display: inline-block;
@@ -74,10 +69,6 @@
         color: var(--accent);
         text-shadow: 0 1px 1px var(--accent-bottom), 0 -1px 1px var(--accent-top);
       }
-
-      /* &:focus-within {
-        color: var(--accent);
-      } */
     }
 
     .anchor {
@@ -108,7 +99,7 @@
     .wheel-item {
       opacity: 1;
       --degree: calc(((var(--index) - 1) - var(--offset)) * var(--step) * -1);
-  
+
       @starting-style {
         transform: translate(var(--move-x), 0) rotate(0deg);
         opacity: 0;

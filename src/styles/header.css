@@ -30,9 +30,9 @@
       left: anchor(left);
       bottom: anchor(bottom);
       right: anchor(right);
-      
-      background-color: color-mix(in srgb, var(--surface-2), transparent 60%);
-      box-shadow: 0 1px 1px light-dark(var(--stone-5), var(--stone-12)), inset 0 1px 1px light-dark(white, var(--stone-8));
+
+      background-color: var(--button-bg);
+      box-shadow: 0 1px 1px var(--button-shadow-bottom), inset 0 1px 1px var(--button-shadow-top);
 
       transition: all .7s var(--ease-spring-3);
 
@@ -66,7 +66,6 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        color: light-dark(var(--stone-0), var(--stone-11));
         padding: var(--size-2) var(--size-3);
 
         border-radius: 12px;

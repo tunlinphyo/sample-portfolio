@@ -5,10 +5,12 @@ function hoverPolyfill() {
   if (!hasCursorPointer) return
 
   for (const elem of elems) {
-    elem.addEventListener('mouseenter', handleEnter)
-    elem.addEventListener('mouseleave', handleLeave)
+    if (elem.getAttribute('hoverclick') !== 'focusonly') {
+      elem.addEventListener('mouseenter', handleEnter)
+      elem.addEventListener('mouseleave', handleLeave)
+      elem.addEventListener('blur', handleBlur)
+    }
     elem.addEventListener('focus', handleFocus)
-    elem.addEventListener('blur', handleBlur)
   }
 
   function handleEnter(event: Event) {

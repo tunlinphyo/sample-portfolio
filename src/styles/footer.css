@@ -52,10 +52,9 @@
         translate: -50% 0;
         padding: var(--size-2) var(--size-3);
 
-        /* background-color: var(--surface-1); */
-        background-color: color-mix(in srgb, var(--surface-1), transparent 60%);
+        background-color: var(--button-bg);
         backdrop-filter: blur(6px);
-        box-shadow: 0 1px 1px light-dark(var(--stone-5), var(--stone-12)), inset 0 1px 1px light-dark(white, var(--stone-8));
+        box-shadow: 0 1px 1px var(--button-shadow-bottom), inset 0 1px 1px var(--button-shadow-top);
 
         color: var(--text-1);
         border-radius: 100vh;
@@ -64,7 +63,7 @@
         transition: scale .1s var(--ease-1);
       }
 
-      &:is(:hover,:focus-visible) {
+      &:is(:hover,:focus-visible, &.hint-hover) {
         z-index: 5;
 
         .dot {
@@ -92,7 +91,7 @@
       text-align: center;
 
       background-color: color-mix(in srgb, var(--surface-2), transparent 60%);
-      box-shadow: 0 1px 1px light-dark(var(--stone-5), var(--stone-12)), inset 0 1px 1px light-dark(white, var(--stone-8));
+      box-shadow: 0 1px 1px var(--button-shadow-bottom), inset 0 1px 1px var(--button-shadow-top);
 
       &:first-child {
         border-radius: var(--size-5) 8px 8px var(--size-5);

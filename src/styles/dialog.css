@@ -10,7 +10,7 @@
     pointer-events: none;
     width: max-content;
     font-size: var(--font-1);
-    color: light-dark(var(--stone-0), var(--stone-12));
+    color: var(--text-dialog-header);
     font-weight: 700;
     position: absolute;
     z-index: 0;
@@ -41,8 +41,7 @@
 
 :where(.navigations) {
   --delay: 0.5s;
-  --bg: var(--surface-1);
-  --bg-opacity: color-mix(in srgb, var(--bg), transparent 10%);
+  --bg-opacity: color-mix(in srgb, var(--surface-1), transparent 10%);
   background-color: transparent;
   overflow: clip;
 
@@ -95,8 +94,7 @@
 
 :where(.testimonials) {
   --delay: 0.5s;
-  --bg: var(--surface-1);
-  --bg-opacity: color-mix(in srgb, var(--bg), transparent 10%);
+  --bg-opacity: color-mix(in srgb, var(--surface-1), transparent 10%);
   background-color: transparent;
   overflow: clip;
 
