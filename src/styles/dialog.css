@@ -48,7 +48,7 @@
   &::backdrop {
     opacity: 0;
     transition: opacity var(--delay) var(--ease-1);
-    background-image: radial-gradient(circle at 100%, var(--bg) 0%, var(--bg-opacity) 60%, transparent 100%);
+    background-image: radial-gradient(circle at 100%, var(--bg-opacity) 0%, var(--bg-opacity) 60%, transparent 100%);
   }
 
   &[open] {
@@ -101,7 +101,7 @@
   &::backdrop {
     opacity: 0;
     transition: opacity var(--delay) var(--ease-1);
-    background-image: radial-gradient(circle at center, transparent 0%, var(--bg-opacity) 45%, var(--bg) 100%);
+    background-image: radial-gradient(circle at center, transparent 0%, var(--bg-opacity) 45%, var(--bg-opacity) 100%);
   }
 
   &[open] {
