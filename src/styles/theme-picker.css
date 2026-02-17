@@ -1,0 +1,59 @@
+
+.slider {
+  position: fixed;
+  z-index: 9;
+  top: var(--size-7);
+  right: var(--size-7);
+  display: block;
+}
+
+input[type=range] {
+  width: 320px;
+  height: 36px;              /* gives room for thumb */
+  background: transparent;   /* important */
+  cursor: pointer;
+}
+
+/* ===== WebKit (Chrome/Edge/Safari) ===== */
+input[type=range]::-webkit-slider-runnable-track {
+  height: 8px;
+  border-radius: 999px;
+  background: #d1d5db;       /* track */
+}
+
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 999px;
+  background: #111827;       /* thumb */
+  margin-top: -6px;          /* align thumb vertically ( (thumb - track)/2 ) */
+  border: 2px solid #fff;
+}
+
+/* focus ring */
+input[type=range]:focus-visible::-webkit-slider-thumb {
+  outline: 3px solid #2563eb;
+  outline-offset: 2px;
+}
+
+/* ===== Firefox ===== */
+input[type=range]::-moz-range-track {
+  height: 8px;
+  border-radius: 999px;
+  background: #d1d5db;
+}
+
+input[type=range]::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 999px;
+  background: #111827;
+  border: 2px solid #fff;
+}
+
+input[type=range]:focus-visible::-moz-range-thumb {
+  outline: 3px solid #2563eb;
+  outline-offset: 2px;
+}

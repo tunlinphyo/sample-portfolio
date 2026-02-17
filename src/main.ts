@@ -3,7 +3,7 @@ import './polyfills/hover'
 import './style.css'
 
 document.addEventListener('DOMContentLoaded', inertFadeButton)
-document.addEventListener('DOMContentLoaded', enablePopoverScreenReaderSupport)
+document.addEventListener('DOMContentLoaded', themeToggle)
 
 
 function inertFadeButton() {
@@ -31,27 +31,30 @@ function showHint(hintButton: HTMLButtonElement) {
   document.addEventListener('mousemove', onMouseMove, { passive: true })
 }
 
-function enablePopoverScreenReaderSupport() {
-  const popovers = document.querySelectorAll<HTMLElement>('.popovers .popover-content[popover]')
-
-  for (const popover of popovers) {
-    if (!popover.hasAttribute('tabindex')) {
-      popover.setAttribute('tabindex', '-1')
-    }
-
-    popover.addEventListener('toggle', (event: Event) => {
-      const toggleEvent = event as Event & { newState?: string }
-      const isOpen = toggleEvent.newState === 'open' || popover.matches(':popover-open')
-      const controls = document.querySelectorAll<HTMLElement>(`[popovertarget="${popover.id}"]`)
-
-      for (const control of controls) {
-        control.setAttribute('aria-expanded', String(isOpen))
-      }
-
-      if (!isOpen) return
-
-      const target = popover.querySelector<HTMLElement>('h1, h2, h3, p, a, button') ?? popover
-      target.focus({ preventScroll: true })
-    })
+function themeToggle() {
+  const theme: Record<string, string> = {
+    1: 'dawn',
+    2: 'sunrise',
+    3: 'morning',
+    4: 'forenoon',
+    5: 'noon',
+    6: 'afternoon',
+    7: 'evening',
+    8: 'sunset',
+    9: 'twilight',
+    10: 'night',
+    11: 'midnight',
+    12: 'gloaming'
   }
+  const themeRange = document.getElementById('themeRange') as HTMLInputElement | null
+  if (!themeRange) return
+
+  const updateLightValue = () => {
+    const themeName = theme[themeRange.value]
+    document.documentElement.setAttribute('data-theme', themeName)
+  }
+
+  themeRange.addEventListener('input', updateLightValue, { passive: true })
+  themeRange.addEventListener('change', updateLightValue, { passive: true })
+  updateLightValue()
 }

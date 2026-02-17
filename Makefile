@@ -1,5 +1,3 @@
-.PHONY: commit
-
 deploy:
 	npm run deploy
 
@@ -20,3 +18,21 @@ commit:
 	git commit -m "$$msg"; \
 	git push origin develop; \
 	echo "✅ Committed and pushed to develop: $$msg"
+
+commit-theme:
+	@set -e; \
+	branch="$$(git rev-parse --abbrev-ref HEAD)"; \
+	if [ "$$branch" != "theme" ]; then \
+	  echo "❌ You are on '$$branch'. Switch to 'theme' first."; \
+	  exit 1; \
+	fi; \
+	printf "Commit message: "; \
+	read -r msg; \
+	if [ -z "$$msg" ]; then \
+	  echo "❌ Empty commit message. Aborting."; \
+	  exit 1; \
+	fi; \
+	git add .; \
+	git commit -m "$$msg"; \
+	git push origin theme; \
+	echo "✅ Committed and pushed to theme: $$msg"
