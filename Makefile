@@ -3,7 +3,7 @@
 deploy:
 	npm run deploy
 
-commit:
+gp:
 	@set -e; \
 	branch="$$(git rev-parse --abbrev-ref HEAD)"; \
 	if [ "$$branch" != "develop" ]; then \
