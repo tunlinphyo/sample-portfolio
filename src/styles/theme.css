@@ -20,6 +20,9 @@
   --button-shadow-top: light-dark(white, var(--stone-8));
   --button-shadow-bottom: light-dark(var(--stone-5), var(--stone-12));
 
+  --button-bg-top: var(--surface-2);
+  --button-bg-bottom: var(--surface-1);
+
   --popover-bg: color-mix(in srgb, var(--surface-2), transparent var(--popover-opacity));
   --popover-shadow-top: light-dark(white, var(--stone-9));
   --popover-shadow-bottom: color-mix(in srgb, var(--stone-12), transparent var(--box-shadow-opacity));

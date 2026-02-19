@@ -31,7 +31,8 @@
       bottom: anchor(bottom);
       right: anchor(right);
 
-      background-color: var(--button-bg);
+      /* background-color: var(--button-bg); */
+      background-image: linear-gradient(to bottom, var(--button-bg-top), var(--button-bg-bottom));
       box-shadow: 0 1px 1px var(--button-shadow-bottom), inset 0 1px 1px var(--button-shadow-top);
 
       transition: all .7s var(--ease-spring-3);

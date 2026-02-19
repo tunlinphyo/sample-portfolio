@@ -3,7 +3,7 @@ import './polyfills/hover'
 import './style.css'
 
 document.addEventListener('DOMContentLoaded', inertFadeButton)
-document.addEventListener('DOMContentLoaded', handleTheme)
+// document.addEventListener('DOMContentLoaded', handleTheme)
 
 function inertFadeButton() {
   const hasCursorPointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches
@@ -30,14 +30,14 @@ function showHint(hintButton: HTMLButtonElement) {
   document.addEventListener('mousemove', onMouseMove, { passive: true })
 }
 
-async function handleTheme() {
-  const { setAttribute } = await import('./scripts/theme')
-  setAttribute()
+// async function handleTheme() {
+//   const { setAttribute } = await import('./scripts/theme')
+//   setAttribute()
 
-  const handleVisibilityChange = () => {
-    if (document.visibilityState === 'visible') {
-      setAttribute()
-    }
-  }
-  document.addEventListener('visibilitychange', handleVisibilityChange)
-}
+//   const handleVisibilityChange = () => {
+//     if (document.visibilityState === 'visible') {
+//       setAttribute()
+//     }
+//   }
+//   document.addEventListener('visibilitychange', handleVisibilityChange)
+// }
