@@ -60,6 +60,7 @@
         /* background-color: var(--button-bg);
         backdrop-filter: blur(6px); */
         background-image: linear-gradient(to bottom, var(--button-bg-top), var(--button-bg-bottom));
+        backdrop-filter: blur(6px);
         box-shadow: 0 1px 1px var(--button-shadow-bottom), inset 0 1px 1px var(--button-shadow-top);
 
         color: var(--text-1);

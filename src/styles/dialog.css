@@ -48,7 +48,13 @@
   &::backdrop {
     opacity: 0;
     transition: opacity var(--delay) var(--ease-1);
+    background-color: transparent;
     background-image: radial-gradient(circle at 100%, var(--surface-1) 0%, var(--bg-opacity) 60%, transparent 100%);
+    /* background-image: 
+      radial-gradient(transparent 1px, var(--surface-1) 1px),
+      radial-gradient(circle at 100%, var(--accent-2) 0%, var(--bg-opacity) 60%, transparent 100%)
+    ;
+    background-size: 3px 3px, auto; */
   }
 
   &[open] {
@@ -100,8 +106,14 @@
 
   &::backdrop {
     opacity: 0;
+    background-color: transparent;
     transition: opacity var(--delay) var(--ease-1);
-    background-image: radial-gradient(circle at center, transparent 0%, var(--bg-opacity) 45%, var(--surface-1) 100%);
+    background-image: radial-gradient(circle at center, transparent 0%, var(--bg-opacity) 40%, var(--surface-1) 100%);
+    /* background-image: 
+      radial-gradient(transparent 1px, var(--surface-1) 1px),
+      radial-gradient(circle at center, transparent 0%, var(--bg-opacity) 40%, var(--accent-2) 100%)
+    ;
+    background-size: 3px 3px, auto; */
   }
 
   &[open] {

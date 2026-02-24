@@ -17,17 +17,18 @@
   --fade-button-bg: light-dark(black, white);
 
   --button-bg: color-mix(in srgb, var(--surface-2), transparent var(--button-opacity));
-  --button-shadow-top: light-dark(white, var(--stone-8));
+  --button-shadow-top: light-dark(white, var(--stone-7));
   --button-shadow-bottom: light-dark(var(--stone-5), var(--stone-12));
 
-  --button-bg-top: var(--surface-2);
-  --button-bg-bottom: var(--surface-1);
+  --button-bg-top: color-mix(in srgb, var(--surface-2), transparent 30%);
+  --button-bg-bottom: color-mix(in srgb, var(--surface-1), transparent 30%);
 
   --popover-bg: color-mix(in srgb, var(--surface-2), transparent var(--popover-opacity));
-  --popover-shadow-top: light-dark(white, var(--stone-9));
+  --popover-shadow-top: light-dark(white, var(--stone-7));
   --popover-shadow-bottom: color-mix(in srgb, var(--stone-12), transparent var(--box-shadow-opacity));
 
   --accent: light-dark(var(--cyan-6), var(--cyan-4));
+  --accent-2: light-dark(var(--cyan-10), var(--cyan-10));
   --accent-top: light-dark(var(--cyan-2), var(--cyan-1));
   --accent-bottom: light-dark(var(--cyan-9), var(--cyan-12));
   --icon-color: light-dark(var(--stone-8), var(--stone-5));
