@@ -6,7 +6,8 @@
   --bg: var(--surface-1);
   --bg-opacity: color-mix(in srgb, var(--bg), transparent 10%);
   --move-x: min(35vw, 35vh);
-  --wheel-font-size: clamp(3rem, 7vw, 5rem);
+  --max: max(6vw, 6vh);
+  --wheel-font-size: clamp(3rem, var(--max), 5rem);
 
   position: absolute;
   z-index: 0;
@@ -67,7 +68,14 @@
       &:is(:hover,:focus-visible) {
         transform: scale(1.2);
         color: var(--accent);
-        text-shadow: 0 1px 1px var(--accent-bottom), 0 -1px 1px var(--accent-top);
+        text-shadow: 
+          0 1px 1px var(--accent-bottom), 0 -1px 1px var(--accent-top),
+          var(--popover-shadow-1) 0px 10px 20px, var(--popover-shadow-2) 0px 10px 10px
+        ;
+
+        @media (max-width: 600px) {
+          text-shadow: 0 1px 1px var(--accent-bottom), 0 -1px 1px var(--accent-top);
+        }
       }
     }
 

@@ -33,7 +33,7 @@
 
       /* background-color: var(--button-bg); */
       background-image: linear-gradient(to bottom, var(--button-bg-top), var(--button-bg-bottom));
-      box-shadow: 0 1px 1px var(--button-shadow-bottom), inset 0 1px 1px var(--button-shadow-top);
+      box-shadow: inset 0 -1px 1px var(--button-shadow-bottom), inset 0 1px 1px var(--button-shadow-top);
 
       transition: all .7s var(--ease-spring-3);
 
@@ -75,6 +75,10 @@
           corner-shape: squircle;
         }
 
+        & svg {
+          transition: all .3s var(--ease-3);
+        }
+        
         &:hover {
           anchor-name: --contact-heilight;
         }
@@ -84,6 +88,13 @@
           outline: 2px solid var(--accent);
           outline-offset: 2px;
           animation: AnimateOutline .2s var(--ease-3);
+        }
+
+        &:active {
+          scale: 0.85;
+          & svg {
+            scale: 0.85;
+          }
         }
       }
     }

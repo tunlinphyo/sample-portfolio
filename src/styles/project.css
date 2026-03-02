@@ -17,7 +17,10 @@
 
   background-color: var(--popover-bg);
   backdrop-filter: blur(5px);
-  box-shadow: 0 2px 2px var(--popover-shadow-bottom), inset 0 1px 1px var(--popover-shadow-top);
+  box-shadow: 
+    inset 0 -2px 2px var(--popover-shadow-bottom), inset 0 2px 2px var(--popover-shadow-top),
+    var(--popover-shadow-1) 0px 50px 100px -30px, var(--popover-shadow-2) 0px 30px 60px -40px
+  ;
 
   border-radius: 30px;
   @supports(corner-shape: squircle) {
@@ -36,6 +39,7 @@
   }
   @media (max-width: 600px) {
     width: 100vw;
+    box-shadow: inset 0 -1px 1px var(--popover-shadow-bottom), inset 0 1px 1px var(--popover-shadow-top);
   }
 
   &:popover-open {

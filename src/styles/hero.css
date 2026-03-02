@@ -40,7 +40,7 @@
         text-stroke: initial;
         color: var(--line-color);
 
-        transition: color .5s var(--ease-1);
+        /* transition: color .5s var(--ease-1); */
 
         &[data-effect-parent] {
           /* display: inline-flex;

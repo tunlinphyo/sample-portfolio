@@ -61,7 +61,7 @@
         backdrop-filter: blur(6px); */
         background-image: linear-gradient(to bottom, var(--button-bg-top), var(--button-bg-bottom));
         backdrop-filter: blur(6px);
-        box-shadow: 0 1px 1px var(--button-shadow-bottom), inset 0 1px 1px var(--button-shadow-top);
+        box-shadow: inset 0 -1px 1px var(--button-shadow-bottom), inset 0 1px 1px var(--button-shadow-top);
 
         color: var(--text-1);
         border-radius: 100vh;
@@ -82,6 +82,11 @@
           transition: scale .7s var(--ease-spring-3);
         }
       }
+
+      &:is(:active) {
+        transition: all .3s var(--ease-3);
+        scale: 0.9;
+      }
     }
   }
 }
@@ -99,7 +104,7 @@
 
       /* background-color: color-mix(in srgb, var(--surface-2), transparent 60%); */
       background-image: linear-gradient(to bottom, var(--button-bg-top), var(--button-bg-bottom));
-      box-shadow: 0 1px 1px var(--button-shadow-bottom), inset 0 1px 1px var(--button-shadow-top);
+      box-shadow: inset 0 -1px 1px var(--button-shadow-bottom), inset 0 1px 1px var(--button-shadow-top);
 
       &:first-child {
         border-radius: var(--size-5) 8px 8px var(--size-5);

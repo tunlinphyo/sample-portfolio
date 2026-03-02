@@ -3,7 +3,7 @@
 
   position: fixed;
   margin: auto;
-  margin-block-start: 2px;
+  margin-block-start: 0.75rem;
   border: none;
   padding: 0;
   inset: auto;
@@ -11,7 +11,10 @@
 
   background-color: var(--popover-bg);
   backdrop-filter: blur(5px);
-  box-shadow: 0 2px 2px var(--popover-shadow-bottom), inset 0 1px 1px var(--popover-shadow-top);
+  box-shadow: 
+    inset 0 -2px 2px var(--popover-shadow-bottom), inset 0 2px 2px var(--popover-shadow-top),
+    var(--popover-shadow-1) 0px 25px 50px -15px, var(--popover-shadow-2) 0px 15px 30px -20px
+  ;
 
   opacity: 0;
   transform: translate(0, 5vh) scale(0);
@@ -23,6 +26,10 @@
   @supports (corner-shape: squircle) {
     border-radius: 60px;
     corner-shape: squircle;
+  }
+
+  @media (max-width: 600px) {
+    box-shadow: inset 0 -1px 1px var(--popover-shadow-bottom), inset 0 1px 1px var(--popover-shadow-top);
   }
 
   &:popover-open {

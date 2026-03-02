@@ -27,6 +27,9 @@
   --popover-shadow-top: light-dark(white, var(--stone-7));
   --popover-shadow-bottom: color-mix(in srgb, var(--stone-12), transparent var(--box-shadow-opacity));
 
+  --popover-shadow-1: light-dark(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.3));
+  --popover-shadow-2: light-dark(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.4));
+
   --accent: light-dark(var(--cyan-6), var(--cyan-4));
   --accent-2: light-dark(var(--cyan-10), var(--cyan-10));
   --accent-top: light-dark(var(--cyan-2), var(--cyan-1));
