@@ -61,7 +61,10 @@
         backdrop-filter: blur(6px); */
         background-image: linear-gradient(to bottom, var(--button-bg-top), var(--button-bg-bottom));
         backdrop-filter: blur(6px);
-        box-shadow: inset 0 -1px 1px var(--button-shadow-bottom), inset 0 1px 1px var(--button-shadow-top);
+        box-shadow: 
+          inset 0 -1px 2px var(--button-shadow-bottom), inset 0 1px 2px var(--button-shadow-top),
+          light-dark(rgba(99, 99, 99, 0.2), rgba(0, 0, 0, 0.2)) 0px 2px 8px 0px
+        ;
 
         color: var(--text-1);
         border-radius: 100vh;
@@ -83,10 +86,10 @@
         }
       }
 
-      &:is(:active) {
+      /* &:is(:active) {
         transition: all .3s var(--ease-3);
         scale: 0.9;
-      }
+      } */
     }
   }
 }
@@ -104,7 +107,7 @@
 
       /* background-color: color-mix(in srgb, var(--surface-2), transparent 60%); */
       background-image: linear-gradient(to bottom, var(--button-bg-top), var(--button-bg-bottom));
-      box-shadow: inset 0 -1px 1px var(--button-shadow-bottom), inset 0 1px 1px var(--button-shadow-top);
+      box-shadow: inset 0 -1px 2px var(--button-shadow-bottom), inset 0 1px 2px var(--button-shadow-top);
 
       &:first-child {
         border-radius: var(--size-5) 8px 8px var(--size-5);
