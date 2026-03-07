@@ -1,6 +1,6 @@
 :where(.project) {
   --padding: clamp(.5rem, 3vw, 1rem);
-  --duration: 1.2s;
+  --duration: 1s;
   position: fixed;
   z-index: 2;
   inset: 0;
@@ -15,9 +15,10 @@
   align-self: center;
   justify-self: center;
 
-  background-color: var(--popover-bg);
+  /* background-color: var(--popover-bg);
   backdrop-filter: blur(5px);
-  box-shadow: 0 2px 2px var(--popover-shadow-bottom), inset 0 1px 1px var(--popover-shadow-top);
+  box-shadow: 0 2px 2px var(--popover-shadow-bottom), inset 0 1px 1px var(--popover-shadow-top); */
+  box-shadow: var(--shadow-1);
 
   border-radius: 30px;
   @supports(corner-shape: squircle) {
@@ -26,7 +27,8 @@
   }
 
   opacity: 0;
-  transform: translate(0, -5vh) scale(0.5) rotate(0deg);
+  transform: translate(0, -5vh) scale(0.75) rotate(0deg);
+  will-change: transform;
 
   @media (orientation: landscape) {
     width: 90vh;
@@ -47,7 +49,7 @@
 
     @starting-style {
       opacity: 0;
-      transform: translate(0, -5vh) scale(0.5) rotate(calc(var(--degree) * -3));
+      transform: translate(0, -5vh) scale(0.75) rotate(calc(var(--degree) * -3));
     }
   }
 
@@ -81,7 +83,7 @@
     grid-template-columns: .5fr 1fr .5fr;
     justify-content: space-between;
     align-items: center;
-    padding-inline: var(--size-2);
+    padding-inline: 0.5rem;
 
     .controls {
       display: flex;
@@ -116,35 +118,18 @@
     width: 100%;
     aspect-ratio: 16/9;
     overflow: hidden;
+    position: relative;
 
-    &.overscroll {
-      & img {
-        display: block;
-      }
-
-      /* &:hover {
-        animation: pageScroll 8s linear infinite;
-      } */
-
-      overflow-y: auto;
-
-      scrollbar-width: thin;
-      scrollbar-color: var(--accent) transparent;
-
-      &::-webkit-scrollbar {
-        width: 2px;
-        height: 2px;
-      }
-      &::-webkit-scrollbar-track {
-        background: transparent;
-      }
-      &::-webkit-scrollbar-thumb {
-        background-color: var(--accent);
-        border-radius: 999px;
-      }
+    &::before {
+      position: absolute;
+      content: 'loading...';
+      inset: 50% 50% auto auto;
+      translate: 50% -50%;
+      color: var(--text-4);
     }
 
     & img {
+      position: relative;
       width: 100%;
       height: auto;
     }
@@ -155,25 +140,25 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-inline: var(--size-1);
-  margin-block-end: var(--size-2);
+  padding-inline: 0.25rem;
+  margin-block-end: 0.5rem;
 
   & h4 {
-    font-size: var(--font-3);
+    font-size: var(--font-2);
     color: var(--text-2);
-    font-weight: 500;
+    font-weight: 700;
   }
 
   @media (max-width: 600px) {
     flex-direction: column;
-    gap: var(--size-1);
+    gap: 0.25rem;
   }
 
   .tech-stacks {
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    gap: var(--size-3);
+    gap: 1rem;
 
     .logo {
       width: 2rem;
@@ -189,19 +174,10 @@
       }
 
       &:is(:focus-visible) {
-        outline: 2px solid var(--accent);
+        outline: 2px solid var(--accent-color);
         outline-offset: 2px;
         animation: AnimateOutline .2s var(--ease-3);
       }
     }
-  }
-}
-
-@keyframes mouseMove {
-  from {
-    translate: 0 0;
-  }
-  to {
-    translate: 0 -1rem;
   }
 }

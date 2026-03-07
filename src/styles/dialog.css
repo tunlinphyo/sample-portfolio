@@ -9,14 +9,15 @@
   h2 {
     pointer-events: none;
     width: max-content;
-    font-size: var(--font-1);
-    color: var(--text-dialog-header);
+    font-size: var(--font-2);
+    color: var(--text-3);
+    background-color: var(--surface-1);
     font-weight: 700;
     position: absolute;
     z-index: 0;
-    top: 50%;
+    top: var(--padding-2);
     left: 50%;
-    translate: -50% -50%;
+    translate: -50% 0;
     opacity: 0;
     transition: opacity .4s var(--ease-out-1);
   }
@@ -47,8 +48,9 @@
 
   &::backdrop {
     opacity: 0;
+    background-color: transparent;
     transition: opacity var(--delay) var(--ease-1);
-    background-image: radial-gradient(circle at 100%, var(--surface-1) 0%, var(--bg-opacity) 60%, transparent 100%);
+    background-image: radial-gradient(circle at 100%, var(--surface-1) 0%, var(--bg-opacity) min(50vw, 50vh), transparent 100%);
   }
 
   &[open] {
@@ -82,14 +84,14 @@
   left: anchor(left);
   bottom: anchor(bottom);
   right: anchor(right);
-  background-color: var(--accent);
 
   transition: all .7s var(--ease-spring-3);
   border-radius: 50%;
   opacity: 0;
 
-  background-color: var(--accent);
-  box-shadow: 0 1px 1px var(--accent-bottom), inset 0 1px 1px var(--accent-top);
+  background-color: color-mix(in srgb, var(--accent-color), transparent 5%);
+  border: 1px solid var(--accent-1);
+  box-shadow: var(--shadow-1);
 }
 
 :where(.testimonials) {
@@ -100,6 +102,7 @@
 
   &::backdrop {
     opacity: 0;
+    background-color: transparent;
     transition: opacity var(--delay) var(--ease-1);
     background-image: radial-gradient(circle at center, transparent 0%, var(--bg-opacity) 45%, var(--surface-1) 100%);
   }
@@ -135,12 +138,13 @@
   left: anchor(left);
   bottom: anchor(bottom);
   right: anchor(right);
-  background-color: var(--accent);
+  background-color: var(--accent-color);
 
   transition: all .7s var(--ease-spring-3);
   border-radius: 50%;
   opacity: 0;
 
-  background-color: var(--accent);
-  box-shadow: 0 1px 1px var(--accent-bottom), inset 0 1px 1px var(--accent-top);
+  background-color: color-mix(in srgb, var(--accent-color), transparent 5%);
+  border: 1px solid var(--accent-1);
+  box-shadow: var(--shadow-1);
 }

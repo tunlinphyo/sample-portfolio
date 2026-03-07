@@ -6,7 +6,8 @@
   --bg: var(--surface-1);
   --bg-opacity: color-mix(in srgb, var(--bg), transparent 10%);
   --move-x: min(35vw, 35vh);
-  --wheel-font-size: clamp(3rem, 7vw, 5rem);
+  --max: max(6vw, 6vh);
+  --wheel-font-size: clamp(3rem, var(--max), 4.5rem);
 
   position: absolute;
   z-index: 0;
@@ -35,12 +36,13 @@
     display: flex;
     align-items: baseline;
     font-size: var(--wheel-font-size);
+    /* font-size: var(--font-1); */
 
     /* outline: 1px dotted hotpink; */
 
     &:first-child {
       & button::before {
-        content: "0 " counter(project-list-counter);
+        letter-spacing: 0.05em;
       }
     }
 
@@ -48,14 +50,33 @@
       font-weight: 700;
       color: var(--text-2);
       display: block;
+      position: relative;
 
       transform-origin: right center;
-      transition: transform 1.2s var(--ease-spring-3);
+      transition: transform 1s var(--ease-spring-3);
 
       &::before {
         content: counter(project-list-counter, decimal-leading-zero);
       }
 
+      &::after {
+        content: attr(data-title);
+        display: none;
+        position: absolute;
+        white-space: nowrap;
+        left: 0;
+        top: 50%;
+        translate: calc(-100% - 1rem) -50%;
+        color: var(--text-muted);
+        font-size: 0.5em;
+      }
+
+      border-radius: 20px;
+      @supports(corner-shape: squircle) {
+        border-radius: 40px;
+        corner-shape: squircle;
+      }
+      
       & > span {
         display: inline-block;
         width: .6em;
@@ -65,9 +86,19 @@
       }
 
       &:is(:hover,:focus-visible) {
-        transform: scale(1.2);
-        color: var(--accent);
-        text-shadow: 0 1px 1px var(--accent-bottom), 0 -1px 1px var(--accent-top);
+        color: var(--accent-color);
+      }
+      
+      &:is(:focus-visible) {
+        outline: 2px solid var(--accent-color);
+        outline-offset: 2px;
+        animation: AnimateOutline4 .2s var(--ease-3);
+      }
+      
+      @media (min-width: 48rem) {
+        &:is(:hover,:focus-visible) {
+          transform: scale(1.2);
+        }
       }
     }
 
@@ -83,11 +114,20 @@
 }
 
 @media (hover: hover) and (pointer: fine) {
-  :where(.wheel-item) {
-    &:has(button:hover, button:focus-visible) {
-      @supports (corner-shape: squircle) {
-        .anchor {
-          anchor-name: --navigation;
+  :where(.wheel) {
+    .wheel-item {
+      &:has(button:hover) {
+        @supports (corner-shape: squircle) {
+          .anchor {
+            anchor-name: --navigation;
+          }
+        }
+      }
+
+      & button {
+        &:is(:hover)::after {
+          display: block;
+          text-shadow: none;
         }
       }
     }

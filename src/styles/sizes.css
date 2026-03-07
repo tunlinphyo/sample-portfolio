@@ -1,0 +1,16 @@
+:root {
+  --padding-1: clamp(1rem, 2vw, 2rem);
+  --padding-2: clamp(1rem, 3vw, 2.5rem);
+  --padding-3: clamp(1rem, 4vw, 4rem);
+  --padding-4: clamp(1rem, 5vw, 5rem);
+  --padding-5: clamp(1rem, 6vw, 6rem);
+
+  --popvoer-padding: clamp(1rem, max(3vw, 3vh), 1.8rem);
+
+  --size-medium: clamp(1rem, 2vw, 2rem);
+  --size-large: clamp(1rem, 2.5vw, 2.5rem);
+  --size-xlarge: clamp(1rem, 5vw, 10rem);
+
+  --font-1: clamp(2.2rem, 8vw, 5rem);
+  --font-2: clamp(2rem, 6vw, 2.5rem);
+}

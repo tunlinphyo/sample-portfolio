@@ -3,9 +3,9 @@
   position: absolute;
   z-index: 3;
   bottom: calc(50% - 1.4rem);
-  right: var(--size-xlarge);
+  right: var(--padding-4);
 
-  width: 2.8rem;
+  width: 3rem;
   aspect-ratio: 1;
   border-radius: 50%;
 
@@ -17,7 +17,7 @@
   &::after {
     content: '';
     position: absolute;
-    width: var(--size-5);
+    width: 1.5rem;
     height: 2px;
     background-color: var(--surface-1);
     transition: all .7s var(--ease-spring-3);
@@ -37,7 +37,7 @@
     border-radius: 50%;
   }
 
-  &:is(:hover,:focus-visible) {
+  &:is(:hover) {
     .blob-container {
       scale: 1.3;
     }
@@ -46,9 +46,9 @@
   @media (hover: hover) and (pointer: fine) {
     &:is(:focus-visible) {
       .blob-container {
-        outline: 2px solid var(--accent);
-        outline-offset: 2px;
-        animation: AnimateOutline .2s var(--ease-3);
+        outline: 2px solid var(--accent-color);
+        outline-offset: 4px;
+        animation: AnimateOutline4 .2s var(--ease-3);
       }
     }
   }
@@ -89,9 +89,9 @@
   z-index: 3;
   left: calc(50% - 1.4rem);
   /* top: calc(50% - 1.4rem); */
-  bottom: calc(var(--size-xlarge) + 2vh);
+  bottom: calc(var(--padding-4) + 1vh);
 
-  width: 2.8rem;
+  width: 3rem;
   aspect-ratio: 1;
   border-radius: 50%;
 
@@ -103,7 +103,7 @@
   &::after {
     content: '';
     position: absolute;
-    width: var(--size-5);
+    width: 1.5rem;
     height: 2px;
     background-color: var(--surface-1);
     transition: all .7s var(--ease-spring-3);
@@ -123,7 +123,7 @@
     border-radius: 50%;
   }
 
-  &:is(:hover,:focus-visible) {
+  &:is(:hover) {
     .blob-container {
       scale: 1.3;
     }
@@ -132,9 +132,9 @@
   @media (hover: hover) and (pointer: fine) {
     &:is(:focus-visible) {
       .blob-container {
-        outline: 2px solid var(--accent);
-        outline-offset: 2px;
-        animation: AnimateOutline .2s var(--ease-3);
+        outline: 2px solid var(--accent-color);
+        outline-offset: 4px;
+        animation: AnimateOutline4 .2s var(--ease-3);
       }
     }
   }
@@ -177,8 +177,8 @@
   left: calc(50% - 1.4rem);
   transform: translateZ(0);
 
-  width: 2.8rem;
-  height: 2.8rem;
+  width: 3rem;
+  aspect-ratio: 1;
   border-radius: 50%;
 
   display: flex;
@@ -188,7 +188,7 @@
   opacity: 0;
   scale: 0;
   translate: 0 calc(var(--move-y) * -1);
-  transition: all .7s var(--ease-spring-3);
+  transition: all .2s var(--ease-3);
 
   background-color: var(--fade-button-bg);
   border-radius: 50%;
@@ -199,9 +199,9 @@
     content: '';
     position: absolute;
     z-index: 1;
-    width: var(--size-5);
+    width: 1.5rem;
     height: 2px;
-    background-color: var(--surface-0);
+    background-color: var(--surface-1);
   }
 
   &::before {
@@ -219,6 +219,7 @@
       pointer-events: auto;
       opacity: 1;
       scale: 1;
+      transition-duration: 0.3s;
     }
   }
 }

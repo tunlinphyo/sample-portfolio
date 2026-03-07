@@ -1,179 +1,40 @@
+@import "open-props/palette";
+@import "open-props/cyan";
+
 :root {
-  --button-opacity: 70%;
-  --popover-opacity: 30%;
-  --box-shadow-opacity: 70%;
+  --palette-hue: 0;
+  --palette-hue-rotate-by: 0;
+  --palette-chroma: 0;
 
-  --surface-0: light-dark(var(--stone-4), var(--stone-12));
-  --surface-1: light-dark(var(--stone-3), var(--stone-11));
-  --surface-2: light-dark(var(--stone-2), var(--stone-10));
-  --surface-3: light-dark(var(--stone-1), var(--stone-9));
 
-  --text-0: light-dark(var(--stone-12), var(--stone-0));
-  --text-1: light-dark(var(--stone-10), var(--stone-3));
-  --text-2: light-dark(var(--stone-8), var(--stone-5));
-  --text-3: light-dark(var(--stone-6), var(--stone-7));
+  --surface-1: light-dark(var(--color-1), var(--color-16));
+  --surface-2: light-dark(var(--color-1), var(--color-13));
+  --surface-3: light-dark(white, var(--color-12));
+
+  --text-1: light-dark(var(--color-15), var(--color-1));
+  --text-2: light-dark(var(--color-13), var(--color-3));
+  --text-3: light-dark(var(--color-12), var(--color-4));
+  --text-4: light-dark(var(--color-8), var(--color-8));
+  --text-muted: light-dark(var(--color-6), var(--color-12));
+
+  --icon-color: var(--text-3);
+
+  --border-top: light-dark(white, var(--color-6));
+  --border-bottom: light-dark(var(--color-5), var(--color-12));
+
+  --accent-color: light-dark(var(--cyan-6), var(--cyan-4));
+  --accent-light: color-mix(in srgb, var(--accent-color), white 70%);
+  --accent-dark: color-mix(in srgb, var(--accent-color), white 40%);
+  --accent-1: light-dark(var(--accent-light), var(--accent-dark));
 
   --text-dialog-header: light-dark(white, black);
   --fade-button-bg: light-dark(black, white);
 
-  --button-bg: color-mix(in srgb, var(--surface-2), transparent var(--button-opacity));
-  --button-shadow-top: light-dark(white, var(--stone-8));
-  --button-shadow-bottom: light-dark(var(--stone-5), var(--stone-12));
+  --browser-bg: light-dark(#fff, #333);
+  --searchbar-bg: light-dark(#EEE, #555);
+  --browser-shadow-top: light-dark(white, var(--color-10));
+  --browser-shadow-bottom: light-dark(var(--color-4), var(--color-16));
 
-  --button-bg-top: var(--surface-2);
-  --button-bg-bottom: var(--surface-1);
-
-  --popover-bg: color-mix(in srgb, var(--surface-2), transparent var(--popover-opacity));
-  --popover-shadow-top: light-dark(white, var(--stone-9));
-  --popover-shadow-bottom: color-mix(in srgb, var(--stone-12), transparent var(--box-shadow-opacity));
-
-  --accent: light-dark(var(--cyan-6), var(--cyan-4));
-  --accent-top: light-dark(var(--cyan-2), var(--cyan-1));
-  --accent-bottom: light-dark(var(--cyan-9), var(--cyan-12));
-  --icon-color: light-dark(var(--stone-8), var(--stone-5));
-
-  --browser-bg: light-dark(#fff, #222);
-  --searchbar-bg: light-dark(#EEE, #444);
-  --browser-shadow-top: light-dark(white, var(--stone-8));
-  --browser-shadow-bottom: light-dark(var(--stone-4), var(--stone-12));
-
-  @media (prefers-color-scheme: dark) {
-    --box-shadow-opacity: 30%;
-  }
-}
-
-:root[data-theme="day"] {
-  --button-opacity: 70%;
-  --popover-opacity: 30%;
-  --box-shadow-opacity: 70%;
-
-  --surface-0: var(--stone-4);
-  --surface-1: var(--stone-3);
-  --surface-2: var(--stone-2);
-  --surface-3: var(--stone-1);
-
-  --text-0: var(--stone-12);
-  --text-1: var(--stone-10);
-  --text-2: var(--stone-8);
-  --text-3: var(--stone-6);
-
-  --accent: var(--cyan-6);
-  --accent-top: var(--cyan-2);
-  --accent-bottom: var(--cyan-9);
-  --icon-color: var(--stone-8);
-
-  --button-shadow-top: white;
-  --button-shadow-bottom: var(--stone-5);
-
-  --popover-shadow-top: white;
-
-  --text-dialog-header: white;
-  --fade-button-bg: black;
-
-  --browser-bg: #fff;
-  --searchbar-bg: #EEE;
-  --browser-shadow-top: white;
-  --browser-shadow-bottom: var(--stone-4);
-}
-
-:root[data-theme="night"] {
-  --button-opacity: 70%;
-  --popover-opacity: 30%;
-  --box-shadow-opacity: 30%;
-
-  --surface-0: var(--stone-12);
-  --surface-1: var(--stone-11);
-  --surface-2: var(--stone-10);
-  --surface-3: var(--stone-9);
-
-  --text-0: var(--stone-0);
-  --text-1: var(--stone-3);
-  --text-2: var(--stone-5);
-  --text-3: var(--stone-7);
-
-  --accent: var(--cyan-4);
-  --accent-top: var(--cyan-1);
-  --accent-bottom: var(--cyan-12);
-  --icon-color: var(--stone-5);
-
-  --button-shadow-top: var(--stone-8);
-  --button-shadow-bottom: var(--stone-12);
-
-  --popover-shadow-top: var(--stone-9);
-
-  --text-dialog-header: black;
-  --fade-button-bg: white;
-
-  --browser-bg: #222;
-  --searchbar-bg: #444;
-  --browser-shadow-top: var(--stone-8);
-  --browser-shadow-bottom: var(--stone-12);
-}
-
-:root[data-theme="twilight"] {
-  --button-opacity: 90%;
-  --popover-opacity: 50%;
-  --box-shadow-opacity: 70%;
-
-  --surface-0: var(--stone-6);
-  --surface-1: var(--stone-5);
-  --surface-2: var(--stone-4);
-  --surface-3: var(--stone-3);
-
-  --text-0: black;
-  --text-1: var(--stone-12);
-  --text-2: var(--stone-10);
-  --text-3: var(--stone-8);
-
-  --accent: var(--cyan-10);
-  --accent-top: var(--cyan-6);
-  --accent-bottom: var(--cyan-12);
-  --icon-color: var(--stone-10);
-
-  --button-shadow-top: var(--stone-4);
-  --button-shadow-bottom: var(--stone-7);
-
-  --popover-shadow-top: var(--stone-2);
-
-  --text-dialog-header: white;
-  --fade-button-bg: black;
-
-  --browser-bg: #fff;
-  --searchbar-bg: #EEE;
-  --browser-shadow-top: white;
-  --browser-shadow-bottom: var(--stone-4);
-}
-
-:root[data-theme="dusk"] {
-  --button-opacity: 75%;
-  --popover-opacity: 60%;
-  --box-shadow-opacity: 40%;
-
-  --surface-0: var(--stone-9);
-  --surface-1: var(--stone-8);
-  --surface-2: var(--stone-7);
-  --surface-3: var(--stone-6);
-
-  --text-0: white;
-  --text-1: var(--stone-1);
-  --text-2: var(--stone-3);
-  --text-3: var(--stone-5);
-
-  --accent: var(--cyan-3);
-  --accent-top: var(--cyan-1);
-  --accent-bottom: var(--cyan-8);
-  --icon-color: var(--stone-3);
-
-  --button-shadow-top: var(--stone-7);
-  --button-shadow-bottom: var(--stone-11);
-
-  --popover-shadow-top: var(--stone-7);
-
-  --text-dialog-header: black;
-  --fade-button-bg: white;
-
-  --browser-bg: #222;
-  --searchbar-bg: #444;
-  --browser-shadow-top: var(--stone-8);
-  --browser-shadow-bottom: var(--stone-12);
+  --shadow-1: 0px 4px 12px light-dark(var(--color-4), var(--color-16));
+  --shadow-2: 0px 8px 24px light-dark(var(--color-4), var(--color-16));
 }

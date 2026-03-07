@@ -1,26 +1,36 @@
 :where(footer) {
-  --mini-size: 0.5rem;
-  position: fixed;
-  z-index: 1;
-  bottom: var(--size-large);
-  left: 0;
-  right: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  --button-size: 0.75rem;
 
-  .footer-nav {
+  .action-list {
     display: flex;
     justify-content: center;
     align-items: center;
+    gap: 4rem;
 
-    .button-footer {
+    :where(.button-footer) {
       position: relative;
       z-index: 2;
 
+      .dot {
+        position: relative;
+        z-index: -1;
+        height: var(--button-size);
+        aspect-ratio: 1;
+        background-color: var(--text-3);
+        transition: scale .7s var(--ease-spring-3);
+        border-radius: 100vh;
+        /* display: none; */
+      }
+
+      /* .text {
+        font-size: 0.9rem;
+        padding-inline: 0.25rem;
+        color: var(--text-3);
+      } */
+
       &:is(:focus-visible) {
         .text {
-          outline: 2px solid var(--accent);
+          outline: 2px solid var(--accent-color);
           outline-offset: 4px;
         }
       }
@@ -28,92 +38,88 @@
   }
 }
 
+
+        /* , 0px 8px 16px -8px rgb(0 0 0 / 0.1) */
 @media (hover: hover) and (pointer: fine) {
-  .footer-nav {
-    gap: var(--size-2);
+  :where(.button-footer) {
+    border-radius: 100vh;
+    padding: 0.5rem;
 
-    .button-footer {
+    .text {
+      position: absolute;
+      z-index: 4;
+      white-space: nowrap;
+      /* bottom: 0; */
+      top: 50%;
+      left: 50%;
+      translate: -50% -50%;
+      padding: 0.5rem 1rem;
+      font-size: 0.9rem;
+
+      background-color: color-mix(in srgb, var(--surface-2), transparent 20%);
+      backdrop-filter: blur(5px);
+      border: 1px solid var(--surface-3);
+      box-shadow: var(--shadow-1);
+      /* box-shadow:
+        inset 0 1px 2px var(--border-top),
+        inset 0 -1px 2px var(--border-bottom)
+      ; */
+
+      color: var(--text-1);
+      border-radius: 100vh;
+      scale: 0;
+      /* transform-origin: bottom center; */
+      transition: scale .1s var(--ease-1);
+    }
+
+    &:is(:hover,:focus-visible, &.hint-hover) {
+      z-index: 5;
+
       .dot {
-        position: relative;
-        z-index: -1;
-        height: 0.5rem;
-        aspect-ratio: 3/1;
-        /* background-color: var(--text-2); */
-        background-image: linear-gradient(to bottom, var(--text-2), var(--text-1));
-        transition: scale .7s var(--ease-spring-3);
-        border-radius: 100vh;
-
-        @media (prefers-color-scheme: dark) {
-          background-image: linear-gradient(to bottom, var(--text-1), var(--text-2));
-        }
-      }
-
-      .text {
-        position: absolute;
-        z-index: 4;
-        white-space: nowrap;
-        bottom: 0;
-        left: 50%;
-        translate: -50% 0;
-        padding: var(--size-2) var(--size-3);
-
-        /* background-color: var(--button-bg);
-        backdrop-filter: blur(6px); */
-        background-image: linear-gradient(to bottom, var(--button-bg-top), var(--button-bg-bottom));
-        box-shadow: 0 1px 1px var(--button-shadow-bottom), inset 0 1px 1px var(--button-shadow-top);
-
-        color: var(--text-1);
-        border-radius: 100vh;
         scale: 0;
-        transform-origin: bottom center;
         transition: scale .1s var(--ease-1);
       }
-
-      &:is(:hover,:focus-visible, &.hint-hover) {
-        z-index: 5;
-
-        .dot {
-          scale: 0;
-          transition: scale .1s var(--ease-1);
-        }
-        .text {
-          scale: 1;
-          transition: scale .7s var(--ease-spring-3);
-        }
+      .text {
+        scale: 1;
+        transition: scale .7s var(--ease-spring-3);
       }
     }
   }
 }
 
 @media not all and (hover: hover) and (pointer: fine) {
-  .footer-nav {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--size-1);
+  .action-list {
+    gap: 0;
+  }
 
+  :where(li:first-child) {
     .button-footer {
-      padding: 0.65rem;
-      color: var(--text-1);
-      text-align: center;
+      position: relative;
 
-      /* background-color: color-mix(in srgb, var(--surface-2), transparent 60%); */
-      background-image: linear-gradient(to bottom, var(--button-bg-top), var(--button-bg-bottom));
-      box-shadow: 0 1px 1px var(--button-shadow-bottom), inset 0 1px 1px var(--button-shadow-top);
-
-      &:first-child {
-        border-radius: var(--size-5) 8px 8px var(--size-5);
-        padding-inline-start: var(--size-3);
-      }
-      &:last-child {
-        border-radius: 8px var(--size-5) var(--size-5) 8px;
-        padding-inline-end: var(--size-3);
-      }
-
-      &:is(:focus-visible) {
-        .text {
-          outline: none;
-        }
+      &::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        right: -1px;
+        translate: 0 -50%;
+        width: 4px;
+        aspect-ratio: 1;
+        border-radius: 50%;
+        background-color: var(--text-3);
       }
     }
   }
+
+  :where(.button-footer) {
+    .dot {
+      display: none;
+    }
+    .text {
+      font-size: 0.9rem;
+      color: var(--text-3);
+      border-radius: 100vh;
+      padding: 0.5rem 1rem;
+    }
+  }
 }
+

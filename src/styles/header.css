@@ -1,91 +1,124 @@
 :where(header) {
-  position: fixed;
-  z-index: 2;
-  inset: 0 0 auto;
-  padding: var(--size-large) var(--size-xlarge);
+  --button-size: 0.75rem;
 
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  pointer-events: none;
-}
-
-.contacts {
-  display: flex;
-  justify-content: flex-start;
-
-  @media (orientation: portrait) {
-    /* anchor-name: --contact-popover; */
-  }
-
-  .container {
-    anchor-name: --contact-heilight;
-    padding-inline: var(--size-2);
-    pointer-events: auto;
-
-    .heilight {
-      position-anchor: --contact-heilight;
-      position: absolute;
-      top: anchor(top);
-      left: anchor(left);
-      bottom: anchor(bottom);
-      right: anchor(right);
-
-      /* background-color: var(--button-bg); */
-      background-image: linear-gradient(to bottom, var(--button-bg-top), var(--button-bg-bottom));
-      box-shadow: 0 1px 1px var(--button-shadow-bottom), inset 0 1px 1px var(--button-shadow-top);
-
-      transition: all .7s var(--ease-spring-3);
-
-      border-radius: 12px;
-      @supports(corner-shape: squircle) {
-        border-radius: 60px;
-        corner-shape: squircle;
-      }
-    }
-  }
-
-  .buttons-group {
-    position: relative;
-    z-index: 1;
-    margin: 0;
-    padding: 0;
-    list-style: none;
-
+  .contact-list {
     display: flex;
     justify-content: center;
     align-items: center;
+    gap: 0.75rem;
 
-    & li {
+    anchor-name: --contect-popover;
 
-      /* @media (orientation: landscape) {
-        anchor-name: --contact-popover;
-        anchor-scope: --contact-popover;
-      } */
+    .contact-action {
+      &::before {
+        /* content: '';
+        display: block;
+        width: var(--button-size);
+        aspect-ratio: 1;
+        border-radius: 50%;
+        background-color: var(--text-3); */
 
-      & button {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: var(--size-2) var(--size-3);
+        content: attr(data-text);
+        display: block;
+        font-size: 0.9rem;
+        color: var(--text-3);
+        padding: 0.5rem;
 
-        border-radius: 12px;
-        @supports(corner-shape: squircle) {
-          border-radius: 120px;
-          corner-shape: squircle;
+        transition: scale .7s var(--ease-spring-3);
+      }
+
+      @media (min-width: 30rem) {
+        &::before {
+          padding-inline: 0.25rem;
         }
+      }
+    }
 
-        &:hover {
-          anchor-name: --contact-heilight;
-        }
-
-        &:focus-visible {
-          anchor-name: --contact-heilight;
-          outline: 2px solid var(--accent);
-          outline-offset: 2px;
-          animation: AnimateOutline .2s var(--ease-3);
-        }
+    & li:has([popover]:popover-open) {
+      .contact-action::before {
+        scale: 0;
       }
     }
   }
 }
+
+:where(.hover-popover) {
+  width: 92vw;
+  max-width: 26rem;
+  padding: var(--popvoer-padding);
+
+  border-radius: 30px;
+  @supports(corner-shape: squircle) {
+    border-radius: 60px;
+    corner-shape: squircle;
+  }
+
+  & h2 {
+    font-size: var(--font-2);
+    color: var(--text-2);
+    line-height: 1;
+    font-weight: 600;
+  }
+
+  .link {
+    margin-block-start: 0.5rem;
+
+    & a {
+      display: inline-block;
+      text-decoration: none;
+      color: var(--accent-color);
+      position: relative;
+      padding-block: 0.2rem;
+
+
+      border-radius: 6px;
+      @supports(corner-shape: squircle) {
+        border-radius: 20px;
+        corner-shape: squircle;
+      }
+
+      &:focus-visible {
+        outline: 2px solid var(--accent-color);
+        outline-offset: 4px;
+        animation: AnimateOutline4 .2s var(--ease-3);
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        scale: 0 1;
+        opacity: 0;
+        transform-origin: left center;
+        height: 1rem;
+        border-bottom: 3px double var(--accent-color);
+        transition: scale .6s var(--ease-spring-3), opacity 0s linear .6s;
+        overflow-y: clip;
+
+      }
+
+      &:hover::after {
+        scale: 1;
+        opacity: 1;
+        transition: scale .6s var(--ease-spring-3), opacity 0s linear;
+      }
+    }
+  }
+}
+
+:where(.contact-action) {
+  &:is(:focus-visible) {
+    :where(.hover-popover) {
+      outline: 2px solid var(--accent-color);
+      outline-offset: 2px;
+    }
+  }
+}
+
+/* @media not all and (hover: hover) and (pointer: fine) {
+  :where(header) {
+    --button-size: 1rem;
+  }
+} */

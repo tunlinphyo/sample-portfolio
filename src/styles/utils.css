@@ -1,0 +1,30 @@
+:where(html, body) {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--surface-1);
+  color: var(--text-1);
+
+  overflow-x: clip;
+  overscroll-behavior: none;
+}
+:where(h1,h2,h3,h4,h5,button,ul,ol,li,input,p) {
+  all: unset;
+}
+:where(button) {
+  cursor: pointer;
+}
+
+:where(.sr-only) {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}

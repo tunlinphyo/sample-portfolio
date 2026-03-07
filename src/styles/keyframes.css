@@ -1,0 +1,21 @@
+
+@keyframes AnimateOutline {
+  from { outline-offset: -2px; }
+  to { outline-offset: 2px; }
+}
+
+@keyframes AnimateOutline4 {
+  from { outline-offset: -2px; }
+  to { outline-offset: 4px; }
+}
+
+@keyframes move { to { offset-distance: 100%; } }
+
+@keyframes mouseMove {
+  from {
+    translate: 0 0;
+  }
+  to {
+    translate: 0 -1rem;
+  }
+}

@@ -11,7 +11,7 @@
     --space: min(25vw, 25vh);
     position: relative;
     z-index: 1;
-    margin-block-end: calc(var(--size-xlarge) + 2vh);
+    margin-block-end: var(--padding-4);
     translate: 0 calc(50% - 1.4rem);
 
     width: 10rem;
@@ -23,32 +23,37 @@
     pointer-events: none;
 
     .people {
-      --distance: calc(50% + ((var(--index) - 1) * 50%) / max(1, (var(--count) - 1)));
+      --move: 0%;
+      --distance: calc(50% + ((var(--index) - 1) * 50%) / max(1, (var(--count) - 1)) + var(--move));
       --offset: clamp(1px, 1vw, 3px);
-      --radius: var(--radius-round);
+      --radius: 50%;
 
       pointer-events: auto;
       position: absolute;
-      width: clamp(4rem, 8vw, 5rem);
+      width: clamp(4rem, 8vw, 4.5rem);
       aspect-ratio: 1;
       border-radius: var(--radius);
-      box-shadow: var(--shadow-3);
 
       transition: all .5s var(--ease-in-3);
 
-      offset-path: circle(clamp(80px, 35vw, 200px) at 50% 50%);
+      offset-path: circle(clamp(80px, 35vw, 180px) at 50% 50%);
       offset-rotate: 0deg;
       offset-distance: 40%;
       offset-anchor: auto;
 
+      padding: var(--offset);
+      background-color: color-mix(in srgb, var(--surface-2), transparent 30%);
+      backdrop-filter: blur(5px);
+      border: 1px solid var(--surface-3);
+      box-shadow: var(--shadow-1);
+
       img {
         width: 100%;
-        height: 100%;
+        aspect-ratio: 1;
         object-fit: cover;
         display: block;
         pointer-events: none;
         border-radius: var(--radius);
-        border: var(--offset) solid var(--text-dialog-header);
       }
 
       &::before {
@@ -59,12 +64,19 @@
         border-radius: var(--radius);
       }
 
-      &:is(:hover,:focus-visible) {
+      &:is(:hover) {
         scale: 1.1;
-
-        img {
-          border-color: var(--accent);
-        }
+      }
+      &:is(:hover,:focus-visible) + .people {
+        --move: 0.4%;
+      }
+      &:has(+ .people:is(:hover,:focus-visible)) {
+        --move: -0.4%;
+      }
+      &:is(:focus-visible) {
+        outline: 2px solid var(--accent-color);
+        outline-offset: 4px;
+        animation: AnimateOutline4 .2s var(--ease-3);
       }
 
       &:hover::before {
@@ -74,14 +86,12 @@
   }
 }
 
-@keyframes move { to { offset-distance: 100%; } }
-
 :where(dialog.testimonials) {
   &[open] {
     .peoples {
       .people {
         offset-distance: var(--distance);
-        transition: all 1.2s var(--ease-spring-3);
+        transition: all 1s var(--ease-spring-3);
 
         @starting-style {
           offset-distance: 40%;
