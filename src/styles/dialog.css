@@ -50,7 +50,7 @@
     opacity: 0;
     background-color: transparent;
     transition: opacity var(--delay) var(--ease-1);
-    background-image: radial-gradient(circle at 100%, var(--surface-1) 0%, var(--bg-opacity) min(50vw, 50vh), transparent 100%);
+    background-image: radial-gradient(circle at 100%, var(--surface-1) 0%, var(--bg-opacity) min(55vh, 55vw), transparent 100%);
   }
 
   &[open] {

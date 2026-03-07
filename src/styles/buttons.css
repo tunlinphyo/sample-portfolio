@@ -51,6 +51,11 @@
         animation: AnimateOutline4 .2s var(--ease-3);
       }
     }
+    &:is(:hover) {
+      .blob-container {
+        outline-color: transparent;
+      }
+    }
   }
 }
 
@@ -89,7 +94,7 @@
   z-index: 3;
   left: calc(50% - 1.4rem);
   /* top: calc(50% - 1.4rem); */
-  bottom: calc(var(--padding-4) + 1vh);
+  bottom: calc(var(--padding-4) + 2vh);
 
   width: 3rem;
   aspect-ratio: 1;
@@ -135,6 +140,11 @@
         outline: 2px solid var(--accent-color);
         outline-offset: 4px;
         animation: AnimateOutline4 .2s var(--ease-3);
+      }
+    }
+    &:is(:hover) {
+      .blob-container {
+        outline-color: transparent;
       }
     }
   }

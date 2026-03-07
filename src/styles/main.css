@@ -17,27 +17,28 @@
     } */
 
     h1 {
+      /* --line-width: 1px;
+      --line-color: var(--text-2); */
+
       display: block;
       font-size: var(--font-1);
       font-weight: 700;
       line-height: 1.1;
       color: var(--text-2);
-      /* opacity: 0; */
 
       /* @media (min-width: 48rem) {
-        line-height: 1;
+        --line-width: 2px;
       } */
 
       :where(& > span) {
         color: var(--text-4);
-        /* @supports(-webkit-text-stroke-width: 1px) {
-          --line-width: 1px;
-          --line-color: var(--text-2);
 
+        /* @supports(-webkit-text-stroke-width: 1px) {
           -webkit-text-stroke-width: var(--line-width);
           -webkit-text-stroke-color: var(--line-color);
 
           text-stroke: var(--line-width) var(--line-color);
+          paint-order: stroke fill;
           color: transparent;
         } */
       }
@@ -53,7 +54,7 @@
 
     p {
       display: block;
-      margin-block-start: clamp(1rem, max(4vh, 3vw), 3rem);
+      margin-block-start: clamp(1rem, max(4vh, 4vw), 3rem);
       max-width: 30rem;
     }
   }

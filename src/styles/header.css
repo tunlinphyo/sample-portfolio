@@ -20,7 +20,8 @@
 
         content: attr(data-text);
         display: block;
-        font-size: 0.9rem;
+        /* font-size: 0.9rem; */
+        font-size: 1rem;
         color: var(--text-3);
         padding: 0.5rem;
 
