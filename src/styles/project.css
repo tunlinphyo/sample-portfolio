@@ -125,7 +125,7 @@
       content: 'loading...';
       inset: 50% 50% auto auto;
       translate: 50% -50%;
-      color: var(--text-4);
+      color: var(--text-muted);
     }
 
     & img {
@@ -145,7 +145,7 @@
 
   & h4 {
     font-size: var(--font-2);
-    color: var(--text-2);
+    color: var(--text-color);
     font-weight: 700;
   }
 

@@ -11,18 +11,10 @@
 
     .contact-action {
       &::before {
-        /* content: '';
-        display: block;
-        width: var(--button-size);
-        aspect-ratio: 1;
-        border-radius: 50%;
-        background-color: var(--text-3); */
-
         content: attr(data-text);
         display: block;
-        /* font-size: 0.9rem; */
         font-size: 1rem;
-        color: var(--text-3);
+        color: var(--text-muted);
         padding: 0.5rem;
 
         transition: scale .7s var(--ease-spring-3);
@@ -56,7 +48,7 @@
 
   & h2 {
     font-size: var(--font-2);
-    color: var(--text-2);
+    color: var(--text-color);
     line-height: 1;
     font-weight: 600;
   }

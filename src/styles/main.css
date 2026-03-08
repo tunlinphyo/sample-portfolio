@@ -17,30 +17,15 @@
     } */
 
     h1 {
-      /* --line-width: 1px;
-      --line-color: var(--text-2); */
 
       display: block;
       font-size: var(--font-1);
       font-weight: 700;
       line-height: 1.1;
-      color: var(--text-2);
-
-      /* @media (min-width: 48rem) {
-        --line-width: 2px;
-      } */
+      color: var(--text-color);
 
       :where(& > span) {
-        color: var(--text-4);
-
-        /* @supports(-webkit-text-stroke-width: 1px) {
-          -webkit-text-stroke-width: var(--line-width);
-          -webkit-text-stroke-color: var(--line-color);
-
-          text-stroke: var(--line-width) var(--line-color);
-          paint-order: stroke fill;
-          color: transparent;
-        } */
+        color: var(--text-muted);
       }
 
       :where(em) {

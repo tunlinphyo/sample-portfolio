@@ -6,8 +6,6 @@
   --bg: var(--surface-1);
   --bg-opacity: color-mix(in srgb, var(--bg), transparent 10%);
   --move-x: min(35vw, 35vh);
-  --max: max(6vw, 6vh);
-  --wheel-font-size: clamp(3rem, var(--max), 4.5rem);
 
   position: absolute;
   z-index: 0;
@@ -27,7 +25,7 @@
     position: absolute;
     z-index: 2;
     right: 0;
-    padding-inline-end: min(55vw, 50vh);
+    padding-inline-end: min(55vw, 52vh);
     transform-origin: right center;
     white-space: nowrap;
     transform: translate(var(--move-x), 0) rotate(var(--degree));
@@ -35,8 +33,7 @@
     transition: transform 1s var(--ease-spring-3), opacity .25s var(--ease-1);
     display: flex;
     align-items: baseline;
-    font-size: var(--wheel-font-size);
-    /* font-size: var(--font-1); */
+    font-size: var(--font-3);
 
     /* outline: 1px dotted hotpink; */
 
@@ -48,7 +45,7 @@
 
     & button {
       font-weight: 700;
-      color: var(--text-2);
+      color: var(--text-color);
       display: block;
       position: relative;
 
@@ -76,14 +73,6 @@
         border-radius: 40px;
         corner-shape: squircle;
       }
-      
-      & > span {
-        display: inline-block;
-        width: .6em;
-        text-align: center;
-        pointer-events: none;
-        line-height: inherit;
-      }
 
       &:is(:hover,:focus-visible) {
         color: var(--accent-color);
@@ -104,7 +93,7 @@
 
     .anchor {
       position: relative;
-      width: .6em;
+      width: .7em;
       translate: 0.25rem 0.05em;
       display: inline-block;
       aspect-ratio: 1;
@@ -125,9 +114,20 @@
       }
 
       & button {
-        &:is(:hover)::after {
-          display: block;
-          text-shadow: none;
+        &:is(:hover) {
+          &::before {
+            text-shadow: 
+              0 1px var(--accent-border),
+              0 -1px var(--accent-border),
+              1px 0 var(--accent-border),
+              -1px 0 var(--accent-border), 
+              var(--text-shadow)
+            ;
+          }
+          &::after {
+            display: block;
+            text-shadow: none;
+          }
         }
       }
     }

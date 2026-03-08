@@ -11,6 +11,7 @@
   --size-large: clamp(1rem, 2.5vw, 2.5rem);
   --size-xlarge: clamp(1rem, 5vw, 10rem);
 
-  --font-1: clamp(2.2rem, 8vw, 5rem);
+  --font-1: clamp(2.2rem, min(8vw, 9vh), 5rem);
   --font-2: clamp(2rem, 6vw, 2.5rem);
+  --font-3: clamp(3rem, max(5vw, 5vh), 4.2rem);
 }
