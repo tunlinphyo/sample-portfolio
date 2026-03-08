@@ -11,7 +11,6 @@
     width: max-content;
     font-size: var(--font-2);
     color: var(--text-color);
-    background-color: var(--surface-1);
     font-weight: 700;
     position: absolute;
     z-index: 0;
@@ -20,6 +19,22 @@
     translate: -50% 0;
     opacity: 0;
     transition: opacity .4s var(--ease-out-1);
+    
+    & span {
+      background-color: var(--surface-1);
+    }
+
+    display: grid;
+    place-items: center;
+    gap: 0;
+
+    & img {
+      width: 2.5em;
+      scale: 0;
+      opacity: 0;
+      transition: opacity .4s var(--ease-out-1);
+      /* display: none; */
+    }
   }
 
   &[open] {
@@ -27,8 +42,18 @@
       opacity: 1;
       transition: opacity .5s var(--ease-in-1);
 
+      & img {
+        scale: 1;
+        opacity: 1;
+      }
+
       @starting-style {
         opacity: 0;
+
+        & img {
+          scale: 0;
+          opacity: 0;
+        }
       }
     }
   }
@@ -36,13 +61,18 @@
   &[data-closing] {
     h2 {
       opacity: 0;
+
+      & img {
+        scale: 1;
+        opacity: 0;
+      }
     }
   }
 }
 
 :where(.navigations) {
   --delay: 0.5s;
-  --bg-opacity: color-mix(in srgb, var(--surface-1), transparent 10%);
+  --bg-opacity: color-mix(in srgb, var(--surface-1), transparent 5%);
   background-color: transparent;
   overflow: clip;
 
@@ -50,7 +80,19 @@
     opacity: 0;
     background-color: transparent;
     transition: opacity var(--delay) var(--ease-1);
-    background-image: radial-gradient(circle at 100%, var(--surface-1) 0%, var(--bg-opacity) min(55vh, 55vw), transparent 70%);
+    background-image: radial-gradient(
+      circle at 100%, 
+      var(--surface-1) 0%, 
+      var(--surface-1) min(10vh, 10vw), 
+      var(--bg-opacity) min(55vh, 55vw), 
+      transparent min(50vw, 80%)
+    );
+    background-image: radial-gradient(
+      circle at 100%, 
+      var(--surface-1) 0%, 
+      var(--bg-opacity) min(50vh, 50vw),
+      transparent 75%
+    );
   }
 
   &[open] {
