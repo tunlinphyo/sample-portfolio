@@ -59,6 +59,11 @@
       border-radius: 100vh;
       scale: 0;
       transition: scale .1s var(--ease-1);
+
+      &::first-letter {
+        color: var(--accent-color);
+        font-weight: 700;
+      }
     }
 
     &:is(:hover,:focus-visible, &.hint-hover) {

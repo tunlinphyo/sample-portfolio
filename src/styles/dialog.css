@@ -30,10 +30,14 @@
     isolation: isolate;
 
     & img {
-      width: 2.5em;
+      width: 3em;
       scale: 0;
       opacity: 0;
       transition: opacity .4s var(--ease-out-1);
+
+      &[data-sm] {
+        width: 2.8em;
+      }
     }
   }
 

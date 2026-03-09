@@ -47,10 +47,16 @@
   }
 
   & h2 {
+    display: inline-block;
     font-size: var(--font-2);
     color: var(--text-color);
     line-height: 1;
     font-weight: 600;
+
+    &::first-letter {
+      color: var(--accent-color);
+      font-weight: 700;
+    }
   }
 
   .link {

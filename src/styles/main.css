@@ -13,15 +13,32 @@
     /* outline: 1px dotted hotpink; */
     position: relative;
 
+    & > * {
+      position: relative;
+      z-index: 1;
+    }
+
     .three-d-icon {
       position: absolute;
-      right: 0;
-      top: 50%;
-      translate: 25% -60%;
+      z-index: -1;
       z-index: 0;
-      width: min(40vw, 40vh);
+      width: min(40vw, 35vh);
       aspect-ratio: 1;
       object-fit: contain;
+
+      transition: scale 1s var(--ease-spring-3), opacity .2s var(--ease-out-1);
+
+      bottom: 0;
+      left: 50%;
+      translate: -50% 100%;
+      /* @media (max-width: 48rem) {
+        display: none;
+      } */
+      @media (min-width: 48rem) {
+        right: 0;
+        top: 50%;
+        translate: 75% -50%;
+      }
 
       & img {
         width: 100%;
@@ -35,9 +52,6 @@
       font-size: var(--font-1);
       font-weight: 700;
       line-height: 1.1;
-      color: var(--text-color);
-      position: relative;
-      z-index: 1;
 
       :where(& > span) {
         color: var(--text-muted);
@@ -47,42 +61,31 @@
         font-style: normal;
       }
 
-      /* :where(em[data-effect-parent]) {
-        background-image: linear-gradient(var(--surface-1), var(--accent-color));
-        background-position: 0 100%;
-        background-size: 100% 40%;
-        background-repeat: no-repeat;
-      } */
-
       & span[data-effect="text-hover"] {
-        --shadow-color: var(--accent-color);
-        color: var(--text-color);
+        /* --shadow-color: var(--text-color); */
+        color: var(--accent-color);
       }
 
-      /* & > * {
-        position: relative;
-        z-index: 1;
-      } */
-
-      /* &::before {
-        content: '';
-        position: absolute;
-        z-index: 0;
-        left: 0;
-        top: 50%;
-        translate: -5% -50%;
-        height: 100%;
-        aspect-ratio: 1;
-        background-image: radial-gradient(var(--accent-color) 1px, transparent 1px);
-        background-size: 10px 10px;
-        clip-path: polygon(0 0, 0% 100%, 100% 0);
-      } */
+      @media (prefers-color-scheme: dark) {
+        mix-blend-mode: plus-lighter;
+      }
     }
 
     p {
       display: block;
       margin-block-start: clamp(1rem, max(4vh, 4vw), 3rem);
       max-width: 30rem;
+      text-shadow: 0 0 2px var(--surface-1);
+    }
+  }
+}
+
+
+:has(dialog[open]:not([data-closing])) {
+  .intro-message {
+    .three-d-icon {
+      opacity: 0;
+      scale: 0.5;
     }
   }
 }
