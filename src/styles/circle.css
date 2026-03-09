@@ -66,6 +66,8 @@
 
       &:is(:hover) {
         scale: 1.1;
+        /* background-color: var(--accent-color); */
+        border-color: var(--accent-border);
       }
       &:is(:hover,:focus-visible) + .people {
         --move: 0.4%;

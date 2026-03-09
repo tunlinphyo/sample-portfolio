@@ -147,6 +147,10 @@
     font-size: var(--font-2);
     color: var(--text-color);
     font-weight: 700;
+
+    & span {
+      color: var(--accent-color);
+    }
   }
 
   @media (max-width: 600px) {

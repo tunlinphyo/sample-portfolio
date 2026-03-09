@@ -5,7 +5,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 0.75rem;
+    gap: 1rem;
 
     anchor-name: --contect-popover;
 
@@ -62,7 +62,6 @@
       color: var(--accent-color);
       position: relative;
       padding-block: 0.2rem;
-
 
       border-radius: 6px;
       @supports(corner-shape: squircle) {

@@ -9,6 +9,7 @@
   overflow-x: clip;
   overscroll-behavior: none;
 }
+
 :where(h1,h2,h3,h4,h5,button,ul,ol,li,input,p) {
   all: unset;
 }

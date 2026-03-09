@@ -1,5 +1,5 @@
 @import "open-props/palette";
-@import "open-props/cyan";
+@import "open-props/orange";
 
 :root {
   --palette-hue: 0;
@@ -15,10 +15,10 @@
   --text-color: light-dark(var(--color-13), var(--color-3));
   --text-muted: light-dark(var(--color-9), var(--color-7));
 
-  --accent-color: light-dark(var(--cyan-6), var(--cyan-4));
+  --accent-color: var(--orange-7);
   --accent-border: light-dark(
-    color-mix(in srgb, var(--accent-color), white 65%), 
-    color-mix(in srgb, var(--accent-color), white 30%)
+    color-mix(in srgb, var(--accent-color), white 65%),
+    color-mix(in srgb, var(--accent-color), white 20%)
   );
 
   --fade-button-bg: light-dark(black, white);

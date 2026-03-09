@@ -35,6 +35,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&display=swap" rel="stylesheet">
 
+    <link rel="preload" as="image" href="/icons/backpack-1.png">
+    <link rel="preload" as="image" href="/icons/airpods-max.png">
+    <link rel="preload" as="image" href="/people/10.jpg">
     <link rel="preload" as="image" href="/logos/chartjs.svg">
     <link rel="preload" as="image" href="/logos/ec-cube.png">
     <link rel="preload" as="image" href="/logos/editorjs.png">
@@ -141,7 +144,7 @@
 
       <section class="intro-message">
         <h1 class="sr-only">I'm Software/Frontend Engineer based in Tokyo</h1>
-        <h1 aria-hidden="true">
+        <h1 aria-hidden="true" role="presentation">
           <span>I'm</span>
           <em>Tun</em><span>,</span> <br>
           <span>a</span>
@@ -160,6 +163,22 @@
         <p>
           Senior Frontend Engineer specializing in CSS, modern Web APIs, and scalable frontend architecture.
         </p>
+        <picture aria-hidden="true" role="presentation" class="three-d-icon">
+          <source
+            srcset="/icons/camera-dark.webp"
+            media="(prefers-color-scheme: dark)"
+          />
+          <source
+            srcset="/icons/camera-light.webp"
+            media="(prefers-color-scheme: light)"
+          />
+          <img
+            src="/icons/camera-light.webp"
+            alt="Preview of Tun's portfolio interface"
+            width="1200"
+            height="800"
+          />
+        </picture>
       </section>
 
       <footer>
@@ -202,7 +221,7 @@
 
       <h2 id="navigation-title">
         <span>Recent Works</span>
-        <!-- <img src="/computer.png" alt=""> -->
+        <img aria-hidden="true" role="presentation" src="/icons/backpack-1.png" alt="">
       </h2>
 
       <div class="projects">
@@ -211,7 +230,7 @@
           aria-modal="false"
           aria-labelledby="lottery-popover-title">
           <div class="project-info">
-            <h4 id="lottery-popover-title">01. Form Lottery Pay</h4>
+            <h4 id="lottery-popover-title"><span>01.</span> Form Lottery Pay</h4>
             <div class="tech-stacks" aria-label="Tech stack">
               <div class="logo" data-hover="Vue.js">
                 <img src="/logos/vue.png" alt="" decoding="async">
@@ -244,7 +263,7 @@
           aria-modal="false"
           aria-labelledby="cuuvel-popover-title">
           <div class="project-info">
-            <h4 id="cuuvel-popover-title">02. Cuuvel Dashboard</h4>
+            <h4 id="cuuvel-popover-title"><span>02.</span> Cuuvel Dashboard</h4>
             <div class="tech-stacks" aria-label="Tech stack">
               <div class="logo" data-hover="Vue.js">
                 <img src="/logos/primevue.png" alt="" decoding="async">
@@ -277,7 +296,7 @@
           aria-modal="false"
           aria-labelledby="ec-cube-popover-title">
           <div class="project-info">
-            <h4 id="ec-cube-popover-title">03. Ec-cube Plugins</h4>
+            <h4 id="ec-cube-popover-title"><span>03.</span> Ec-cube Plugins</h4>
             <div class="tech-stacks" aria-label="Tech stack">
               <div class="logo" data-hover="Ec-cube 4">
                 <img src="/logos/ec-cube.png" alt="" decoding="async">
@@ -307,7 +326,7 @@
           aria-modal="false"
           aria-labelledby="yomiuri-popover-title">
           <div class="project-info">
-            <h4 id="yomiuri-popover-title">04. Yomiuri Shimbun</h4>
+            <h4 id="yomiuri-popover-title"><span>04.</span> Yomiuri Shimbun</h4>
             <div class="tech-stacks" aria-label="Tech stack">
               <div class="logo" data-hover="Ec-cube 4">
                 <img src="/logos/ec-cube.png" alt="" decoding="async">
@@ -337,7 +356,7 @@
           aria-modal="false"
           aria-labelledby="coremobile-popover-title">
           <div class="project-info">
-            <h4 id="coremobile-popover-title">05. CoreMobile</h4>
+            <h4 id="coremobile-popover-title"><span>05.</span> CoreMobile</h4>
             <div class="tech-stacks" aria-label="Tech stack">
               <div class="logo" data-hover="React">
                 <img src="/logos/react.png" alt="" decoding="async">
@@ -367,7 +386,7 @@
           aria-modal="false"
           aria-labelledby="united-arrow-popover-title">
           <div class="project-info">
-            <h4 id="united-arrow-popover-title">06. United Arrow</h4>
+            <h4 id="united-arrow-popover-title"><span>06.</span> United Arrow</h4>
             <div class="tech-stacks" aria-label="Tech stack">
               <div class="logo" data-hover="Vue.js">
                 <img src="/logos/vue.png" alt="" decoding="async">
@@ -397,7 +416,7 @@
           aria-modal="false"
           aria-labelledby="inhouse-popover-title">
           <div class="project-info">
-            <h4 id="inhouse-popover-title">07. Inhouse Furniture</h4>
+            <h4 id="inhouse-popover-title"><span>07.</span> Inhouse Furniture</h4>
             <div class="tech-stacks" aria-label="Tech stack">
               <div class="logo" data-hover="Svelte.js" style="scale:0.9">
                 <img src="/logos/svelte.png" alt="" decoding="async">
@@ -515,8 +534,8 @@
       </button>
 
       <h2 id="testimonial-title">
-        <span>What People Say</span>  
-        <!-- <img src="/type-writer.png" alt=""> -->
+        <span>What People Say</span>
+        <img aria-hidden="true" role="presentation" src="/icons/airpods-max.png" alt="">
       </h2>
 
       <div class="messages" aria-label="Testimonials">
