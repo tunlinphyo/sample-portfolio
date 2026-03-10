@@ -82,7 +82,7 @@
   /* box-shadow: inset 0 1px 1px var(--browser-shadow-top), inset 0 -1px 1px var(--browser-shadow-bottom);
   padding-bottom: 1px; */
   clip-path: polygon(0 0, 41% 0, 1% 100%, 8% 100%, 48% 0, 100% 0, 100% 100%, 0 100%);
-  border: 1px solid var(--browser-shadow-bottom);
+  border: 1px solid var(--browser-shadow);
 
   border-radius: 15px;
   @supports(corner-shape: squircle) {

@@ -9,7 +9,7 @@
 
   --surface-1: light-dark(var(--color-1), var(--color-16));
   --surface-2: light-dark(var(--color-1), var(--color-13));
-  --surface-border: light-dark(white, var(--color-12));
+  --surface-border: light-dark(white, var(--color-11));
   /* --surface-glass: color-mix(in srgb, var(--surface-2), transparent 10%); */
 
   --text-color: light-dark(var(--color-13), var(--color-3));
@@ -25,17 +25,17 @@
 
   --browser-bg: light-dark(white, #090909);
   --searchbar-bg: light-dark(#EEE, #333);
-  --browser-shadow-top: light-dark(white, var(--color-12));
-  --browser-shadow-bottom: light-dark(var(--color-3), black);
+  --browser-shadow: light-dark(var(--color-2), black);
 
-  --shadow-1: 0px 3px 8px -3px var(--color-5);
-  --shadow-2: 0px 6px 18px -6px var(--color-6);
-  --shadow-dark: 0px 3px 8px -3px var(--color-13);
+  --shadow-1: 0px 8px 24px var(--color-4);
+  --shadow-2: 0px 12px 36px var(--color-4);
+  --shadow-dark: 0px 8px 24px -4px var(--color-8);
   --text-shadow: 0px 3px 8px var(--color-4);
 
   @media (prefers-color-scheme: dark) {
     --shadow-1: none;
     --shadow-2: none;
+    --shadow-dark: none;
     --text-shadow: 0 0 0 transparent;
   }
 }

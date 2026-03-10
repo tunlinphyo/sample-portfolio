@@ -150,18 +150,20 @@
   }
 }
 
-:where(.testimonials:has(.people:hover)) {
-  .testimonial-close {
-    --rotate: calc(var(--people-index) * 30deg);
+@media (hover: hover) and (pointer: fine) {
+  :where(.testimonials:has(.people:hover)) {
+    .testimonial-close {
+      --rotate: calc(var(--people-index) * 30deg);
+    }
   }
+  
+  :where(.testimonials:has(.peoples .people:nth-child(1):hover)) { --people-index: -3; }
+  :where(.testimonials:has(.peoples .people:nth-child(2):hover)) { --people-index: -2; }
+  :where(.testimonials:has(.peoples .people:nth-child(3):hover)) { --people-index: -1; }
+  :where(.testimonials:has(.peoples .people:nth-child(4):hover)) { --people-index: 1; }
+  :where(.testimonials:has(.peoples .people:nth-child(5):hover)) { --people-index: 2; }
+  :where(.testimonials:has(.peoples .people:nth-child(6):hover)) { --people-index: 3; }
 }
-
-:where(.testimonials:has(.peoples .people:nth-child(1):hover)) { --people-index: -3; }
-:where(.testimonials:has(.peoples .people:nth-child(2):hover)) { --people-index: -2; }
-:where(.testimonials:has(.peoples .people:nth-child(3):hover)) { --people-index: -1; }
-:where(.testimonials:has(.peoples .people:nth-child(4):hover)) { --people-index: 1; }
-:where(.testimonials:has(.peoples .people:nth-child(5):hover)) { --people-index: 2; }
-:where(.testimonials:has(.peoples .people:nth-child(6):hover)) { --people-index: 3; }
 
 :where(dialog.testimonials) {
   --rotate: 0deg;
