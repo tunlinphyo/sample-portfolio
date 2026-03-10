@@ -86,8 +86,7 @@
       aspect-ratio: 1;
       border-radius: 50%;
       overflow: clip;
-      outline: 2px solid var(--accent-color);
-      outline-offset: -2px;
+      /* outline: 2px solid var(--accent-color); */
 
       & img {
         display: block;
