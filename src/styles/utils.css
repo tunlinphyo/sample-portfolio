@@ -29,3 +29,31 @@
   white-space: nowrap;
   border: 0;
 }
+
+:where([data-hover]) {
+  position: relative;
+
+  &::before {
+    content: attr(data-hover);
+    position: absolute;
+    top: 0;
+    right: 0;
+    white-space: nowrap;
+    background-color: #444;
+    color: #eee;
+    padding: .1rem .5rem;
+    border-radius: 0.2rem;
+    translate: -0.5rem -100%;
+    scale: 0;
+    font-size: .8rem;
+    transition: scale .5s var(--ease-spring-2);
+    transform-origin: bottom right;
+    pointer-events: none;
+  }
+
+  &:is(:hover,:focus-visible) {
+    &::before {
+      scale: 1;
+    }
+  }
+}

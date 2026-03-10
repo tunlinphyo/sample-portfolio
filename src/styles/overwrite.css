@@ -1,0 +1,21 @@
+:where(.project:popover-open) {
+  .content {
+    & picture > img {
+      display: block;
+      animation: ShowImage var(--duration) var(--ease-in-1) forwards;
+    }
+  }
+}
+
+
+@media (max-width: 768px) and ((hover: none) or (pointer: coarse)) {
+  :where(body:has(dialog [popover]:popover-open)) {
+    .button-fade-close {
+      pointer-events: auto;
+      opacity: 1;
+      scale: 1;
+      transition-duration: 0.3s;
+    }
+  }
+}
+

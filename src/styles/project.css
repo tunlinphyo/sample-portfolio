@@ -1,5 +1,5 @@
 :where(.project) {
-  --padding: clamp(.5rem, 3vw, 1rem);
+  --padding: clamp(.5rem, 3vw, 1.5rem);
   --duration: 1s;
   position: fixed;
   z-index: 2;
@@ -15,20 +15,20 @@
   align-self: center;
   justify-self: center;
 
+  opacity: 0;
+  transform: translate(0, -5vh) scale(0.5) rotate(0deg);
+  will-change: transform;
+
   /* background-color: var(--popover-bg);
   backdrop-filter: blur(5px);
   box-shadow: 0 2px 2px var(--popover-shadow-bottom), inset 0 1px 1px var(--popover-shadow-top); */
-  box-shadow: var(--shadow-1);
+  box-shadow: var(--shadow-2);
 
   border-radius: 30px;
   @supports(corner-shape: squircle) {
     border-radius: 50px;
     corner-shape: squircle;
   }
-
-  opacity: 0;
-  transform: translate(0, -2vh) scale(0.9) rotate(0deg);
-  will-change: transform;
 
   @media (orientation: landscape) {
     width: 90vh;
@@ -49,7 +49,7 @@
 
     @starting-style {
       opacity: 0;
-      transform: translate(0, -2vh) scale(0.9) rotate(calc(var(--degree) * -3));
+      transform: translate(0, -5vh) scale(0.5) rotate(calc(var(--degree) * -4));
     }
   }
 
@@ -62,13 +62,27 @@
   }
 }
 
+@supports (rotate: random(0deg, 10deg)) {
+  .project {
+    --degree: random(-5deg, 5deg);
+  }
+}
+
+@supports not (rotate: random(0deg, 10deg)) {
+  .project {
+    --degree: var(--random);
+  }
+}
 
 :where(.browser) {
   --control: 10px;
   width: 100%;
   overflow: clip;
   background-color: var(--browser-bg);
-  box-shadow: 0 1px 1px var(--browser-shadow-bottom), inset 0 1px 1px var(--browser-shadow-top);
+  /* box-shadow: inset 0 1px 1px var(--browser-shadow-top), inset 0 -1px 1px var(--browser-shadow-bottom);
+  padding-bottom: 1px; */
+  clip-path: polygon(0 0, 41% 0, 1% 100%, 10% 100%, 50% 0, 100% 0, 100% 100%, 0 100%);
+  border: 1px solid var(--browser-shadow-bottom);
 
   border-radius: 15px;
   @supports(corner-shape: squircle) {
@@ -120,19 +134,28 @@
     overflow: hidden;
     position: relative;
 
-    &::before {
+    border-radius: 0 0 15px 15px;
+    @supports(corner-shape: squircle) {
+      border-radius: 0 0 25px 25px;
+      corner-shape: squircle;
+    }
+
+    /* &::before {
       position: absolute;
       content: 'loading...';
       inset: 50% 50% auto auto;
       translate: 50% -50%;
       color: var(--accent-color);
-    }
+    } */
 
-    & img {
+    & picture > img {
+      display: block;
       position: relative;
       width: 100%;
       height: auto;
+      clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
     }
+
   }
 }
 

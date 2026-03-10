@@ -111,7 +111,7 @@
     width: 1.5rem;
     height: 2px;
     background-color: var(--surface-1);
-    transition: all .7s var(--ease-spring-3);
+    transition: transform 1s var(--ease-spring-3);
   }
 
   &::before {
@@ -150,14 +150,28 @@
   }
 }
 
+:where(.testimonials:has(.people:hover)) {
+  .testimonial-close {
+    --rotate: calc(var(--people-index) * 30deg);
+  }
+}
+
+:where(.testimonials:has(.peoples .people:nth-child(1):hover)) { --people-index: -3; }
+:where(.testimonials:has(.peoples .people:nth-child(2):hover)) { --people-index: -2; }
+:where(.testimonials:has(.peoples .people:nth-child(3):hover)) { --people-index: -1; }
+:where(.testimonials:has(.peoples .people:nth-child(4):hover)) { --people-index: 1; }
+:where(.testimonials:has(.peoples .people:nth-child(5):hover)) { --people-index: 2; }
+:where(.testimonials:has(.peoples .people:nth-child(6):hover)) { --people-index: 3; }
+
 :where(dialog.testimonials) {
+  --rotate: 0deg;
   &[open] {
     .testimonial-close {
       &::before {
-        transform: translate(0, 0) rotate(45deg);
+        transform: translate(0, 0) rotate(calc(45deg + var(--rotate)));
       }
       &::after {
-        transform: translate(0, 0) rotate(135deg);
+        transform: translate(0, 0) rotate(calc(135deg + var(--rotate)));
       }
       &::before, &::after {
         @starting-style {
@@ -219,17 +233,5 @@
   }
   &::after {
     transform: translate(0, 0) rotate(-45deg);
-  }
-}
-
-
-@media (max-width: 768px) and ((hover: none) or (pointer: coarse)) {
-  :where(body:has(dialog [popover]:popover-open)) {
-    .button-fade-close {
-      pointer-events: auto;
-      opacity: 1;
-      scale: 1;
-      transition-duration: 0.3s;
-    }
   }
 }

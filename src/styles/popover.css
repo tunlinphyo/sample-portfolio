@@ -1,13 +1,13 @@
 :where([popover]) {
   border: none;
   outline: none;
-  background-color: var(--surface-glass);
-  backdrop-filter: blur(6px);
+  background-color: var(--surface-2);
+  backdrop-filter: blur(4px);
   border: 1px solid var(--surface-border);
   box-shadow: var(--shadow-2);
 
   @media (min-width: 48rem) {
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(8px);
   }
 }
 

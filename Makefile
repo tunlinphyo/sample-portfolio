@@ -3,6 +3,16 @@
 deploy:
 	npm run deploy
 
+gpl:
+	@set -e; \
+	branch="$$(git rev-parse --abbrev-ref HEAD)"; \
+	if [ "$$branch" != "develop" ]; then \
+	  echo "❌ You are on '$$branch'. Switch to 'develop' first."; \
+	  exit 1; \
+	fi; \
+	git pull origin develop;
+	echo "✅ Pulled from develop"
+
 gp:
 	@set -e; \
 	branch="$$(git rev-parse --abbrev-ref HEAD)"; \

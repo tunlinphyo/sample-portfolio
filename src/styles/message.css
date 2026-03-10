@@ -11,7 +11,7 @@
   /* background-color: var(--popover-bg);
   backdrop-filter: blur(5px);
   box-shadow: 0 2px 2px var(--popover-shadow-bottom), inset 0 1px 1px var(--popover-shadow-top); */
-  box-shadow: var(--shadow-1);
+  box-shadow: var(--shadow-2);
 
   border-radius: 30px;
   @supports(corner-shape: squircle) {

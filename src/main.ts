@@ -1,5 +1,6 @@
 import './polyfills/dialog'
 import './polyfills/hover'
+import './polyfills/random-css'
 import './style.css'
 
 document.addEventListener('DOMContentLoaded', inertFadeButton)

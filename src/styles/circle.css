@@ -25,7 +25,7 @@
     .people {
       --move: 0%;
       --distance: calc(50% + ((var(--index) - 1) * 50%) / max(1, (var(--count) - 1)) + var(--move));
-      --offset: clamp(1px, 1vw, 3px);
+      --offset: 0;
       --radius: 50%;
 
       pointer-events: auto;
@@ -42,10 +42,10 @@
       offset-anchor: auto;
 
       padding: var(--offset);
-      background-color: var(--surface-glass);
+      background-color: var(--surface-2);
       backdrop-filter: blur(5px);
-      border: 1px solid var(--surface-border);
-      box-shadow: var(--shadow-1);
+      /* border: 1px solid var(--surface-border); */
+      box-shadow: var(--shadow-dark);
 
       img {
         width: 100%;
@@ -67,7 +67,7 @@
       &:is(:hover) {
         scale: 1.1;
         /* background-color: var(--accent-color); */
-        border-color: var(--accent-border);
+        /* border-color: var(--accent-color); */
       }
       &:is(:hover,:focus-visible) + .people {
         --move: 0.4%;
