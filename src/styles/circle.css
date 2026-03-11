@@ -30,7 +30,7 @@
 
       pointer-events: auto;
       position: absolute;
-      width: clamp(4rem, 8vw, 4.5rem);
+      width: clamp(3.5rem, 7vw, 4.2rem);
       aspect-ratio: 1;
       border-radius: var(--radius);
 
@@ -67,11 +67,14 @@
 
       &::after {
         content: '';
+        display: block;
         position: absolute;
         inset: -2px;
         pointer-events: none;
         border-radius: var(--radius);
-        background-image: linear-gradient(to top, var(--border) 0%, transparent 0);
+        background-color: var(--border);
+        clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0 100%);
+        transition: clip-path .3s var(--ease-3);
       }
 
       &:is(:hover) {
@@ -94,8 +97,10 @@
       &:hover::before {
         scale: 1.5;
       }
-      &:hover::after {
-        background-image: linear-gradient(to top, var(--border) 15%, transparent 0);
+      &:is(:hover,:focus-visible) {
+        &::after {
+          clip-path: polygon(0 75%, 100% 75%, 100% 100%, 0 100%);
+        }
       }
     }
   }
