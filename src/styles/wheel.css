@@ -35,6 +35,8 @@
     align-items: baseline;
     font-size: var(--font-3);
 
+    will-change: transform;
+
     /* outline: 1px dotted hotpink; */
 
     &:first-child {
@@ -77,13 +79,13 @@
       &:is(:hover,:focus-visible) {
         color: var(--accent-color);
       }
-      
+
       &:is(:focus-visible) {
         outline: 2px solid var(--accent-color);
         outline-offset: 2px;
         animation: AnimateOutline4 .2s var(--ease-3);
       }
-      
+
       @media (min-width: 48rem) {
         &:is(:hover,:focus-visible) {
           transform: scale(1.2);
@@ -116,11 +118,11 @@
       & button {
         &:is(:hover) {
           &::before {
-            text-shadow: 
+            text-shadow:
               0 1px var(--accent-border),
               0 -1px var(--accent-border),
               1px 0 var(--accent-border),
-              -1px 0 var(--accent-border), 
+              -1px 0 var(--accent-border),
               var(--text-shadow)
             ;
           }

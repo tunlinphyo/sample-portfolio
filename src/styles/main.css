@@ -79,13 +79,3 @@
     }
   }
 }
-
-
-:has(dialog[open]:not([data-closing])) {
-  .intro-message {
-    .three-d-icon {
-      opacity: 0;
-      scale: 0.5;
-    }
-  }
-}

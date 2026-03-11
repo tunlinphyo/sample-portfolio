@@ -146,19 +146,17 @@
           Senior Frontend Engineer specializing in CSS, modern Web APIs, and scalable frontend architecture.
         </p>
         <picture aria-hidden="true" role="presentation" class="three-d-icon">
-          <!-- <source
-            srcset="/icons/backpack.png"
+          <source
+            srcset="/icons/backpack-dark.png"
             media="(prefers-color-scheme: dark)"
           />
           <source
-            srcset="/icons/backpack.png"
+            srcset="/icons/backpack-light.png"
             media="(prefers-color-scheme: light)"
-          /> -->
+          />
           <img
-            src="/icons/backpack.png"
+            src="/icons/backpack-light.png"
             alt="Preview of Tun's portfolio interface"
-            width="1200"
-            height="800"
           />
         </picture>
       </section>
@@ -203,7 +201,17 @@
 
       <h2 id="navigation-title">
         <span>Recent Works</span>
-        <img aria-hidden="true" role="presentation" src="/icons/backpack.png" alt="">
+        <picture>
+          <source
+            srcset="/icons/typewriter-dark-2.png"
+            media="(prefers-color-scheme: dark)"
+          />
+          <source
+            srcset="/icons/typewriter-light.png"
+            media="(prefers-color-scheme: light)"
+          />
+          <img aria-hidden="true" role="presentation" data-sm src="/icons/typewriter-dark.png" alt="">
+        </picture>
       </h2>
 
       <div class="projects">
@@ -587,7 +595,17 @@
 
       <h2 id="testimonial-title">
         <span>What People Say</span>
-        <img aria-hidden="true" role="presentation" data-sm src="/icons/airpods-max.png" alt="">
+        <picture>
+          <source
+            srcset="/icons/mailbox-dark.png"
+            media="(prefers-color-scheme: dark)"
+          />
+          <source
+            srcset="/icons/mailbox-light.png"
+            media="(prefers-color-scheme: light)"
+          />
+          <img aria-hidden="true" role="presentation" src="/icons/mailbox-dark.png" alt="">
+        </picture>
       </h2>
 
       <div class="messages" aria-label="Testimonials">
@@ -703,22 +721,28 @@
 
       <div class="circle" aria-label="Open a testimonial">
         <div class="peoples" style="--count: 6" aria-label="Testimonial authors">
-          <button type="button" hoverclick="focusonly" popovertarget="message-1" class="people" style="--index: 1" aria-label="Open testimonial from Person One">
+          <button type="button" hoverclick="focusonly" popovertarget="message-1" class="people" style="--index: 1; --border: rgb(115,137,102)"
+            aria-label="Open testimonial from Person One">
             <img src="/people/9.jpg" alt="" decoding="async" />
           </button>
-          <button type="button" hoverclick="focusonly" popovertarget="message-2" class="people" style="--index: 2" aria-label="Open testimonial from Person Two">
+          <button type="button" hoverclick="focusonly" popovertarget="message-2" class="people" style="--index: 2; --border: rgb(234,120,155)"
+            aria-label="Open testimonial from Person Two">
             <img src="/people/2.jpg" alt="" decoding="async" />
           </button>
-          <button type="button" hoverclick="focusonly" popovertarget="message-3" class="people" style="--index: 3" aria-label="Open testimonial from Person Three">
+          <button type="button" hoverclick="focusonly" popovertarget="message-3" class="people" style="--index: 3; --border: rgb(111,184,149)"
+            aria-label="Open testimonial from Person Three">
             <img src="/people/3.jpg" alt="" decoding="async" />
           </button>
-          <button type="button" hoverclick="focusonly" popovertarget="message-4" class="people" style="--index: 4" aria-label="Open testimonial from Person Four">
+          <button type="button" hoverclick="focusonly" popovertarget="message-4" class="people" style="--index: 4; --border: rgb(239,195,73)"
+            aria-label="Open testimonial from Person Four">
             <img src="/people/10.jpg" alt="" decoding="async" />
           </button>
-          <button type="button" hoverclick="focusonly" popovertarget="message-5" class="people" style="--index: 5" aria-label="Open testimonial from Person Five">
+          <button type="button" hoverclick="focusonly" popovertarget="message-5" class="people" style="--index: 5; --border: rgb(164,174,181)"
+            aria-label="Open testimonial from Person Five">
             <img src="/people/5.jpg" alt="" decoding="async" />
           </button>
-          <button type="button" hoverclick="focusonly" popovertarget="message-6" class="people" style="--index: 6" aria-label="Open testimonial from Person Six">
+          <button type="button" hoverclick="focusonly" popovertarget="message-6" class="people" style="--index: 6; --border: rgb(212,79,74)"
+            aria-label="Open testimonial from Person Six">
             <img src="/people/8.jpg" alt="" decoding="async" />
           </button>
         </div>

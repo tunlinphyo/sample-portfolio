@@ -7,6 +7,14 @@
   }
 }
 
+:has(dialog[open]:not([data-closing])) {
+  .intro-message {
+    .three-d-icon {
+      opacity: 0;
+      scale: 0.5;
+    }
+  }
+}
 
 @media (max-width: 768px) and ((hover: none) or (pointer: coarse)) {
   :where(body:has(dialog [popover]:popover-open)) {

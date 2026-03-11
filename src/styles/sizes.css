@@ -14,4 +14,9 @@
   --font-1: clamp(2.2rem, min(9vw, 9vh), 5rem);
   --font-2: clamp(2rem, 6vw, 2.5rem);
   --font-3: clamp(3rem, max(5vw, 5vh), 4.2rem);
+
+  --rounded: 40px;
+  --rounded-sm: 20px;
+  --rounded-md: 60px;
+  --rounded-lg: 80px;
 }
