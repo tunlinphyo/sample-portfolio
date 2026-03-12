@@ -9,6 +9,7 @@
 
   --surface-1: light-dark(var(--color-1), var(--color-16));
   --surface-2: light-dark(var(--color-1), var(--color-13));
+  --surface-3: light-dark(var(--color-1), var(--color-12));
   --surface-border: light-dark(white, var(--color-11));
   /* --surface-glass: color-mix(in srgb, var(--surface-2), transparent 10%); */
 

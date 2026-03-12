@@ -36,7 +36,7 @@
   @media (orientation: portrait) {
     width: max(30rem, 95vw);
   }
-  @media (max-width: 600px) {
+  @media (max-width: 38rem) {
     width: 100vw;
   }
 
@@ -177,7 +177,7 @@
     }
   }
 
-  @media (max-width: 600px) {
+  @media (max-width: 38rem) {
     flex-direction: column;
     gap: 0.25rem;
   }
@@ -189,18 +189,6 @@
     gap: 1rem;
 
     .logo {
-      width: 2rem;
-      aspect-ratio: 1;
-      display: grid;
-      place-content: center;
-      border-radius: 4px;
-
-      img {
-        max-width: 100%;
-        max-height: 100%;
-        display: block;
-      }
-
       &:is(:focus-visible) {
         outline: 2px solid var(--accent-color);
         outline-offset: 2px;
@@ -209,3 +197,93 @@
     }
   }
 }
+
+:where([data-popover]) {
+  position: relative;
+
+  & img {
+    display: block;
+    width: 2rem;
+    aspect-ratio: 1;
+    object-fit: contain;
+  }
+
+  .logo-popover {
+    position: absolute;
+    right: 50%;
+    top: 50%;
+    translate: 50% -50%;
+
+    display: none;
+    grid-template-columns: calc(2rem + 0.5rem) auto;
+    align-items: center;
+    padding: 0.2rem;
+    border-radius: 100vh;
+    background-color: var(--surface-3);
+    border: 1px solid light-dark(white, var(--color-10));
+    box-shadow: var(--shadow-1);
+    transition: scale .4s var(--ease-spring-1);
+
+    color: var(--text-color);
+    text-decoration: none;
+
+    .logo-avatar {
+      aspect-ratio: 1;
+      border-radius: 50%;
+      padding: 0.25rem;
+      background-color: light-dark(var(--color-3), var(--color-16));
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      & img {
+        width: 1.75rem;
+      }
+    }
+
+    .logo-name {
+      padding-inline: 0.5rem;
+      white-space: nowrap;
+    }
+  }
+
+
+  &:is(:hover,:focus-visible) {
+    z-index: 3;
+
+    .logo-popover {
+      display: grid;
+      scale: 1;
+
+      @starting-style {
+        scale: 0;
+      }
+    }
+  }
+}
+
+
+@media (min-width: 38rem) {
+  [data-popover] {
+    .logo-popover {
+      translate: 1.5rem -50%;
+      transform-origin: 80% 50%;
+    }
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .logo[data-popover] {
+    .tech-logo {
+      width: 0.75rem;
+      aspect-ratio: 1;
+      background-color: var(--text-muted);
+      border-radius: 50%;
+
+      & img {
+        display: none;
+      }
+    }
+  }
+}
+
