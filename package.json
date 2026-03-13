@@ -8,14 +8,16 @@
     "build": "tsc && vite build",
     "deploy": "tsc && vite build && firebase deploy",
     "preview": "vite preview",
+    "test:unit": "vitest run tests/unit",
     "test:e2e": "playwright test",
     "test:e2e:ui": "playwright test --ui",
-    "test": "npm run test:e2e"
+    "test": "npm run test:unit && npm run test:e2e"
   },
   "devDependencies": {
     "@playwright/test": "^1.58.2",
     "typescript": "~5.9.3",
-    "vite": "^7.3.1"
+    "vite": "^7.3.1",
+    "vitest": "^3.2.4"
   },
   "dependencies": {
     "open-props": "^1.7.23"

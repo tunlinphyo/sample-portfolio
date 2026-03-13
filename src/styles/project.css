@@ -24,9 +24,9 @@
   box-shadow: 0 2px 2px var(--popover-shadow-bottom), inset 0 1px 1px var(--popover-shadow-top); */
   box-shadow: var(--shadow-2);
 
-  border-radius: 30px;
+  border-radius: 35px;
   @supports(corner-shape: squircle) {
-    border-radius: 50px;
+    border-radius: 70px;
     corner-shape: squircle;
   }
 
@@ -84,9 +84,9 @@
   clip-path: polygon(0 0, 41% 0, 1% 100%, 8% 100%, 48% 0, 100% 0, 100% 100%, 0 100%);
   border: 1px solid var(--browser-shadow);
 
-  border-radius: 15px;
+  border-radius: 20px;
   @supports(corner-shape: squircle) {
-    border-radius: 25px;
+    border-radius: 40px;
     corner-shape: squircle;
   }
 
@@ -242,7 +242,7 @@
     }
 
     .logo-name {
-      padding-inline: 0.5rem;
+      padding-inline: 0.75rem;
       white-space: nowrap;
     }
   }

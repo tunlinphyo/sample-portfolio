@@ -156,7 +156,7 @@
       --rotate: calc(var(--people-index) * 30deg);
     }
   }
-  
+
   :where(.testimonials:has(.peoples .people:nth-child(1):hover)) { --people-index: -3; }
   :where(.testimonials:has(.peoples .people:nth-child(2):hover)) { --people-index: -2; }
   :where(.testimonials:has(.peoples .people:nth-child(3):hover)) { --people-index: -1; }
@@ -217,6 +217,7 @@
   transition: all .2s var(--ease-3);
 
   background-color: var(--fade-button-bg);
+  /* background-color: var(--accent-color); */
   border-radius: 50%;
   pointer-events: none;
 

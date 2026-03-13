@@ -20,7 +20,7 @@
   opacity: 0;
   scale: 0;
   /* translate: 0 -1rem; */
-  transform-origin: top center;
+  transform-origin: 50% 10%;
   transition: scale .6s var(--ease-spring-3), opacity .2s var(--ease-3);
 
   position-anchor: --contect-popover;

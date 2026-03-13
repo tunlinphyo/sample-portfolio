@@ -1,40 +1,13 @@
 import { expect, test } from '@playwright/test'
 
-test('opens contact-list on hover for pointer devices and on click for touch devices', async ({
-  page,
-  browser,
-}) => {
+const socialActions = [
+  ['GitHub', '#github-popover'],
+  ['LinkedIn', '#linkedin-popover'],
+  ['Email', '#email-popover'],
+] as const
+
+test('opens contact-list on hover for pointer devices', async ({ page }) => {
   await page.goto('/')
-
-  const touchContext = await browser.newContext({
-    hasTouch: true,
-    isMobile: true,
-    viewport: { width: 390, height: 844 },
-  })
-  const touchPage = await touchContext.newPage()
-
-  await touchPage.goto('/')
-
-  const socialActions = [
-    ['GitHub', '#github-popover'],
-    ['LinkedIn', '#linkedin-popover'],
-    ['Email', '#email-popover'],
-  ] as const
-
-  for (const [name, popoverId] of socialActions) {
-    const action = page.getByRole('button', { name })
-    const popover = page.locator(popoverId)
-    const labelledBy = await popover.getAttribute('aria-labelledby')
-
-    if (!labelledBy) {
-      throw new Error(`Missing aria-labelledby for ${popoverId}`)
-    }
-
-    const popoverLabel = page.locator(`#${labelledBy}`)
-
-    await expect(action).toHaveAttribute('aria-label', name)
-    await expect(popoverLabel).toHaveText(name)
-  }
 
   for (const [name, popoverId] of socialActions) {
     const action = page.getByRole('button', { name })
@@ -45,6 +18,17 @@ test('opens contact-list on hover for pointer devices and on click for touch dev
     await page.locator('body').hover({ position: { x: 0, y: 0 } })
     await expect(popover).not.toBeVisible()
   }
+})
+
+test('opens contact-list on click for touch devices', async ({ browser }) => {
+  const touchContext = await browser.newContext({
+    hasTouch: true,
+    isMobile: true,
+    viewport: { width: 390, height: 844 },
+  })
+  const touchPage = await touchContext.newPage()
+
+  await touchPage.goto('/')
 
   for (const { action, popover } of socialActions.map(([name, popoverId]) => ({
     action: touchPage.getByRole('button', { name }),

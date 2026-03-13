@@ -1,12 +1,12 @@
-.PHONY: commit deploy
-
 DEV_BRANCH := develop
+PROD_BRANCH := main
+BRANCH ?=
 
 deploy:
 	@set -e; \
 	branch="$$(git rev-parse --abbrev-ref HEAD)"; \
-	if [ "$$branch" != "$(DEV_BRANCH)" ]; then \
-	  echo "❌ You are on '$$branch'. Switch to '$(DEV_BRANCH)' first."; \
+	if [ "$$branch" != "$(PROD_BRANCH)" ]; then \
+	  echo "❌ You are on '$$branch'. Switch to '$(PROD_BRANCH)' first."; \
 	  exit 1; \
 	fi; \
 	npm test; \
@@ -14,35 +14,60 @@ deploy:
 	npm run deploy; \
 	echo "Deploy done."
 
-gpl:
+check-branch:
+	@if [ -z "$(BRANCH)" ]; then \
+	  echo "❌ BRANCH is required. Usage: make gitpull BRANCH=<branch-name>"; \
+	  exit 1; \
+	fi
+
+gitpull: check-branch
 	@set -e; \
 	branch="$$(git rev-parse --abbrev-ref HEAD)"; \
-	if [ "$$branch" != "$(DEV_BRANCH)" ]; then \
-	  echo "❌ You are on '$$branch'. Switch to '$(DEV_BRANCH)' first."; \
+	if [ "$$branch" != "$(BRANCH)" ]; then \
+	  echo "❌ You are on '$$branch'. Switch to '$(BRANCH)' first."; \
 	  exit 1; \
 	fi; \
-	git pull origin $(DEV_BRANCH);
-	echo "✅ Pulled from $(DEV_BRANCH)"
+	git pull origin $(BRANCH); \
+	echo "✅ Pulled from $(BRANCH)"
 
-gp:
+gitpush-current:
+	@branch="$$(git rev-parse --abbrev-ref HEAD)"; \
+	$(MAKE) gitpush BRANCH="$$branch"
+
+gitpush: check-branch
 	@set -e; \
 	branch="$$(git rev-parse --abbrev-ref HEAD)"; \
-	if [ "$$branch" != "$(DEV_BRANCH)" ]; then \
-	  echo "❌ You are on '$$branch'. Switch to '$(DEV_BRANCH)' first."; \
+	if [ "$$branch" != "$(BRANCH)" ]; then \
+	  echo "❌ You are on '$$branch'. Switch to '$(BRANCH)' first."; \
 	  exit 1; \
 	fi; \
 	git add .; \
-  if git diff --cached --quiet; then \
-    echo "ℹ️ Nothing to commit on $(DEV_BRANCH)."; \
-    exit 0; \
-  fi; \
+	if git diff --cached --quiet; then \
+	  echo "ℹ️ Nothing to commit on $(BRANCH)."; \
+	  exit 0; \
+	fi; \
 	printf "Commit message: "; \
 	read -r msg; \
 	if [ -z "$$msg" ]; then \
 	  echo "❌ Empty commit message. Aborting."; \
 	  exit 1; \
 	fi; \
-	git add .; \
 	git commit -m "$$msg"; \
-	git push origin $(DEV_BRANCH); \
-	echo "✅ Committed and pushed to $(DEV_BRANCH): $$msg"
+	git push origin $(BRANCH); \
+	echo "✅ Committed and pushed to $(BRANCH): $$msg"
+
+gitmerge:
+	@set -e; \
+	git checkout $(DEV_BRANCH); \
+	$(MAKE) gitpull BRANCH=$(DEV_BRANCH); \
+	git checkout $(PROD_BRANCH); \
+	git pull origin $(PROD_BRANCH); \
+	if git diff --quiet $(PROD_BRANCH)..$(DEV_BRANCH); then \
+	  git checkout $(DEV_BRANCH); \
+	  echo "⭕️ No differences to merge. Now you're in $(DEV_BRANCH) branch"; \
+	  exit 0; \
+	fi; \
+	git merge --no-ff $(DEV_BRANCH); \
+	git push origin $(PROD_BRANCH); \
+	git checkout $(DEV_BRANCH); \
+	echo "❇️ Merged and pushed to $(PROD_BRANCH). Now you're in $(DEV_BRANCH) branch"
