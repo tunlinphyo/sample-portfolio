@@ -74,6 +74,7 @@
       display: inline-block;
       text-decoration: none;
       color: var(--accent-color);
+      /* color: hsl(from var(--accent-color) h s 60%); */
       position: relative;
       padding-block: 0.2rem;
 

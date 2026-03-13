@@ -1,5 +1,5 @@
 DEV_BRANCH := develop
-PROD_BRANCH := main
+PROD_BRANCH := master
 BRANCH ?=
 
 deploy:
