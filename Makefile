@@ -31,6 +31,7 @@ gp:
 	  echo "❌ You are on '$$branch'. Switch to '$(DEV_BRANCH)' first."; \
 	  exit 1; \
 	fi; \
+	git add .; \
   if git diff --cached --quiet; then \
     echo "ℹ️ Nothing to commit on $(DEV_BRANCH)."; \
     exit 0; \
