@@ -12,7 +12,13 @@ deploy:
 	npm test; \
 	echo "Tests passed."; \
 	npm run deploy; \
+	git checkout $(DEV_BRANCH); \
 	echo "Deploy done."
+
+develop:
+	git checkout $(DEV_BRANCH); \
+	$(MAKE) gitpull BRANCH=$(DEV_BRANCH); \
+	echo "✅ Now ready to develop."
 
 check-branch:
 	@if [ -z "$(BRANCH)" ]; then \
@@ -29,10 +35,6 @@ gitpull: check-branch
 	fi; \
 	git pull origin $(BRANCH); \
 	echo "✅ Pulled from $(BRANCH)"
-
-gitpush-current:
-	@branch="$$(git rev-parse --abbrev-ref HEAD)"; \
-	$(MAKE) gitpush BRANCH="$$branch"
 
 gitpush: check-branch
 	@set -e; \
@@ -56,6 +58,10 @@ gitpush: check-branch
 	git push origin $(BRANCH); \
 	echo "✅ Committed and pushed to $(BRANCH): $$msg"
 
+gitpush-current:
+	@branch="$$(git rev-parse --abbrev-ref HEAD)"; \
+	$(MAKE) gitpush BRANCH="$$branch"
+
 gitmerge:
 	@set -e; \
 	git checkout $(DEV_BRANCH); \
@@ -69,5 +75,4 @@ gitmerge:
 	fi; \
 	git merge --no-ff $(DEV_BRANCH); \
 	git push origin $(PROD_BRANCH); \
-	git checkout $(DEV_BRANCH); \
-	echo "❇️ Merged and pushed to $(PROD_BRANCH). Now you're in $(DEV_BRANCH) branch"
+	echo "❇️ Merged and pushed to $(PROD_BRANCH). Now ready to deploy👌👌👌."
