@@ -31,7 +31,7 @@
   }
 
   @media (orientation: landscape) {
-    width: 90vh;
+    width: 100vh;
   }
   @media (orientation: portrait) {
     width: max(30rem, 95vw);
