@@ -32,7 +32,7 @@
 
 @supports (rotate: random(0deg, 10deg)) {
   .project {
-    --degree: random(-5deg, 5deg);
+    --degree: random(-10deg, 10deg);
   }
 }
 

@@ -45,7 +45,7 @@ gitpush: check-branch
 	fi; \
 	git add .; \
 	if git diff --cached --quiet; then \
-	  echo "ℹ️ Nothing to commit on $(BRANCH)."; \
+	  echo "❗️ Nothing to commit on $(BRANCH)."; \
 	  exit 0; \
 	fi; \
 	printf "Commit message: "; \
