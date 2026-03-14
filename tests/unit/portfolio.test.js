@@ -21,6 +21,17 @@ function readContactActions() {
   )
 }
 
+function readExternalHttpsLinks() {
+  return Array.from(
+    html.matchAll(/<a ([^>]*href="https:\/\/[^"]+"[^>]*)>/g),
+    ([, attributes]) => ({
+      href: attributes.match(/href="([^"]+)"/)?.[1] ?? '',
+      target: attributes.match(/target="([^"]+)"/)?.[1] ?? '',
+      rel: attributes.match(/rel="([^"]+)"/)?.[1] ?? '',
+    }),
+  )
+}
+
 describe('portfolio contact actions markup', () => {
   beforeEach(() => {
     html = indexHtml
@@ -60,5 +71,16 @@ describe('portfolio contact actions markup', () => {
         headingText: 'Email',
       },
     ])
+  })
+
+  it('uses safe external link attributes for every https anchor', () => {
+    const externalLinks = readExternalHttpsLinks()
+
+    expect(externalLinks.length).toBeGreaterThan(0)
+
+    for (const { href, target, rel } of externalLinks) {
+      expect(target, `Expected ${href} to open in a new tab`).toBe('_blank')
+      expect(rel, `Expected ${href} to use noopener noreferrer`).toBe('noopener noreferrer')
+    }
   })
 })

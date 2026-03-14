@@ -86,6 +86,16 @@ function readProjectResponsiveImages() {
   )
 }
 
+function readProjectRandomAttributes() {
+  return Array.from(
+    html.matchAll(/<div class="project" id="([^"]+)"[^>]*data-random="([^"]+)"[^>]*>/g),
+    ([, projectId, dataRandom]) => ({
+      projectId,
+      dataRandom,
+    }),
+  )
+}
+
 describe('recent works markup', () => {
   beforeEach(() => {
     html = indexHtml
@@ -154,6 +164,18 @@ describe('recent works markup', () => {
         expect.arrayContaining([expect.stringMatching(/^\/projects\/.+/), expect.stringMatching(/^\/projects\/.+-sm\./)]),
       )
       expect(imgSrc, `Unexpected fallback image for ${projectId}`).toBe(sources[0].srcset)
+    }
+  })
+
+  it('adds a data-random attribute to every project popover', () => {
+    const projectRandomAttributes = readProjectRandomAttributes()
+    const { projectIds } = readRecentWorksMarkup()
+
+    expect(projectRandomAttributes).toHaveLength(projectIds.length)
+    expect(projectRandomAttributes.map(({ projectId }) => projectId)).toEqual(projectIds)
+
+    for (const { projectId, dataRandom } of projectRandomAttributes) {
+      expect(dataRandom, `Missing data-random value for ${projectId}`).toBeTruthy()
     }
   })
 })
