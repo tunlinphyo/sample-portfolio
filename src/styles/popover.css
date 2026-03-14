@@ -49,3 +49,34 @@
       overlay .2s allow-discrete;
   }
 }
+
+:where(.project) {
+  position: fixed;
+  inset: 0;
+  margin: auto;
+
+  opacity: 0;
+  transform: translate(0, -5vh) scale(0.5) rotate(0deg);
+  will-change: transform;
+
+  &:popover-open {
+    opacity: 1;
+    transform: translate(0, 0) scale(1) rotate(var(--degree));
+    transition:
+      opacity var(--duration) var(--ease-spring-3),
+      transform var(--duration) var(--ease-spring-3);
+
+    @starting-style {
+      opacity: 0;
+      transform: translate(0, -5vh) scale(0.5) rotate(calc(var(--degree) * -4));
+    }
+  }
+
+  @supports (animation-name: test-starting-style) {
+    transition:
+      opacity .15s var(--ease-in-1),
+      transform .15s var(--ease-in-1),
+      display .15s allow-discrete,
+      overlay .15s allow-discrete;
+  }
+}
