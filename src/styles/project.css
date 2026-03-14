@@ -1,10 +1,6 @@
 :where(.project) {
   --padding: clamp(.5rem, 3vw, 1.5rem);
   --duration: 1s;
-  position: fixed;
-  z-index: 2;
-  inset: 0;
-  margin: auto;
 
   height: auto;
   max-width: auto;
@@ -15,13 +11,6 @@
   align-self: center;
   justify-self: center;
 
-  opacity: 0;
-  transform: translate(0, -5vh) scale(0.5) rotate(0deg);
-  will-change: transform;
-
-  /* background-color: var(--popover-bg);
-  backdrop-filter: blur(5px);
-  box-shadow: 0 2px 2px var(--popover-shadow-bottom), inset 0 1px 1px var(--popover-shadow-top); */
   box-shadow: var(--shadow-2);
 
   border-radius: 35px;
@@ -38,27 +27,6 @@
   }
   @media (max-width: 38rem) {
     width: 100vw;
-  }
-
-  &:popover-open {
-    opacity: 1;
-    transform: translate(0, 0) scale(1) rotate(var(--degree));
-    transition:
-      opacity var(--duration) var(--ease-spring-3),
-      transform var(--duration) var(--ease-spring-3);
-
-    @starting-style {
-      opacity: 0;
-      transform: translate(0, -5vh) scale(0.5) rotate(calc(var(--degree) * -4));
-    }
-  }
-
-  @supports (animation-name: test-starting-style) {
-    transition:
-      opacity .15s var(--ease-in-1),
-      transform .15s var(--ease-in-1),
-      display .15s allow-discrete,
-      overlay .15s allow-discrete;
   }
 }
 
@@ -208,6 +176,10 @@
     object-fit: contain;
   }
 
+  .tech-logo {
+    transition: scale .7s var(--ease-spring-3); 
+  }
+
   .logo-popover {
     position: absolute;
     right: 50%;
@@ -251,12 +223,23 @@
   &:is(:hover,:focus-visible) {
     z-index: 3;
 
+    .tech-logo {
+      scale: 0;
+    }
+
     .logo-popover {
       display: grid;
       scale: 1;
 
       @starting-style {
         scale: 0;
+      }
+
+      .logo-avatar {
+        transition: translate .3s var(--ease-1);
+        @starting-style {
+          translate: 100% 0;
+        }
       }
     }
   }
