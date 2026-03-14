@@ -17,7 +17,7 @@
         height: var(--button-size);
         aspect-ratio: 1;
         background-color: var(--text-muted);
-        transition: scale .7s var(--ease-spring-3);
+        transition: scale .6s var(--ease-spring-2);
         border-radius: 100vh;
       }
 
@@ -75,7 +75,7 @@
       }
       .text {
         scale: 1;
-        transition: scale .7s var(--ease-spring-3);
+        transition: scale .6s var(--ease-spring-2);
       }
     }
   }
