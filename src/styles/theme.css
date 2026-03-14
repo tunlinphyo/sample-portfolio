@@ -1,0 +1,43 @@
+@import "open-props/palette";
+/* @import "open-props/orange"; */
+
+:root {
+  --palette-hue: 0;
+  --palette-hue-rotate-by: 0;
+  --palette-chroma: 0;
+
+
+  --surface-1: light-dark(var(--color-1), var(--color-16));
+  --surface-2: light-dark(var(--color-1), var(--color-13));
+  --surface-3: light-dark(var(--color-1), var(--color-12));
+  --surface-border: light-dark(white, var(--color-11));
+  /* --surface-glass: color-mix(in srgb, var(--surface-2), transparent 10%); */
+
+  --text-color: light-dark(var(--color-13), var(--color-3));
+  --text-muted: light-dark(var(--color-9), var(--color-7));
+
+  --accent-color: OrangeRed;
+   /* var(--orange-7); */
+  --accent-border: light-dark(
+    color-mix(in srgb, var(--accent-color), white 65%),
+    color-mix(in srgb, var(--accent-color), white 20%)
+  );
+
+  --fade-button-bg: light-dark(black, white);
+
+  --browser-bg: light-dark(white, #090909);
+  --searchbar-bg: light-dark(#EEE, #393939);
+  --browser-shadow: light-dark(var(--color-2), black);
+
+  --shadow-1: 0px 8px 24px var(--color-4);
+  --shadow-2: 0px 12px 36px var(--color-4);
+  --shadow-dark: 0px 4px 12px -4px var(--color-8);
+  --text-shadow: 0px 3px 8px var(--color-4);
+
+  @media (prefers-color-scheme: dark) {
+    --shadow-1: none;
+    --shadow-2: none;
+    --shadow-dark: none;
+    --text-shadow: 0 0 0 transparent;
+  }
+}

@@ -1,0 +1,84 @@
+:where(main) {
+  width: 100%;
+  height: 100%;
+
+  padding: var(--padding-2) var(--padding-4);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+
+  .intro-message {
+    /* outline: 1px dotted hotpink; */
+    position: relative;
+
+    & > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .three-d-icon {
+      position: absolute;
+      z-index: -1;
+      z-index: 0;
+      width: min(40vw, 35vh);
+      aspect-ratio: 1;
+      object-fit: contain;
+
+      bottom: 0;
+      left: 50%;
+      translate: -50% 100%;
+
+      animation: ThreeDLoad 1.5s var(--ease-spring-3);
+
+      transition: scale 1s var(--ease-spring-3), opacity .2s var(--ease-out-1);
+
+      /* @media (max-width: 48rem) {
+        display: none;
+      } */
+      @media (min-width: 48rem) {
+        right: 0;
+        top: 50%;
+        translate: 75% -50%;
+      }
+
+      & img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+    }
+
+    h1 {
+      display: block;
+      font-size: var(--font-1);
+      font-weight: 700;
+      line-height: 1.1;
+
+      :where(& > span) {
+        color: var(--text-muted);
+      }
+
+      :where(em) {
+        font-style: normal;
+      }
+
+      & span[data-effect="text-hover"] {
+        /* --shadow-color: var(--text-color); */
+        color: var(--accent-color);
+      }
+
+      @media (prefers-color-scheme: dark) {
+        mix-blend-mode: plus-lighter;
+      }
+    }
+
+    p {
+      display: block;
+      margin-block-start: clamp(1rem, max(4vh, 4vw), 3rem);
+      max-width: 30rem;
+      text-shadow: 0 0 2px var(--surface-1);
+    }
+  }
+}

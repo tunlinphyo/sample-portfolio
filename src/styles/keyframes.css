@@ -1,0 +1,41 @@
+
+@keyframes AnimateOutline {
+  from { outline-offset: -2px; }
+  to { outline-offset: 2px; }
+}
+
+@keyframes AnimateOutline4 {
+  from { outline-offset: -2px; }
+  to { outline-offset: 4px; }
+}
+
+@keyframes move { to { offset-distance: 100%; } }
+
+@keyframes mouseMove {
+  from {
+    translate: 0 0;
+  }
+  to {
+    translate: 0 -1rem;
+  }
+}
+
+@keyframes ShowImage {
+  0%, 50% {
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+  }
+  100% {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+  }
+}
+
+@keyframes ThreeDLoad {
+  0%, 33.33% {
+    scale: 0.5;
+    opacity: 0;
+  }
+  100% {
+    scale: 1;
+    opacity: 1;
+  }
+}

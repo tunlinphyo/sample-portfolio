@@ -1,0 +1,131 @@
+:where(.circle) {
+  position: absolute;
+  z-index: 2;
+  inset: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+
+  .peoples {
+    --space: min(25vw, 25vh);
+    position: relative;
+    z-index: 1;
+    margin-block-end: var(--padding-4);
+    translate: 0 calc(50% - 1.4rem);
+
+    width: 10rem;
+    aspect-ratio: 1;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none;
+
+    .people {
+      --move: 0%;
+      --distance: calc(50% + ((var(--index) - 1) * 50%) / max(1, (var(--count) - 1)) + var(--move));
+      --offset: 0;
+      --radius: 50%;
+
+      pointer-events: auto;
+      position: absolute;
+      width: clamp(3.5rem, 7vw, 4.2rem);
+      aspect-ratio: 1;
+      border-radius: var(--radius);
+
+      transition: all .5s var(--ease-in-3);
+      will-change: offset-distance;
+
+      offset-path: circle(clamp(80px, 35vw, 180px) at 50% 50%);
+      offset-rotate: 0deg;
+      offset-distance: 40%;
+      offset-anchor: auto;
+
+      padding: var(--offset);
+      background-color: var(--surface-2);
+      backdrop-filter: blur(5px);
+      border: 2px solid var(--border);
+      box-shadow: var(--shadow-dark);
+
+      img {
+        width: 100%;
+        aspect-ratio: 1;
+        object-fit: cover;
+        display: block;
+        pointer-events: none;
+        border-radius: var(--radius);
+      }
+
+      &::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        display: block;
+        border-radius: var(--radius);
+      }
+
+      &::after {
+        content: '';
+        display: block;
+        position: absolute;
+        inset: -2px;
+        pointer-events: none;
+        border-radius: var(--radius);
+        background-color: var(--border);
+        clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0 100%);
+        transition: clip-path .3s var(--ease-3);
+      }
+
+      &:is(:hover) {
+        scale: 1.1;
+        /* background-color: var(--accent-color); */
+        /* border-color: var(--accent-color); */
+      }
+      &:is(:hover,:focus-visible) + .people {
+        --move: 0.4%;
+      }
+      &:has(+ .people:is(:hover,:focus-visible)) {
+        --move: -0.4%;
+      }
+      &:is(:focus-visible) {
+        outline: 2px solid var(--accent-color);
+        outline-offset: 4px;
+        animation: AnimateOutline4 .2s var(--ease-3);
+      }
+
+      &:hover::before {
+        scale: 1.5;
+      }
+      &:is(:hover,:focus-visible) {
+        &::after {
+          clip-path: polygon(0 75%, 100% 75%, 100% 100%, 0 100%);
+        }
+      }
+    }
+  }
+}
+
+:where(dialog.testimonials) {
+  &[open] {
+    .peoples {
+      .people {
+        offset-distance: var(--distance);
+        transition: all 1s var(--ease-spring-3);
+
+        @starting-style {
+          offset-distance: 40%;
+        }
+      }
+    }
+  }
+
+  &[data-closing] {
+    .peoples {
+      .people {
+        offset-distance: 40%;
+        transition: all .5s var(--ease-in-3);
+      }
+    }
+  }
+}

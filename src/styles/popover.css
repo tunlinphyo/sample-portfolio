@@ -1,0 +1,51 @@
+:where([popover]) {
+  border: none;
+  outline: none;
+  background-color: var(--surface-2);
+  backdrop-filter: blur(4px);
+  border: 1px solid var(--surface-border);
+  box-shadow: var(--shadow-2);
+
+  @media (min-width: 48rem) {
+    backdrop-filter: blur(8px);
+  }
+}
+
+
+:where(.hover-popover) {
+  position: absolute;
+  margin: 0;
+  inset: 0;
+
+  opacity: 0;
+  scale: 0;
+  /* translate: 0 -1rem; */
+  transform-origin: 50% 10%;
+  transition: scale .6s var(--ease-spring-3), opacity .2s var(--ease-3);
+
+  position-anchor: --contect-popover;
+  @supports(position-area: span-bottom center) {
+    position-area: span-bottom center;
+  }
+
+  &:popover-open {
+    opacity: 1;
+    scale: 1;
+    transition:
+      opacity 1s var(--ease-spring-3),
+      scale 1s var(--ease-spring-3);
+
+    @starting-style {
+      opacity: 0;
+      scale: 0;
+    }
+  }
+
+  @supports(transition-behavior: allow-discrete) {
+    transition:
+      opacity .2s var(--ease-in-1),
+      scale .2s var(--ease-in-1),
+      display .2s allow-discrete,
+      overlay .2s allow-discrete;
+  }
+}

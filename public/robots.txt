@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://tun-online.web.app/sitemap.xml
