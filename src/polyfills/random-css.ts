@@ -2,10 +2,10 @@ const RANGE_PATTERN = /^\s*([^\s,]+)[\s,]+([^\s,]+)\s*$/
 const VALUE_PATTERN = /^(-?(?:\d+\.?\d*|\.\d+))(.*)$/
 const DEFAULT_RANDOM_VAR = '--random'
 const TARGET_VAR_ATTR = 'data-random-var'
-const HAS_NATIVE_RANDOM_CSS_SUPPORT =
-  typeof CSS !== 'undefined' &&
-  typeof CSS.supports === 'function' &&
-  CSS.supports('rotate: random(0deg, 10deg)')
+// const HAS_NATIVE_RANDOM_CSS_SUPPORT =
+//   typeof CSS !== 'undefined' &&
+//   typeof CSS.supports === 'function' &&
+//   CSS.supports('rotate: random(0deg, 10deg)')
 
 function parseCssValue(value: string) {
   const match = VALUE_PATTERN.exec(value)
@@ -42,11 +42,17 @@ function randomCssPolyfill() {
   }
 }
 
-if (!HAS_NATIVE_RANDOM_CSS_SUPPORT) {
-  console.log('random() CSS do not support in this browser.')
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', randomCssPolyfill, { once: true })
-  } else {
-    randomCssPolyfill()
-  }
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', randomCssPolyfill, { once: true })
+} else {
+  randomCssPolyfill()
 }
+
+// if (!HAS_NATIVE_RANDOM_CSS_SUPPORT) {
+//   console.log('random() CSS do not support in this browser.')
+//   if (document.readyState === 'loading') {
+//     document.addEventListener('DOMContentLoaded', randomCssPolyfill, { once: true })
+//   } else {
+//     randomCssPolyfill()
+//   }
+// }

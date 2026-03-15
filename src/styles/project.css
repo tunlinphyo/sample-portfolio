@@ -1,6 +1,7 @@
 :where(.project) {
   --padding: clamp(.5rem, 3vw, 1.5rem);
   --duration: 1s;
+  --degree: var(--random);
 
   height: auto;
   max-width: auto;
@@ -30,9 +31,9 @@
   }
 }
 
-@supports (rotate: random(0deg, 10deg)) {
+/* @supports (rotate: random(0deg, 10deg)) {
   .project {
-    --degree: random(-10deg, 10deg);
+    --degree: random(-7deg, 7deg);
   }
 }
 
@@ -40,7 +41,7 @@
   .project {
     --degree: var(--random);
   }
-}
+} */
 
 :where(.browser) {
   --control: 10px;
@@ -65,7 +66,7 @@
     grid-template-columns: .5fr 1fr .5fr;
     justify-content: space-between;
     align-items: center;
-    padding-inline: 0.5rem;
+    padding-inline: 0.75rem;
 
     .controls {
       display: flex;
@@ -185,8 +186,10 @@
     right: 50%;
     top: 50%;
     translate: 50% -50%;
+    rotate: calc(var(--degree) * -1);
 
     display: none;
+    pointer-events: none;
     grid-template-columns: auto auto;
     align-items: center;
     padding: 0.2rem;
@@ -194,7 +197,10 @@
     background-color: var(--surface-3);
     border: 1px solid light-dark(white, var(--color-10));
     box-shadow: var(--shadow-1);
-    transition: scale .6s var(--ease-spring-2);
+    transition:
+      scale .6s var(--ease-spring-2),
+      pointer-events 0s linear;
+    transition-behavior: allow-discrete;
 
     color: var(--text-color);
     text-decoration: none;
@@ -230,6 +236,8 @@
     .logo-popover {
       display: grid;
       scale: 1;
+      transition-delay: 0s, .6s;
+      pointer-events: auto;
 
       @starting-style {
         scale: 0;
@@ -272,4 +280,3 @@
     }
   }
 } */
-
