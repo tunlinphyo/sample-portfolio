@@ -1,5 +1,6 @@
 :where(header) {
   --button-size: 0.75rem;
+  animation: UILoad 2s ease;
 
   .contact-list {
     display: flex;

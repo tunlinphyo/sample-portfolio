@@ -15,7 +15,7 @@
 
   .intro-message {
     /* outline: 1px dotted hotpink; */
-    
+
     @media (orientation: landscape) {
       position: relative;
 
@@ -42,7 +42,7 @@
       left: 50%;
       translate: -50% -40%;
 
-      animation: ThreeDLoad 1.5s var(--ease-spring-3);
+      animation: ThreeDLoad 2s var(--ease-spring-3);
 
       transition: scale 1s var(--ease-spring-3), opacity .2s var(--ease-out-1);
 
