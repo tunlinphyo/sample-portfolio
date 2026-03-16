@@ -1,6 +1,5 @@
 :where(footer) {
   --button-size: 0.75rem;
-  animation: UILoad 2s ease;
 
   .action-list {
     display: flex;

@@ -215,12 +215,21 @@
             <div class="search-bar"></div>
             <div></div>
           </div>
-          <div class="content">
+          <div class="content" data-hoverlink>
             <picture>
               <source srcset="/projects/lottery.png" media="(min-width: 48rem)" />
               <source srcset="/projects/lottery-sm.png" media="(max-width: 48rem)" />
               <img src="/projects/lottery.png" alt="Ec-cube Plugins" decoding="async">
             </picture>
+
+            <a href="https://www.typescriptlang.org/" target="_blank" rel="noopener noreferrer" class="link-popover">
+              <div class="link-avatar">
+                <img src="/icons/link.svg" alt="" decoding="async">
+              </div>
+              <div class="link-name">
+                Open Page
+              </div>
+            </a>
           </div>
         </div>
       </div>
@@ -757,6 +766,14 @@
 
     <div class="testimonial-blob" aria-hidden="true"></div>
   </dialog>
+
+  <section class="splash-screen">
+    <h2>
+      I'm <span>Tun</span>,<br>
+      a <span><span>Software</span> Engineer</span><br>
+      based in <span>Tokyo</span>
+    </h2>
+  </section>
 
   <script type="module" src="/src/main.ts"></script>
 </body>

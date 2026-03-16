@@ -1,6 +1,5 @@
 :where(header) {
   --button-size: 0.75rem;
-  animation: UILoad 2s ease;
 
   .contact-list {
     display: flex;
@@ -18,7 +17,7 @@
         color: var(--text-muted);
         padding: 0.5rem;
 
-        transition: scale .7s var(--ease-spring-3);
+        transition: scale .6s var(--ease-spring-2);
       }
 
       @media (min-width: 30rem) {

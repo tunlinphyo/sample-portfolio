@@ -1,3 +1,7 @@
+:root {
+  --spalash-screen: SplashScreen 1.25s var(--ease-quart-in) forwards;
+}
+
 :where(html, body) {
   margin: 0;
   padding: 0;
