@@ -1,0 +1,35 @@
+:where(.splash-screen) {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+
+  background-color: var(--surface-1);
+
+  display: grid;
+  place-content: center;
+
+  & h2 {
+    font-size: var(--font-1);
+    font-weight: 700;
+    line-height: 1.1;
+    color: var(--text-muted);
+
+    > span {
+      color: var(--text-color);
+      > span {
+        color: var(--accent-color);
+      }
+    }
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-color: var(--accent-color);
+
+    clip-path: circle(0% at 50% 50%);
+    animation: var(--spalash-screen);
+    animation-delay: 0.99s;
+  }
+}

@@ -3,12 +3,14 @@
 @import url("open-props/easings") layer(base);
 @import url("./styles/theme.css") layer(base);
 @import url("./styles/sizes.css") layer(base);
-@import url("./styles/effect.css") layer(base);
 
 @import url("./styles/keyframes.css") layer(utils);
 @import url("./styles/utils.css") layer(utils);
 
-@import url("./styles/header.css") layer(component);
+@import url("./styles/splash-screen.css") layer(component);
+@import url("./styles/main.css") layer(component);
+
+/* @import url("./styles/header.css") layer(component);
 @import url("./styles/main.css") layer(component);
 @import url("./styles/footer.css") layer(component);
 @import url("./styles/buttons.css") layer(component);
@@ -19,7 +21,7 @@
 @import url("./styles/wheel.css") layer(component);
 @import url("./styles/project.css") layer(component);
 
-@import url("./styles/overwrite.css") layer(overwrite);
+@import url("./styles/overwrite.css") layer(overwrite); */
 
 :root {
   /* font-family: "Poppins", sans-serif; */

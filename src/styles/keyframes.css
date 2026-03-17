@@ -29,13 +29,11 @@
   }
 }
 
-@keyframes ThreeDLoad {
-  0%, 33.33% {
-    scale: 0.5;
-    opacity: 0;
+@keyframes SplashScreen {
+  0% {
+    clip-path: circle(0% at 50% 50%);
   }
   100% {
-    scale: 1;
-    opacity: 1;
+    clip-path: circle(100% at 50% 50%);
   }
 }

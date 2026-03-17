@@ -66,7 +66,7 @@ function readRecentWorksMarkup() {
 function readProjectResponsiveImages() {
   return Array.from(
     html.matchAll(
-      /<div class="project" id="([^"]+)"[\s\S]*?<div class="content">\s*<picture>([\s\S]*?)<\/picture>/g,
+      /<div class="project" id="([^"]+)"[\s\S]*?<div class="content"(?:[^>]*)>\s*<picture>([\s\S]*?)<\/picture>/g,
     ),
     ([, projectId, pictureHtml]) => {
       const sanitizedPictureHtml = pictureHtml.replace(/<!--[\s\S]*?-->/g, '')
