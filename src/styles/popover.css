@@ -32,8 +32,8 @@
     opacity: 1;
     scale: 1;
     transition:
-      opacity 1s var(--ease-spring-3),
-      scale 1s var(--ease-spring-3);
+      opacity 0.7s var(--ease-spring-2),
+      scale 0.7s var(--ease-spring-2);
 
     @starting-style {
       opacity: 0;
@@ -78,5 +78,40 @@
       transform .15s var(--ease-in-1),
       display .15s allow-discrete,
       overlay .15s allow-discrete;
+  }
+}
+
+:where(.theme-picker) {
+  --duration: 1s;
+
+  position: fixed;
+  margin: 0;
+  top: 50%;
+  left: auto;
+  right: var(--padding-1);
+
+  opacity: 1;
+  transform: translate(150%, -50%) scale(0.5);
+  will-change: transform;
+
+  &:popover-open {
+    opacity: 1;
+    transform: translate(0, -50%) scale(1);
+    transition:
+      opacity var(--duration) var(--ease-spring-2),
+      transform var(--duration) var(--ease-spring-2);
+
+    @starting-style {
+      opacity: 0;
+      transform: translate(150%, -50%) scale(0.5);
+    }
+  }
+
+  @supports (animation-name: test-starting-style) {
+    transition:
+      opacity 0.3s var(--ease-5),
+      transform 0.3s var(--ease-5),
+      display 0.3s allow-discrete,
+      overlay 0.3s allow-discrete;
   }
 }

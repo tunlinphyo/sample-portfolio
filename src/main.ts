@@ -1,12 +1,16 @@
 import './polyfills/dialog'
 import './polyfills/hover'
 import './polyfills/random-css'
+import { bindThemePicker } from './scripts/theme'
 import './style.css'
 
-document.addEventListener('DOMContentLoaded', inertFadeButton)
+document.addEventListener('DOMContentLoaded', () => {
+  void import('./styles/lazy.css')
+  inertFadeButton()
+  bindThemePicker()
+})
 
 function inertFadeButton() {
-  void import('./styles/lazy.css')
   const hasCursorPointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches
 
   if (hasCursorPointer) {

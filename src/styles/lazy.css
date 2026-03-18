@@ -9,5 +9,6 @@
 @import url("./message.css") layer(component);
 @import url("./wheel.css") layer(component);
 @import url("./project.css") layer(component);
+@import url("./theme-picker.css") layer(component);
 
 @import url("./overwrite.css") layer(overwrite);

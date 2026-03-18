@@ -12,6 +12,7 @@
   backdrop-filter: blur(5px);
   box-shadow: 0 2px 2px var(--popover-shadow-bottom), inset 0 1px 1px var(--popover-shadow-top); */
   box-shadow: var(--shadow-2);
+  /* clip-path: polygon(0 0, 41% 0, 1% 100%, 2% 100%, 42% 0, 100% 0, 100% 100%, 0 100%); */
 
   border-radius: 35px;
   @supports(corner-shape: squircle) {
