@@ -43,6 +43,14 @@
 </head>
 
 <body>
+  <section class="splash-screen" aria-hidden="true" role="presentation">
+    <h2>
+      I'm <span>Tun</span>,<br>
+      a <span><span>Software</span> Engineer</span><br>
+      based in <span>Tokyo</span>
+    </h2>
+  </section>
+
   <main>
     <header>
       <ul class="contact-list">
@@ -100,7 +108,7 @@
       <h1 class="sr-only">I'm Software/Frontend Engineer based in Tokyo</h1>
       <h1 aria-hidden="true" role="presentation">
         <span>I'm</span>
-        <em>Tun</em><span>,</span> <br>
+        <em>Tun</em><span>,</span> <button class="theme-changer" popovertarget="themepicker"></button> <br>
         <span>a</span>
         <em data-effect-parent>
           <span data-effect="text-hover" aria-hidden="true">
@@ -143,6 +151,12 @@
       </ul>
     </footer>
   </main>
+
+  <section id="themepicker" popover class="theme-picker">
+    <div class="range">
+      <input type="range" value="80" min="0" max="360" step="1">
+    </div>
+  </section>
 
   <dialog id="navigation" class="navigations" aria-labelledby="navigation-title">
     <button type="button" dialogclose class="navigation-close" aria-label="Close Recent Works dialog">
@@ -789,14 +803,6 @@
 
     <div class="testimonial-blob" aria-hidden="true"></div>
   </dialog>
-
-  <section class="splash-screen">
-    <h2>
-      I'm <span>Tun</span>,<br>
-      a <span><span>Software</span> Engineer</span><br>
-      based in <span>Tokyo</span>
-    </h2>
-  </section>
 
   <script type="module" src="/src/main.ts"></script>
 </body>

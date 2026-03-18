@@ -50,8 +50,18 @@
   background-color: var(--browser-bg);
   /* box-shadow: inset 0 1px 1px var(--browser-shadow-top), inset 0 -1px 1px var(--browser-shadow-bottom);
   padding-bottom: 1px; */
-  clip-path: polygon(0 0, 41% 0, 1% 100%, 10% 100%, 50% 0, 100% 0, 100% 100%, 0 100%);
+  clip-path: polygon(0 0, 40% 0, 2% 100%, 8% 100%, 46% 0, 100% 0, 100% 100%, 0 100%);
   border: 1px solid var(--browser-shadow);
+
+  /* -webkit-mask-image: url("/masks/paper-cut.svg");
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-size: 100% 100%;
+  -webkit-mask-position: center;
+
+  mask-image: url("/masks/paper-cut.svg");
+  mask-repeat: no-repeat;
+  mask-size: 100% 100%;
+  mask-position: center; */
 
   border-radius: 20px;
   @supports(corner-shape: squircle) {
@@ -195,7 +205,7 @@
     padding: 0.2rem;
     border-radius: 100vh;
     background-color: var(--surface-3);
-    border: 1px solid light-dark(white, var(--color-10));
+    border: 1px solid var(--surface-border-2);
     box-shadow: var(--shadow-1);
     transition:
       scale .6s var(--ease-spring-2),
@@ -209,7 +219,7 @@
       aspect-ratio: 1;
       border-radius: 50%;
       padding: 0.3rem;
-      background-color: var(--surface-border-2);
+      background-color: var(--surface-1);
       display: flex;
       justify-content: center;
       align-items: center;
@@ -269,7 +279,7 @@
     padding: 0.2rem;
     border-radius: 100vh;
     background-color: var(--surface-3);
-    border: 1px solid light-dark(white, var(--color-10));
+    border: 1px solid var(--surface-border-2);
     box-shadow: var(--shadow-1);
     scale: 0;
     transition: scale .2s var(--ease-2);
@@ -281,7 +291,7 @@
       aspect-ratio: 1;
       border-radius: 50%;
       padding: 0.5rem;
-      background-color: var(--surface-border-2);
+      background-color: var(--surface-1);
       display: flex;
       justify-content: center;
       align-items: center;
@@ -299,7 +309,7 @@
     &:is(:hover,:focus-visible) {
       background-color: var(--accent-color);
       border-color: var(--accent-border);
-      color: var(--text-color);
+      color: var(--surface-1);
     }
   }
 
