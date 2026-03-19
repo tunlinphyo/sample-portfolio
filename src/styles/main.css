@@ -46,6 +46,8 @@
 
       transition: scale 1s var(--ease-spring-3), opacity .2s var(--ease-out-1);
 
+      display: none;
+
       /* @media (max-width: 48rem) {
         display: none;
       } */
