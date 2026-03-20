@@ -108,7 +108,7 @@
       <h1 class="sr-only">I'm Software/Frontend Engineer based in Tokyo</h1>
       <h1 aria-hidden="true" role="presentation">
         <span>I'm</span>
-        <em>Tun</em><span>,</span> <button class="theme-changer" popovertarget="themepicker"></button> <br>
+        <em>Tun</em><span>,</span> <br>
         <span>a</span>
         <em data-effect-parent>
           <span data-effect="text-hover" aria-hidden="true">
@@ -120,16 +120,28 @@
           Engineer
         </em> <br>
         <span>based in</span>
-        <em>Tokyo</em>
+        <em>
+          T<div class="range-color-picker">
+            <button class="ring-opener" hoverclick="manual" popovertarget="colorpicker">
+            </button>
+            <div id="colorpicker" popover class="color-picker-container">
+              <div class="color-picker">
+              </div>
+              <div class="nob-container">
+                <button class="nob"></button>
+              </div>
+            </div>
+          </div>kyo
+        </em>
       </h1>
       <p>
         Senior Frontend Engineer specializing in CSS, modern Web APIs, and scalable frontend architecture.
       </p>
-      <picture aria-hidden="true" role="presentation" class="three-d-icon">
+      <!-- <picture aria-hidden="true" role="presentation" class="three-d-icon">
         <source srcset="/icons/backpack-dark.png" media="(prefers-color-scheme: dark)" />
         <source srcset="/icons/backpack-light.png" media="(prefers-color-scheme: light)" />
         <img src="/icons/backpack-light.png" alt="Preview of Tun's portfolio interface" width="min(40vw, 35vh)" />
-      </picture>
+      </picture> -->
     </section>
 
     <footer>
@@ -152,12 +164,6 @@
     </footer>
   </main>
 
-  <section id="themepicker" popover class="theme-picker">
-    <div class="range">
-      <input type="range" value="80" min="0" max="360" step="1">
-    </div>
-  </section>
-
   <dialog id="navigation" class="navigations" aria-labelledby="navigation-title">
     <button type="button" dialogclose class="navigation-close" aria-label="Close Recent Works dialog">
       <div class="blob-container" aria-hidden="true"></div>
@@ -165,11 +171,11 @@
 
     <h2 id="navigation-title">
       <span>Recent Works</span>
-      <picture>
-        <source srcset="/icons/backpack-dark.png" media="(prefers-color-scheme: dark)" />
-        <source srcset="/icons/backpack-light.png" media="(prefers-color-scheme: light)" />
-        <img aria-hidden="true" role="presentation" src="/icons/backpack-dark.png" alt="" fetchpriority="low" >
-      </picture>
+      <!-- <picture>
+        <source srcset="/icons/typewriter-dark.png" media="(prefers-color-scheme: dark)" />
+        <source srcset="/icons/typewriter-light.png" media="(prefers-color-scheme: light)" />
+        <img aria-hidden="true" role="presentation" src="/icons/typewriter-dark.png" alt="" fetchpriority="low" >
+      </picture> -->
     </h2>
 
     <div class="projects">
@@ -654,11 +660,11 @@
 
     <h2 id="testimonial-title">
       <span>What People Say</span>
-      <picture>
+      <!-- <picture>
         <source srcset="/icons/speaker-dark.png" media="(prefers-color-scheme: dark)" />
         <source srcset="/icons/speaker-light.png" media="(prefers-color-scheme: light)" />
         <img aria-hidden="true" role="presentation" data-sm src="/icons/speaker-dark.png" alt="" fetchpriority="low">
-      </picture>
+      </picture> -->
     </h2>
 
     <div class="messages" aria-label="Testimonials">

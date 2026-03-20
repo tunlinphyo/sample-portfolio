@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Circle Range</title>
+  <style>
+    body {
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      margin: 0;
+      font-family: sans-serif;
+    }
+
+    .knob-wrap {
+      width: 240px;
+      height: 240px;
+      position: relative;
+      user-select: none;
+    }
+
+    svg {
+      width: 100%;
+      height: 100%;
+      overflow: visible;
+    }
+
+    .track {
+      fill: none;
+      stroke: #ddd;
+      stroke-width: 12;
+    }
+
+    .progress {
+      fill: none;
+      stroke: #222;
+      stroke-width: 12;
+      stroke-linecap: round;
+      transform: rotate(-90deg);
+      transform-origin: 50% 50%;
+    }
+
+    .thumb {
+      fill: #222;
+      cursor: pointer;
+    }
+
+    .value {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      font-size: 2rem;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="knob-wrap" id="knob">
+    <svg viewBox="0 0 240 240">
+      <circle class="track" cx="120" cy="120" r="90"></circle>
+      <circle
+        class="progress"
+        id="progress"
+        cx="120"
+        cy="120"
+        r="90"
+        stroke-dasharray="565.49"
+        stroke-dashoffset="565.49"
+      ></circle>
+      <circle class="thumb" id="thumb" cx="120" cy="30" r="10"></circle>
+    </svg>
+    <div class="value" id="value">0</div>
+  </div>
+
+  <script>
+    const knob = document.getElementById('knob');
+    const progress = document.getElementById('progress');
+    const thumb = document.getElementById('thumb');
+    const valueEl = document.getElementById('value');
+
+    const cx = 120;
+    const cy = 120;
+    const r = 90;
+    const circumference = 2 * Math.PI * r;
+
+    let isDragging = false;
+    let value = 0;
+    const min = 0;
+    const max = 100;
+
+    function setValue(newValue) {
+      value = Math.max(min, Math.min(max, newValue));
+      const percent = (value - min) / (max - min);
+      const angle = percent * 360;
+
+      const rad = (angle - 90) * Math.PI / 180;
+      const x = cx + r * Math.cos(rad);
+      const y = cy + r * Math.sin(rad);
+
+      progress.style.strokeDasharray = circumference;
+      progress.style.strokeDashoffset = circumference * (1 - percent);
+
+      thumb.setAttribute('cx', x);
+      thumb.setAttribute('cy', y);
+      valueEl.textContent = Math.round(value);
+    }
+
+    function updateFromPointer(clientX, clientY) {
+      const rect = knob.getBoundingClientRect();
+      const x = clientX - rect.left;
+      const y = clientY - rect.top;
+
+      const dx = x - cx;
+      const dy = y - cy;
+
+      let angle = Math.atan2(dy, dx) * 180 / Math.PI + 90;
+      if (angle < 0) angle += 360;
+
+      const percent = angle / 360;
+      const newValue = min + percent * (max - min);
+      setValue(newValue);
+    }
+
+    knob.addEventListener('pointerdown', (e) => {
+      isDragging = true;
+      updateFromPointer(e.clientX, e.clientY);
+    });
+
+    window.addEventListener('pointermove', (e) => {
+      if (!isDragging) return;
+      updateFromPointer(e.clientX, e.clientY);
+    });
+
+    window.addEventListener('pointerup', () => {
+      isDragging = false;
+    });
+
+    setValue(0);
+  </script>
+</body>
+</html>

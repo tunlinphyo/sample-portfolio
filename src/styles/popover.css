@@ -115,3 +115,45 @@
       overlay 0.3s allow-discrete;
   }
 }
+
+:where(.color-picker-container) {
+  --duration: 1s;
+
+  position: fixed;
+  top: anchor(center);
+  left: anchor(center);
+  translate: -50% -50%;
+  margin: 0;
+  scale: 0;
+  opacity: 0;
+
+  opacity: 1;
+  will-change: scale;
+  background-color: transparent;
+  backdrop-filter: none;
+
+  &::backdrop {
+    background-color: transparent;
+  }
+
+  &:popover-open {
+    opacity: 1;
+    scale: 1;
+    transition:
+      opacity var(--duration) var(--ease-spring-2),
+      scale var(--duration) var(--ease-spring-2);
+
+    @starting-style {
+      opacity: 0;
+      scale: 0;
+    }
+  }
+
+  @supports (animation-name: test-starting-style) {
+    transition:
+      opacity 0.3s var(--ease-5),
+      scale 0.3s var(--ease-5),
+      display 0.3s allow-discrete,
+      overlay 0.3s allow-discrete;
+  }
+}
