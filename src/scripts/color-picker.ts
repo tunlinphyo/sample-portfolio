@@ -1,4 +1,4 @@
-import { THEME_HUE_EVENT, THEME_HUE_STORAGE_KEY } from './theme'
+import { THEME_HUE_EVENT, THEME_HUE_STORAGE_KEY, updateTheme } from './theme'
 
 class ColorPicker {
   private readonly rootStyle = document.documentElement.style
@@ -154,7 +154,7 @@ class ColorPicker {
     this.container.dataset.hue = String(degrees)
     this.knob?.setAttribute('aria-valuenow', String(degrees))
     this.knob?.setAttribute('aria-valuetext', `${Math.round(degrees)} degrees`)
-    this.rootStyle.setProperty('--palette-hue', String(degrees))
+    updateTheme(String(degrees))
 
     if (this.knob) {
       this.knob.style.offsetDistance = `${(degrees / 360) * 100}%`
