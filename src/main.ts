@@ -1,13 +1,14 @@
+import { bindThemePicker } from './scripts/theme'
 import './polyfills/dialog'
 import './polyfills/hover'
 import './polyfills/random-css'
-import { bindThemePicker } from './scripts/theme'
 import './style.css'
 
 document.addEventListener('DOMContentLoaded', () => {
-  void import('./styles/lazy.css')
-  inertFadeButton()
   bindThemePicker()
+  inertFadeButton()
+
+  void import('./styles/lazy.css')
   void import('./scripts/color-picker').then(({ bindColorPicker }) => {
     bindColorPicker()
   })
