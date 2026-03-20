@@ -10,40 +10,52 @@
   display: inline-block;
   position: relative;
   line-height: 0;
-  translate: -1px 0;
+  translate: -0.02em 0;
 
   .ring-opener {
-    anchor-name: --ring-opener;
-    width: 0.55em;
     --ring: 0.145em;
+    anchor-name: --ring-opener;
+    width: 0.625em;
     aspect-ratio: 1;
     border-radius: 50%;
-    background-color: var(--accent-color);
+    background-color: transparent;
     transition: scale .3s var(--ease-3), opacity 0.2s var(--ease-5);
+    padding: 0;
+
+    & svg {
+      width: 100%;
+      aspect-ratio: 1;
+    }
 
 
-    background-image: conic-gradient(
+    /* background-image: conic-gradient(
       in oklch increasing hue,
       oklch(from red l c 0deg) 0deg,
       oklch(from red l c 180deg) 180deg,
       oklch(from red l c 360deg) 360deg
-    );
+    ); */
 
     /* -webkit-mask: radial-gradient(circle, transparent 0 8rem, #000 0); */
-    mask: radial-gradient(circle, transparent 0 var(--ring), #000 0);
+    /* mask: radial-gradient(circle, transparent 0 var(--ring), #000 0); */
   }
 
   .color-picker-container {
     --size: 10rem;
     --ring: 3rem;
+    --shadow: light-dark(var(--color-4), var(--color-16));
     position-anchor: --ring-opener;
 
     width: var(--size);
     aspect-ratio: 1;
     border-radius: 50%;
     transition: scale .7s var(--ease-spring-2), opacity .3s var(--ease-5);
-    box-shadow: var(--shadow-1), inset 0 0 0 calc(2rem + 1px) var(--surface-1), inset 0 0 1rem 2.5rem var(--color-4);
-    padding: 1px;
+    box-shadow: 
+      0px 2px 8px var(--shadow), 
+      inset 0 0 0 2rem var(--surface-1), 
+      inset 0 0 1rem 2.5rem var(--shadow)
+    ;
+    border: 1px solid var(--surface-1);
+    padding: 0;
     
     
     .color-picker {
@@ -79,15 +91,15 @@
         aspect-ratio: 1;
         border-radius: 50%;
         background-color: var(--accent-color);
-        border: 2px solid white;
+        border: 2px solid light-dark(white, black);
         position: absolute;
-        offset-path: circle(calc(50% - 1rem - 1px) at 50% 50%);
+        offset-path: circle(calc(50% - 1rem) at 50% 50%);
         offset-rotate: 0deg;
         offset-distance: 0%;
         box-shadow: var(--shadow-0);
 
         &:is(:focus-visible) {
-          outline: 2px solid black;
+          outline: 2px solid light-dark(black, white);
           outline-offset: 0px;
         }
       }

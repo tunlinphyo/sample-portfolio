@@ -13,9 +13,9 @@
       &::before {
         content: attr(data-text);
         display: block;
-        font-size: 1rem;
         color: var(--text-muted);
         padding: 0.5rem;
+        font-size: 1rem;
 
         transition: scale .6s var(--ease-spring-2);
       }
@@ -74,7 +74,6 @@
       display: inline-block;
       text-decoration: none;
       color: var(--accent-color);
-      /* color: hsl(from var(--accent-color) h s 60%); */
       position: relative;
       padding-block: 0.2rem;
 
@@ -103,7 +102,6 @@
         border-bottom: 3px double var(--accent-color);
         transition: scale .6s var(--ease-spring-3), opacity 0s linear .6s;
         overflow-y: clip;
-
       }
 
       &:hover::after {
