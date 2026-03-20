@@ -13,12 +13,12 @@ test('lazy-loads the color picker and updates hue state from keyboard input', as
 
   await expect(opener).toHaveAttribute('aria-label', 'Open color picker')
   await expect(knob).toHaveAttribute('role', 'slider')
-  await expect(knob).toHaveAttribute('aria-valuenow', '0')
+  await expect(knob).toHaveAttribute('aria-valuenow', '200')
 
   await knob.dispatchEvent('keydown', { key: 'ArrowRight' })
 
-  await expect(knob).toHaveAttribute('aria-valuenow', '5')
-  await expect(colorPicker).toHaveAttribute('data-hue', '5')
+  await expect(knob).toHaveAttribute('aria-valuenow', '205')
+  await expect(colorPicker).toHaveAttribute('data-hue', '205')
 
   await expect
     .poll(() =>
@@ -27,5 +27,5 @@ test('lazy-loads the color picker and updates hue state from keyboard input', as
         storedHue: window.localStorage.getItem('theme-hue'),
       })),
     )
-    .toEqual({ hue: '5', storedHue: '5' })
+    .toEqual({ hue: '205', storedHue: '205' })
 })
