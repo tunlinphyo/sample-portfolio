@@ -69,6 +69,8 @@
       font-size: var(--font-1);
       font-weight: 700;
       line-height: 1.1;
+      position: relative;
+      z-index: 2;
 
       :where(& > span) {
         color: var(--text-muted);

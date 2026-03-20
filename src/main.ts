@@ -8,6 +8,9 @@ document.addEventListener('DOMContentLoaded', () => {
   void import('./styles/lazy.css')
   inertFadeButton()
   bindThemePicker()
+  void import('./scripts/color-picker').then(({ bindColorPicker }) => {
+    bindColorPicker()
+  })
 })
 
 function inertFadeButton() {
