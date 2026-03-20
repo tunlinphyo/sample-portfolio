@@ -73,6 +73,6 @@ gitmerge:
 	  echo "⭕️ No differences to merge. Now you're in $(DEV_BRANCH) branch"; \
 	  exit 0; \
 	fi; \
-	git merge --no-ff $(DEV_BRANCH); \
+	git merge --no-ff --no-edit $(DEV_BRANCH); \
 	git push origin $(PROD_BRANCH); \
 	echo "❇️ Merged and pushed to $(PROD_BRANCH). Now ready to deploy👌👌👌."

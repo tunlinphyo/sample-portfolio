@@ -12,8 +12,9 @@ export function updateTheme(hue: string) {
   const rootStyle = document.documentElement.style
   rootStyle.setProperty('--palette-hue', hue)
 
-  const themeColor = getComputedStyle(document.documentElement)
-    .getPropertyValue('--surface-1')
+  const themeSurface = document.querySelector('main') ?? document.body ?? document.documentElement
+  const themeColor = getComputedStyle(themeSurface)
+    .backgroundColor
     .trim()
 
   if (!themeColor) return
@@ -26,5 +27,7 @@ export function updateTheme(hue: string) {
     document.head.append(themeColorMeta)
   }
 
+  document.documentElement.style.backgroundColor = themeColor
+  document.body?.style.setProperty('background-color', themeColor)
   themeColorMeta.content = themeColor
 }
