@@ -1,5 +1,5 @@
 :where(.project) {
-  --padding: clamp(.5rem, 3vw, 1.5rem);
+  --padding: clamp(.5rem, 2vw, 1.5rem);
   --duration: 1s;
   --degree: var(--random);
 
@@ -47,11 +47,10 @@
   --control: 10px;
   width: 100%;
   overflow: clip;
-  background-color: var(--browser-bg);
-  /* box-shadow: inset 0 1px 1px var(--browser-shadow-top), inset 0 -1px 1px var(--browser-shadow-bottom);
-  padding-bottom: 1px; */
+  /* background-color: var(--browser-bg); */
   clip-path: polygon(0 0, 40% 0, 2% 100%, 8% 100%, 46% 0, 100% 0, 100% 100%, 0 100%);
-  border: 1px solid var(--browser-shadow);
+  border: 2px solid var(--accent-color);
+  position: relative;
 
   /* -webkit-mask-image: url("/masks/paper-cut.svg");
   -webkit-mask-repeat: no-repeat;
@@ -63,10 +62,28 @@
   mask-size: 100% 100%;
   mask-position: center; */
 
-  border-radius: 20px;
+  border-radius: 25px;
   @supports(corner-shape: squircle) {
-    border-radius: 40px;
+    border-radius: 50px;
     corner-shape: squircle;
+  }
+
+  &::before,
+  &::after {
+    content: "";
+    display: block;
+    position: absolute;
+    z-index: 5;
+    inset: 0;
+    background-color: var(--accent-color);
+  }
+
+  &::before {
+    clip-path: polygon(calc(40% - 4px) 0, 40% 0, 2% 100%, calc(2% - 3px) 100%);
+  }
+  &::after {
+    /* clip-path: polygon(46% 0, calc(46% + 2px) 0, calc(8% + 2px) 100%, 8% 100%); */
+    clip-path: polygon(calc(46% - 2px) 0, calc(46% + 1px) 0, calc(8% + 2px) 100%, calc(8% - 2px) 100%);
   }
 
   .bar {
@@ -101,7 +118,8 @@
 
     .search-bar {
       height: 20px;
-      background-color: var(--searchbar-bg);
+      /* background-color: var(--searchbar-bg); */
+      border: 2px solid var(--accent-color);
 
       border-radius: 5px;
     }
@@ -165,9 +183,16 @@
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    gap: 1.5rem;
+    gap: 0;
+    border: 2px solid var(--accent-color);
+    border-radius: 100vh;
 
     .logo {
+      padding: 0.3rem 0.75rem;
+      &:not(:last-child) {
+        border-right: 2px solid var(--accent-color);
+      }
+
       &:is(:focus-visible) {
         outline: 2px solid var(--accent-color);
         outline-offset: 2px;
@@ -182,7 +207,7 @@
 
   & img {
     display: block;
-    width: 2rem;
+    width: 1.5rem;
     aspect-ratio: 1;
     object-fit: contain;
   }
@@ -195,7 +220,7 @@
     position: absolute;
     right: 50%;
     top: 50%;
-    translate: 50% -50%;
+    translate: 50% calc(-50% - 1px);
     rotate: calc(var(--degree) * -1);
 
     display: none;
@@ -204,8 +229,8 @@
     align-items: center;
     padding: 0.2rem;
     border-radius: 100vh;
-    background-color: var(--surface-3);
-    border: 1px solid var(--surface-border-2);
+    background-color: var(--surface);
+    border: 2px solid var(--accent-color);
     box-shadow: var(--shadow-1);
     transition:
       scale .6s var(--ease-spring-2),
@@ -219,14 +244,10 @@
       aspect-ratio: 1;
       border-radius: 50%;
       padding: 0.3rem;
-      background-color: var(--surface-1);
+      background-color: var(--surface);
       display: flex;
       justify-content: center;
       align-items: center;
-
-      & img {
-        width: 1.5rem;
-      }
     }
 
     .logo-name {
@@ -264,6 +285,7 @@
 
 :where([data-hoverlink]) {
   position: relative;
+  --text-color: light-dark(var(--accent-color), var(--surface));
 
   .link-popover {
     position: absolute;
@@ -278,11 +300,11 @@
     align-items: center;
     padding: 0.2rem;
     border-radius: 100vh;
-    background-color: var(--surface-3);
-    border: 1px solid var(--surface-border-2);
-    box-shadow: var(--shadow-1);
+    background-color: white;
+    border: 2px solid light-dark(var(--accent-color), var(--surface));
+    box-shadow: 0px 2px 0 light-dark(var(--accent-color), var(--surface));
     scale: 0;
-    transition: scale .2s var(--ease-2);
+    transition: all .2s var(--ease-2);
 
     color: var(--text-color);
     text-decoration: none;
@@ -291,7 +313,7 @@
       aspect-ratio: 1;
       border-radius: 50%;
       padding: 0.5rem;
-      background-color: var(--surface-1);
+      background-color: var(--surface);
       display: flex;
       justify-content: center;
       align-items: center;
@@ -306,10 +328,19 @@
       white-space: nowrap;
     }
 
-    &:is(:hover,:focus-visible) {
-      background-color: var(--accent-color);
-      border-color: var(--accent-border);
-      color: var(--surface-1);
+    &:is(:hover) {
+      box-shadow: 0px 4px 0 light-dark(var(--accent-color), var(--surface));
+      translate: -50% calc(-50% - 2px);
+    }
+    &:is(:focus-visible) {
+      box-shadow: 0 0 0 light-dark(var(--accent-color), var(--surface));
+      translate: -50% -50%;
+      outline: 2px solid light-dark(var(--accent-color), var(--surface));
+      outline-offset: 2px;
+    }
+    &:is(:active) {
+      box-shadow: 0px 0px 0 light-dark(var(--accent-color), var(--surface));
+      translate: -50% calc(-50% + 2px);
     }
   }
 
@@ -317,7 +348,7 @@
     .link-popover {
       scale: 1;
       pointer-events: auto;
-      transition: scale .6s var(--ease-spring-2);
+      transition: all .3s var(--ease-3), scale .6s var(--ease-spring-2);
 
       .link-avatar {
         transition: translate .3s var(--ease-2);
@@ -346,7 +377,7 @@
     .tech-logo {
       width: 0.75rem;
       aspect-ratio: 1;
-      background-color: var(--text-muted);
+      background-color: var(--text-color);
       border-radius: 50%;
 
       & img {

@@ -13,7 +13,7 @@
       &::before {
         content: attr(data-text);
         display: block;
-        color: var(--text-muted);
+        color: var(--text-color);
         padding: 0.5rem;
         font-size: 1rem;
 
@@ -64,10 +64,11 @@
     display: block;
     text-align: center;
     margin-block-start: 0.5rem;
+    color: var(--text-color);
   }
 
   .link {
-    margin-block-start: 0.5rem;
+    margin-block-start: 0.75rem;
     text-align: center;
 
     & a {
@@ -75,7 +76,11 @@
       text-decoration: none;
       color: var(--accent-color);
       position: relative;
-      padding-block: 0.2rem;
+      padding: 0.2rem 1rem;
+
+      border: 2px solid var(--accent-color);
+      box-shadow: 0 2px 0 var(--accent-color);
+      transition: all .3s var(--ease-3);
 
       border-radius: 6px;
       @supports(corner-shape: squircle) {
@@ -83,7 +88,24 @@
         corner-shape: squircle;
       }
 
-      &:focus-visible {
+      &:is(:hover) {
+        box-shadow: 0 4px 0 var(--accent-color);
+        translate: 0 -2px;
+      }
+
+      &:is(:active) {
+        box-shadow: 0 0 0 var(--accent-color);
+        translate: 0 2px;
+      }
+
+      &:is(:focus-visible) {
+        outline: 2px solid var(--accent-color);
+        outline-offset: 2px;
+        translate: 0 2px;
+        box-shadow: 0 0 0 var(--accent-color);
+      }
+
+      /* &:focus-visible {
         outline: 2px solid var(--accent-color);
         outline-offset: 4px;
         animation: AnimateOutline4 .2s var(--ease-3);
@@ -108,19 +130,19 @@
         scale: 1;
         opacity: 1;
         transition: scale .6s var(--ease-spring-3), opacity 0s linear;
-      }
+      } */
     }
   }
 }
 
-:where(.contact-action) {
+/* :where(.contact-action) {
   &:is(:focus-visible) {
     :where(.hover-popover) {
       outline: 2px solid var(--accent-color);
-      outline-offset: 2px;
+      outline-offset: 4px;
     }
   }
-}
+} */
 
 @media (max-width: 38rem) {
   :where(.hover-popover) {

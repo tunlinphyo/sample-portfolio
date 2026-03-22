@@ -3,7 +3,7 @@
   inset: 0;
   z-index: 0;
 
-  background-color: var(--surface-1);
+  background-color: var(--surface);
 
   display: grid;
   place-content: center;
@@ -12,13 +12,30 @@
     font-size: var(--font-1);
     font-weight: 700;
     line-height: 1.1;
-    color: var(--text-muted);
+    color: var(--text-color);
 
     > span {
       color: var(--text-color);
+
       > span {
         color: var(--accent-color);
+
       }
+    }
+
+    @supports (-webkit-text-stroke: 1px black) {
+      color: var(--surface);
+      -webkit-text-stroke: 3px var(--text-color);
+      paint-order: stroke fill;
+
+      @media (min-width: 48rem) {
+        -webkit-text-stroke: 4px var(--text-color);
+      }
+    }
+
+    span {
+      -webkit-text-stroke: 0;
+      paint-order: normal;
     }
   }
 
