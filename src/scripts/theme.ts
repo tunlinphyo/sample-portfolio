@@ -12,22 +12,14 @@ export function updateTheme(hue: string) {
   const rootStyle = document.documentElement.style
   rootStyle.setProperty('--palette-hue', hue)
 
-  const themeSurface = document.querySelector('main') ?? document.body ?? document.documentElement
-  const themeColor = getComputedStyle(themeSurface)
-    .backgroundColor
-    .trim()
+  // const themeSurface = document.body ?? document.documentElement
 
-  if (!themeColor) return
+  // const themeColor = getComputedStyle(themeSurface)
+  //   .backgroundColor
+  //   .trim()
 
-  let themeColorMeta = document.querySelector<HTMLMetaElement>('meta[name="theme-color"]')
+  // if (!themeColor) return
 
-  if (!themeColorMeta) {
-    themeColorMeta = document.createElement('meta')
-    themeColorMeta.name = 'theme-color'
-    document.head.append(themeColorMeta)
-  }
-
-  document.documentElement.style.backgroundColor = themeColor
-  document.body?.style.setProperty('background-color', themeColor)
-  themeColorMeta.content = themeColor
+  // document.documentElement.style.backgroundColor = themeColor
+  // document.body?.style.setProperty('background-color', themeColor)
 }

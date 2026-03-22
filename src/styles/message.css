@@ -87,7 +87,8 @@
       aspect-ratio: 1;
       border-radius: 50%;
       overflow: clip;
-      outline: 2px solid var(--border);
+      border: 2px solid light-dark(var(--accent-color), var(--border));
+      /* border: 2px solid var(--accent-color); */
 
       & img {
         display: block;
@@ -105,7 +106,7 @@
       }
       .position {
         font-size: 1rem;
-        color: var(--text-muted);
+        color: var(--text-color);
       }
     }
   }

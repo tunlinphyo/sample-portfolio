@@ -27,6 +27,7 @@
       --distance: calc(50% + ((var(--index) - 1) * 50%) / max(1, (var(--count) - 1)) + var(--move));
       --offset: 0;
       --radius: 50%;
+      /* --accent-color: var(--surface); */
 
       pointer-events: auto;
       position: absolute;
@@ -43,10 +44,11 @@
       offset-anchor: auto;
 
       padding: var(--offset);
-      background-color: var(--surface-2);
+      background-color: var(--surface);
       backdrop-filter: blur(5px);
-      border: 2px solid var(--border);
-      box-shadow: var(--shadow-dark);
+      border: 2px solid light-dark(var(--accent-color), var(--border));
+      /* border: 2px solid var(--accent-color); */
+      /* box-shadow: var(--shadow-1); */
 
       img {
         width: 100%;
@@ -72,7 +74,8 @@
         inset: -2px;
         pointer-events: none;
         border-radius: var(--radius);
-        background-color: var(--border);
+        background-color: light-dark(var(--accent-color), var(--border));
+        /* background-color: var(--accent-color); */
         clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0 100%);
         transition: clip-path .3s var(--ease-3);
       }
@@ -89,6 +92,7 @@
         --move: -0.4%;
       }
       &:is(:focus-visible) {
+        outline: 2px solid light-dark(var(--accent-color), var(--border));
         outline: 2px solid var(--accent-color);
         outline-offset: 4px;
         animation: AnimateOutline4 .2s var(--ease-3);
@@ -99,7 +103,7 @@
       }
       &:is(:hover,:focus-visible) {
         &::after {
-          clip-path: polygon(0 75%, 100% 75%, 100% 100%, 0 100%);
+          clip-path: polygon(0 85%, 100% 55%, 100% 100%, 0 100%);
         }
       }
     }

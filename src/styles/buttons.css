@@ -19,7 +19,7 @@
     position: absolute;
     width: 1.5rem;
     height: 2px;
-    background-color: var(--surface-1);
+    background-color: var(--surface);
     transition: all .7s var(--ease-spring-3);
   }
 
@@ -110,7 +110,7 @@
     position: absolute;
     width: 1.5rem;
     height: 2px;
-    background-color: var(--surface-1);
+    background-color: var(--surface);
     transition: transform 1s var(--ease-spring-3);
   }
 
@@ -216,7 +216,7 @@
   translate: 0 calc(var(--move-y) * -1);
   transition: all .2s var(--ease-3);
 
-  background-color: var(--fade-button-bg);
+  background-color: var(--accent-color);
   /* background-color: var(--accent-color); */
   border-radius: 50%;
   pointer-events: none;
@@ -228,7 +228,7 @@
     z-index: 1;
     width: 1.5rem;
     height: 2px;
-    background-color: var(--surface-1);
+    background-color: var(--surface);
   }
 
   &::before {
