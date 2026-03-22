@@ -47,6 +47,6 @@
 
     clip-path: circle(0% at 50% 50%);
     animation: var(--spalash-screen);
-    animation-delay: 0.99s;
+    animation-delay: 1.49s;
   }
 }

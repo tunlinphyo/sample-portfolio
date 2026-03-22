@@ -3,7 +3,7 @@
 
   --surface: light-dark(
     oklch(0.98 0.01 var(--palette-hue)),
-    oklch(from red calc(l - 0.28) c var(--palette-hue))
+    oklch(from red calc(l - 0.3) c var(--palette-hue))
   );
 
   /* --surface: light-dark(
