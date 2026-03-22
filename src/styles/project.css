@@ -318,8 +318,14 @@
       justify-content: center;
       align-items: center;
 
-      & img {
+      &::before {
+        content: "";
+        display: block;
         width: 1.25rem;
+        aspect-ratio: 1;
+        background-color: var(--accent-color);
+        -webkit-mask: url("/icons/link.svg") no-repeat center / contain;
+        mask: url("/icons/link.svg") no-repeat center / contain;
       }
     }
 
