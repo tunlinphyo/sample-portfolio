@@ -1,32 +1,30 @@
 :root {
   --palette-hue: 200;
 
-  --surface: light-dark(
-    oklch(0.98 0.01 var(--palette-hue)),
-    oklch(from red calc(l - 0.3) c var(--palette-hue))
-  );
-
   /* --surface: light-dark(
     oklch(0.98 0.01 var(--palette-hue)),
-    oklch(0.71 0.05 var(--palette-hue))
+    oklch(from red calc(l - 0.3) c var(--palette-hue))
   ); */
 
-  --accent-color: light-dark(
-    oklch(from red calc(l - 0.18) c var(--palette-hue)),
-    oklch(0.9 0.01 var(--palette-hue))
+  --surface: light-dark(
+    oklch(0.98 0.02 var(--palette-hue)),
+    oklch(0 0 var(--palette-hue))
   );
 
-  /* --accent-color: light-dark(
+  /* --text-color: light-dark(
     oklch(from red calc(l - 0.18) c var(--palette-hue)),
-    oklch(0.18 0.04 var(--palette-hue))
+    oklch(0.9 0.01 var(--palette-hue))
   ); */
-  
-  --text-color: var(--accent-color);
-  --border-color: var(--accent-color);
 
-  --browser-bg: light-dark(white, black);
-  --searchbar-bg: light-dark(#EEE, #555);
+  --text-color: light-dark(
+    oklch(from red calc(l - 0.09) c var(--palette-hue)),
+    oklch(from red l calc(c - 0.04) var(--palette-hue))
+  );
 
-  --shadow-1: 0px 2px 0 var(--accent-color);
-  --shadow-2: 0px 6px 0 var(--accent-color);
+  --fill-color: oklch(from red l c var(--palette-hue));
+  --fill-head: light-dark(#222, #999);
+  --fill-glass: #999C;
+
+  --shadow-1: 0px 2px 0 var(--text-color);
+  --shadow-2: 0px 6px 0 var(--text-color);
 }

@@ -46,7 +46,7 @@
   @media (hover: hover) and (pointer: fine) {
     &:is(:focus-visible) {
       .blob-container {
-        outline: 2px solid var(--accent-color);
+        outline: 2px solid var(--text-color);
         outline-offset: 4px;
         animation: AnimateOutline4 .2s var(--ease-3);
       }
@@ -137,7 +137,7 @@
   @media (hover: hover) and (pointer: fine) {
     &:is(:focus-visible) {
       .blob-container {
-        outline: 2px solid var(--accent-color);
+        outline: 2px solid var(--text-color);
         outline-offset: 4px;
         animation: AnimateOutline4 .2s var(--ease-3);
       }
@@ -216,8 +216,8 @@
   translate: 0 calc(var(--move-y) * -1);
   transition: all .2s var(--ease-3);
 
-  background-color: var(--accent-color);
-  /* background-color: var(--accent-color); */
+  background-color: var(--text-color);
+  /* background-color: var(--text-color); */
   border-radius: 50%;
   pointer-events: none;
 
@@ -236,5 +236,37 @@
   }
   &::after {
     transform: translate(0, 0) rotate(-45deg);
+  }
+}
+
+:where(.footer-menu) {
+  width: 3rem;
+  aspect-ratio: 1;
+  border-radius: 50%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: var(--surface);
+  border-radius: 50%;
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    z-index: 1;
+    width: 1.5rem;
+    height: 2px;
+    background-color: var(--text-color);
+
+    transition: transform .3s var(--ease-3);
+  }
+
+  &::before {
+    transform: translate(0, -3px) rotate(0) scale(1.2, 1);
+  }
+  &::after {
+    transform: translate(0, 3px) rotate(0) scale(1.2, 1);
   }
 }

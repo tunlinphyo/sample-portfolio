@@ -55,7 +55,7 @@
     font-weight: 600;
 
     &::first-letter {
-      color: var(--accent-color);
+      color: var(--text-color);
       font-weight: 700;
     }
   }
@@ -74,39 +74,39 @@
     & a {
       display: inline-block;
       text-decoration: none;
-      color: var(--accent-color);
+      color: var(--text-color);
       position: relative;
-      padding: 0.2rem 1rem;
+      padding: 0.5rem 1rem;
 
-      border: 2px solid var(--accent-color);
-      box-shadow: 0 2px 0 var(--accent-color);
+      border: 2px solid var(--text-color);
+      box-shadow: 0 2px 0 var(--text-color);
       transition: all .3s var(--ease-3);
 
-      border-radius: 6px;
+      border-radius: 12px;
       @supports(corner-shape: squircle) {
-        border-radius: 20px;
+        border-radius: 24px;
         corner-shape: squircle;
       }
 
       &:is(:hover) {
-        box-shadow: 0 4px 0 var(--accent-color);
+        box-shadow: 0 4px 0 var(--text-color);
         translate: 0 -2px;
       }
 
       &:is(:active) {
-        box-shadow: 0 0 0 var(--accent-color);
+        box-shadow: 0 0 0 var(--text-color);
         translate: 0 2px;
       }
 
       &:is(:focus-visible) {
-        outline: 2px solid var(--accent-color);
+        outline: 2px solid var(--text-color);
         outline-offset: 2px;
         translate: 0 2px;
-        box-shadow: 0 0 0 var(--accent-color);
+        box-shadow: 0 0 0 var(--text-color);
       }
 
       /* &:focus-visible {
-        outline: 2px solid var(--accent-color);
+        outline: 2px solid var(--text-color);
         outline-offset: 4px;
         animation: AnimateOutline4 .2s var(--ease-3);
       }
@@ -121,7 +121,7 @@
         opacity: 0;
         transform-origin: center center;
         height: 1rem;
-        border-bottom: 3px double var(--accent-color);
+        border-bottom: 3px double var(--text-color);
         transition: scale .6s var(--ease-spring-3), opacity 0s linear .6s;
         overflow-y: clip;
       }
@@ -138,7 +138,7 @@
 /* :where(.contact-action) {
   &:is(:focus-visible) {
     :where(.hover-popover) {
-      outline: 2px solid var(--accent-color);
+      outline: 2px solid var(--text-color);
       outline-offset: 4px;
     }
   }

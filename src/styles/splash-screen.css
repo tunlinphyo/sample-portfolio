@@ -18,7 +18,7 @@
       color: var(--text-color);
 
       > span {
-        color: var(--accent-color);
+        color: var(--text-color);
 
       }
     }
@@ -43,7 +43,7 @@
     content: '';
     position: absolute;
     inset: 0;
-    background-color: var(--accent-color);
+    background-color: var(--text-color);
 
     clip-path: circle(0% at 50% 50%);
     animation: var(--spalash-screen);
