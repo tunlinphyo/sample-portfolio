@@ -54,9 +54,9 @@ class ColorPicker {
 
   private readonly handleKeydown = (event: KeyboardEvent) => {
     const deltaByKey: Record<string, number> = {
-      ArrowUp: 5,
+      ArrowUp: 1,
       ArrowRight: 5,
-      ArrowDown: -5,
+      ArrowDown: -1,
       ArrowLeft: -5,
       PageUp: 20,
       PageDown: -20,

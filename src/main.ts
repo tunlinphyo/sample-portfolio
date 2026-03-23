@@ -2,6 +2,7 @@ import './style.css'
 import { bindThemePicker } from './scripts/theme'
 import './polyfills/dialog'
 import './polyfills/hover'
+import './polyfills/toggle'
 import './polyfills/random-css'
 
 document.addEventListener('DOMContentLoaded', () => {

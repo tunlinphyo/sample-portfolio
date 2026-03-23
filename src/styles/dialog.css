@@ -117,7 +117,7 @@
   border-radius: 50%;
   opacity: 0;
 
-  background-color: var(--accent-color);
+  background-color: var(--text-color);
 }
 
 :where(.testimonials) {
@@ -164,11 +164,11 @@
   left: anchor(left);
   bottom: anchor(bottom);
   right: anchor(right);
-  background-color: var(--accent-color);
+  background-color: var(--text-color);
 
   transition: all .7s var(--ease-spring-3);
   border-radius: 50%;
   opacity: 0;
 
-  background-color: var(--accent-color);
+  background-color: var(--text-color);
 }

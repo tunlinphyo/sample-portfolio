@@ -12,7 +12,8 @@ export function updateTheme(hue: string) {
   const rootStyle = document.documentElement.style
   rootStyle.setProperty('--palette-hue', hue)
 
-  // const themeSurface = document.body ?? document.documentElement
+  const colorPicker = document.getElementById('pickermessage') as HTMLElement
+  if (colorPicker) colorPicker.dataset.hue = hue
 
   // const themeColor = getComputedStyle(themeSurface)
   //   .backgroundColor

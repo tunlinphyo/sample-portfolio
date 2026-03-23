@@ -5,16 +5,23 @@
       animation: ShowImage var(--duration) var(--ease-in-1) forwards;
     }
   }
+
+  .fade-close {
+    opacity: 1;
+    scale: 1;
+    transition-duration: 0.5s;
+    transition-delay: 1s;
+  }
 }
 
-:has(dialog[open]:not([data-closing])) {
+/* :has(dialog[open]:not([data-closing])) {
   .intro-message {
     .three-d-icon {
       opacity: 0;
       scale: 0.5;
     }
   }
-}
+} */
 
 @media (max-width: 768px) and ((hover: none) or (pointer: coarse)) {
   :where(body:has(dialog [popover]:popover-open)) {
@@ -26,4 +33,27 @@
     }
   }
 }
+
+/* @media not all and (hover: hover) and (pointer: fine) {
+  :has(dialog[open]:not([data-closing])) {
+    .action-list[data-toggle] {
+      .footer-menu {
+        border: none;
+
+        &::before {
+          transform: translate(0, -3px) rotate(0deg) scale(1.4, 1);
+        }
+        &::after {
+          transform: translate(0, 3px) rotate(0deg) scale(1.4, 1);
+        }
+      }
+
+      .button-footer {
+        opacity: 0;
+        scale: 0;
+      }
+    }
+  }
+} */
+
 

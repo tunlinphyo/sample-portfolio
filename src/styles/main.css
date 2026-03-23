@@ -39,7 +39,8 @@
       line-height: 1.1;
       position: relative;
       z-index: 2;
-      
+      /* text-shadow: 0 1px light-dark(black, white), 0 2px light-dark(black, white); */
+
       :where(& > span) {
         color: var(--text-color);
         @supports (-webkit-text-stroke: 1px black) {
@@ -53,7 +54,7 @@
         }
 
       }
-      
+
       :where(em) {
         font-style: normal;
       }

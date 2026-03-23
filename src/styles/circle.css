@@ -27,7 +27,7 @@
       --distance: calc(50% + ((var(--index) - 1) * 50%) / max(1, (var(--count) - 1)) + var(--move));
       --offset: 0;
       --radius: 50%;
-      /* --accent-color: var(--surface); */
+      /* --text-color: var(--surface); */
 
       pointer-events: auto;
       position: absolute;
@@ -46,8 +46,8 @@
       padding: var(--offset);
       background-color: var(--surface);
       backdrop-filter: blur(5px);
-      border: 2px solid light-dark(var(--accent-color), var(--border));
-      /* border: 2px solid var(--accent-color); */
+      /* border: 2px solid light-dark(var(--text-color), var(--border)); */
+      border: 2px solid var(--text-color);
       /* box-shadow: var(--shadow-1); */
 
       img {
@@ -74,16 +74,16 @@
         inset: -2px;
         pointer-events: none;
         border-radius: var(--radius);
-        background-color: light-dark(var(--accent-color), var(--border));
-        /* background-color: var(--accent-color); */
+        /* background-color: light-dark(var(--text-color), var(--border)); */
+        background-color: var(--text-color);
         clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0 100%);
         transition: clip-path .3s var(--ease-3);
       }
 
       &:is(:hover) {
         scale: 1.1;
-        /* background-color: var(--accent-color); */
-        /* border-color: var(--accent-color); */
+        /* background-color: var(--text-color); */
+        /* border-color: var(--text-color); */
       }
       &:is(:hover,:focus-visible) + .people {
         --move: 0.4%;
@@ -92,8 +92,8 @@
         --move: -0.4%;
       }
       &:is(:focus-visible) {
-        outline: 2px solid light-dark(var(--accent-color), var(--border));
-        outline: 2px solid var(--accent-color);
+        /* outline: 2px solid light-dark(var(--text-color), var(--border)); */
+        outline: 2px solid var(--text-color);
         outline-offset: 4px;
         animation: AnimateOutline4 .2s var(--ease-3);
       }
