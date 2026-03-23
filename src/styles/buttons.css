@@ -264,9 +264,9 @@
   }
 
   &::before {
-    transform: translate(0, -3px) rotate(0) scale(1.4, 1);
+    transform: translate(0, -3px) rotate(0) scale(1.2, 1);
   }
   &::after {
-    transform: translate(0, 3px) rotate(0) scale(1.4, 1);
+    transform: translate(0, 3px) rotate(0) scale(1.2, 1);
   }
 }

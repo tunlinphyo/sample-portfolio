@@ -118,8 +118,8 @@
 
     .search-bar {
       height: 24px;
-      border: 2px solid var(--text-color);
-      /* background-color: var(--text-color); */
+      /* border: 2px solid var(--text-color); */
+      background-color: var(--text-color);
 
       border-radius: 20px;
       @supports(corner-shape: squircle) {
@@ -346,6 +346,8 @@
       translate: -50% calc(-50% - 2px);
     }
     &:is(:focus-visible) {
+      scale: 1;
+      pointer-events: auto;
       /* box-shadow: 0 0 0 light-dark(var(--text-color), var(--surface)); */
       box-shadow: 0 0 0 var(--text-color);
       translate: -50% -50%;

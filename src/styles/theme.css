@@ -7,8 +7,8 @@
   ); */
 
   --surface: light-dark(
-    oklch(0.98 0.01 var(--palette-hue)),
-    oklch(0.06 0.08 var(--palette-hue))
+    oklch(0.98 0.02 var(--palette-hue)),
+    oklch(0 0 var(--palette-hue))
   );
 
   /* --text-color: light-dark(
@@ -22,7 +22,7 @@
   );
 
   --fill-color: oklch(from red l c var(--palette-hue));
-  --fill-head: light-dark(#222, #AAA);
+  --fill-head: light-dark(#222, #999);
   --fill-glass: #999C;
 
   --shadow-1: 0px 2px 0 var(--text-color);

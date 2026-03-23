@@ -121,7 +121,7 @@
 :where(.color-picker-container) {
   --duration: 0.8s;
   --glow-size: 12px;
-  --glow-opacity: 0.9;
+  --glow-opacity: 0.8;
 
   position: fixed;
   top: anchor(center);
@@ -180,14 +180,13 @@
     );
 
   filter: blur(28px);
-  animation-delay: var(--duration);
   scale: 0.5;
 }
 
 :where(.color-picker-container):popover-open::before {
   /* opacity: var(--glow-opacity);
   scale: 1; */
-  animation: color-picker-glow-enter var(--duration) var(--ease-spring-2) calc(var(--duration) * 0.2) forwards;
+  animation: color-picker-glow-enter 0.3s var(--ease-2) 0.2s forwards;
 }
 
 @keyframes color-picker-container-enter {
