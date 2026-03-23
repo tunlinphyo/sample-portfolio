@@ -7,7 +7,7 @@ let html = ''
 
 function readColorPickerMarkup() {
   const match = html.match(
-    /<div class="range-color-picker">[\s\S]*?<button class="ring-opener"[^>]*popovertarget="([^"]+)"[\s\S]*?<div id="([^"]+)" popover class="color-picker-container">[\s\S]*?<div class="color-picker">\s*<\/div>[\s\S]*?<div class="nob-container">[\s\S]*?<button class="nob"><\/button>/,
+    /<div class="range-color-picker">[\s\S]*?<button class="ring-opener"[^>]*popovertarget="([^"]+)"[\s\S]*?<div id="([^"]+)" popover class="color-picker-container">[\s\S]*?<div class="color-picker">[\s\S]*?<div id="pickermessage" class="picker-message">[\s\S]*?<\/div>[\s\S]*?<\/div>[\s\S]*?<div class="nob-container">[\s\S]*?<button class="nob"><\/button>/,
   )
 
   return match

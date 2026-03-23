@@ -20,6 +20,21 @@ test('lazy-loads the color picker and updates hue state from keyboard input', as
   await expect(knob).toHaveAttribute('aria-valuenow', '205')
   await expect(colorPicker).toHaveAttribute('data-hue', '205')
 
+  await knob.dispatchEvent('keydown', { key: 'ArrowLeft' })
+
+  await expect(knob).toHaveAttribute('aria-valuenow', '200')
+  await expect(colorPicker).toHaveAttribute('data-hue', '200')
+
+  await knob.dispatchEvent('keydown', { key: 'ArrowUp' })
+
+  await expect(knob).toHaveAttribute('aria-valuenow', '201')
+  await expect(colorPicker).toHaveAttribute('data-hue', '201')
+
+  await knob.dispatchEvent('keydown', { key: 'ArrowDown' })
+
+  await expect(knob).toHaveAttribute('aria-valuenow', '200')
+  await expect(colorPicker).toHaveAttribute('data-hue', '200')
+
   await expect
     .poll(() =>
       page.evaluate(() => ({
@@ -27,5 +42,5 @@ test('lazy-loads the color picker and updates hue state from keyboard input', as
         storedHue: window.localStorage.getItem('theme-hue'),
       })),
     )
-    .toEqual({ hue: '205', storedHue: '205' })
+    .toEqual({ hue: '200', storedHue: '200' })
 })
