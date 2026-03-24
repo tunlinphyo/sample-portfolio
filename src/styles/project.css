@@ -17,7 +17,7 @@
   border-radius: 35px;
   @supports(corner-shape: squircle) {
     /* border-radius: 70px; */
-    border-radius: clamp(60px, 10vw, 100px);
+    border-radius: clamp(60px, 12vw, 100px);
     corner-shape: squircle;
   }
 
@@ -32,18 +32,6 @@
   }
 }
 
-/* @supports (rotate: random(0deg, 10deg)) {
-  .project {
-    --degree: random(-7deg, 7deg);
-  }
-}
-
-@supports not (rotate: random(0deg, 10deg)) {
-  .project {
-    --degree: var(--random);
-  }
-} */
-
 :where(.browser) {
   --control: 10px;
   width: 100%;
@@ -51,16 +39,6 @@
   clip-path: polygon(0 0, 40% 0, 2% 100%, 8% 100%, 46% 0, 100% 0, 100% 100%, 0 100%);
   border: 2px solid var(--text-color);
   position: relative;
-
-  /* -webkit-mask-image: url("/masks/paper-cut.svg");
-  -webkit-mask-repeat: no-repeat;
-  -webkit-mask-size: 100% 100%;
-  -webkit-mask-position: center;
-
-  mask-image: url("/masks/paper-cut.svg");
-  mask-repeat: no-repeat;
-  mask-size: 100% 100%;
-  mask-position: center; */
 
   border-radius: 25px;
   @supports(corner-shape: squircle) {
@@ -187,16 +165,9 @@
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    gap: 0;
-    border: 2px solid var(--text-color);
-    border-radius: 100vh;
+    gap: 1rem;
 
     .logo {
-      padding: 0.3rem 0.75rem;
-      &:not(:last-child) {
-        border-right: 2px solid var(--text-color);
-      }
-
       &:is(:focus-visible) {
         outline: 2px solid var(--text-color);
         outline-offset: 2px;
@@ -211,7 +182,7 @@
 
   & img {
     display: block;
-    width: 1.5rem;
+    width: 2rem;
     aspect-ratio: 1;
     object-fit: contain;
   }
@@ -252,6 +223,10 @@
       display: flex;
       justify-content: center;
       align-items: center;
+
+      & img {
+        width: 1.5rem;
+      }
     }
 
     .logo-name {

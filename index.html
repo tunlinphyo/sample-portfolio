@@ -59,7 +59,7 @@
           <button class="contact-action" popovertarget="github-popover" hoverclick data-text="GitHub"
             aria-label="GitHub">
             <div id="github-popover" popover class="hover-popover github" role="dialog"
-              aria-labelledby="github-popover-title">
+              aria-labelledby="github-popover-title" data-start="left">
               <h2 id="github-popover-title">GitHub</h2>
               <p>
                 Check out my modern Web APIs experiments: clean UI, smooth interactions.
@@ -75,7 +75,7 @@
           <button class="contact-action" popovertarget="linkedin-popover" hoverclick data-text="LinkedIn"
             aria-label="LinkedIn">
             <div id="linkedin-popover" popover class="hover-popover linkedin" role="dialog" aria-modal="false"
-              aria-labelledby="linkedin-popover-title">
+              aria-labelledby="linkedin-popover-title" data-start="center">
               <h2 id="linkedin-popover-title">LinkedIn</h2>
               <p>
                 Connect with me if you'd like to discuss opportunities or exchange ideas.
@@ -90,7 +90,7 @@
         <li>
           <button class="contact-action" popovertarget="email-popover" hoverclick data-text="Email" aria-label="Email">
             <div id="email-popover" popover class="hover-popover email" role="dialog" aria-modal="false"
-              aria-labelledby="email-popover-title">
+              aria-labelledby="email-popover-title" data-start="right">
               <h2 id="email-popover-title">Email</h2>
               <p>
                 For collaborations or product questions, email is the fastest way to reach me.
@@ -159,22 +159,37 @@
     </section>
 
     <footer>
-      <ul class="action-list" id="actionList" toggle="auto-close">
-        <li class="action-item">
-          <button id="hintButton" type="button" class="button-footer button-footer--left" dialogtarget="navigation" aria-haspopup="dialog"
+      <ul class="action-list">
+        <li>
+          <button id="hintButton" type="button" class="button-footer" dialogtarget="navigation" aria-haspopup="dialog"
             aria-controls="navigation" aria-label="Open recent works dialog">
             <div class="dot" aria-hidden="true"></div>
             <div class="text">Recent Works</div>
           </button>
         </li>
-        <li class="middle">
-          <button class="footer-menu" toogletarget="actionList"></button>
-        </li>
-        <li class="action-item">
-          <button type="button" class="button-footer button-footer--right" dialogtarget="testimonial" aria-haspopup="dialog"
+        <li>
+          <button type="button" class="button-footer" dialogtarget="testimonial" aria-haspopup="dialog"
             aria-controls="testimonial" aria-label="Open testimonials dialog">
             <div class="dot" aria-hidden="true"></div>
             <div class="text">What People Say</div>
+          </button>
+        </li>
+      </ul>
+
+      <ul class="mobile-actions" id="actionList" toggle="auto-close">
+        <li>
+          <button class="button-action button-action--left" dialogtarget="navigation" aria-haspopup="dialog"
+            aria-controls="navigation" aria-label="Open recent works dialog">
+            Recent Works
+          </button>
+        </li>
+        <li>
+          <button class="footer-menu" toogletarget="actionList"></button>
+        </li>
+        <li>
+          <button class="button-action button-action--right" dialogtarget="testimonial" aria-haspopup="dialog"
+            aria-controls="testimonial" aria-label="Open testimonials dialog">
+            What People Say
           </button>
         </li>
       </ul>

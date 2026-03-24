@@ -23,6 +23,16 @@
   transform-origin: 50% 10%;
   transition: scale .6s var(--ease-spring-2), opacity .2s var(--ease-3);
 
+  &[data-start="left"] {
+    transform-origin: 25% 10%;
+  }
+  &[data-start="center"] {
+    transform-origin: 50% 10%;
+  }
+  &[data-start="right"] {
+    transform-origin: 75% 10%;
+  }
+
   position-anchor: --contect-popover;
   @supports(position-area: span-bottom center) {
     position-area: span-bottom center;
@@ -119,7 +129,7 @@
 }
 
 :where(.color-picker-container) {
-  --duration: 0.8s;
+  --duration: 0.5s;
   --glow-size: 12px;
   --glow-opacity: 0.8;
 
@@ -139,9 +149,9 @@
   will-change: scale;
   background-color: transparent;
   backdrop-filter: none;
-  transition:
-    opacity var(--duration) var(--ease-spring-2),
-    scale var(--duration) var(--ease-spring-2);
+  /* transition:
+    opacity calc(var(--duration) * 0.5) var(--ease-3),
+    scale var(--duration) var(--ease-spring-3); */
 
   &::backdrop {
     background-color: transparent;
@@ -150,7 +160,7 @@
   &:popover-open {
     opacity: 1;
     scale: 1;
-    animation: color-picker-container-enter var(--duration) var(--ease-spring-2);
+    animation: color-picker-container-enter var(--duration) var(--ease-spring-1);
   }
 
   @supports (animation-name: test-starting-style) {
@@ -186,7 +196,7 @@
 :where(.color-picker-container):popover-open::before {
   /* opacity: var(--glow-opacity);
   scale: 1; */
-  animation: color-picker-glow-enter 0.3s var(--ease-2) 0.2s forwards;
+  animation: color-picker-glow-enter 0.3s var(--ease-2) 0.1s forwards;
 }
 
 @keyframes color-picker-container-enter {

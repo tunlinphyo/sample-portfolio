@@ -17,19 +17,39 @@
         padding: 0.5rem;
         font-size: 1rem;
 
-        transition: scale .6s var(--ease-spring-2);
+        /* transition: scale .6s var(--ease-spring-2); */
+        transition: all .3s var(--ease-5);
       }
 
-      @media (min-width: 30rem) {
+      /* @media (min-width: 30rem) {
         &::before {
-          padding-inline: 0.25rem;
+          translate: 0 1.5rem;
         }
-      }
+      } */
     }
 
     & li:has([popover]:popover-open) {
-      .contact-action::before {
-        scale: 0;
+      .contact-action {
+        &::before {
+          scale: 3;
+          opacity: 0;
+        }
+
+        &[data-text="GitHub"] {
+          &::before {
+            translate: 100% 1.75rem;
+          }
+        }
+        &[data-text="LinkedIn"] {
+          &::before {
+            translate: 0 1.75rem;
+          }
+        }
+        &[data-text="Email"] {
+          &::before {
+            translate: -100% 1.75rem;
+          }
+        }
       }
     }
   }

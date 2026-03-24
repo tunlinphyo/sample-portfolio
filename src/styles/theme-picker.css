@@ -32,7 +32,7 @@
       width: 0.45em;
       translate: 0.05em -0.05em;
       aspect-ratio: 1;
-      transition: scale .3s var(--ease-3), opacity 0.3s var(--ease-3);
+      transition: scale .3s var(--ease-3), opacity 0.2s var(--ease-3);
       transition-delay: 0.2s;
     }
 
@@ -225,7 +225,7 @@
 :where(.range-color-picker) {
   &:has([popover]:popover-open) {
     .ring-opener {
-      scale: 3;
+      scale: 4;
       opacity: 0;
 
       & svg {
