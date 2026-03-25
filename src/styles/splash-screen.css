@@ -16,9 +16,9 @@
 
     > span {
       color: var(--text-color);
-      > span {
+      /* > span {
         color: var(--accent-color);
-      }
+      } */
     }
   }
 

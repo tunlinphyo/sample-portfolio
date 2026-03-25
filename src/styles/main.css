@@ -78,7 +78,7 @@
 
       & span[data-effect="text-hover"] {
         /* --shadow-color: var(--text-color); */
-        color: var(--accent-color);
+        /* color: var(--accent-color); */
       }
 
       @media (prefers-color-scheme: dark) {
