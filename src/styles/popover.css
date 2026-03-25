@@ -1,7 +1,7 @@
 :where([popover]) {
   border: none;
   outline: none;
-  background-color: var(--surface);
+  background-color: var(--surface-popover);
   backdrop-filter: blur(4px);
   border: 2px solid var(--text-color);
   box-shadow: var(--shadow-2);
@@ -22,6 +22,7 @@
   /* translate: 0 -1rem; */
   transform-origin: 50% 10%;
   transition: scale .6s var(--ease-spring-2), opacity .2s var(--ease-3);
+  box-shadow: var(--shadow-1);
 
   &[data-start="left"] {
     transform-origin: 25% 10%;

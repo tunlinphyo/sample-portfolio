@@ -38,6 +38,7 @@
   overflow: clip;
   clip-path: polygon(0 0, 40% 0, 2% 100%, 8% 100%, 46% 0, 100% 0, 100% 100%, 0 100%);
   border: 2px solid var(--text-color);
+  background-color: var(--surface);
   position: relative;
 
   border-radius: 25px;

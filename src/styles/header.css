@@ -101,6 +101,7 @@
       border: 2px solid var(--text-color);
       box-shadow: 0 2px 0 var(--text-color);
       transition: all .3s var(--ease-3);
+      background-color: var(--surface);
 
       border-radius: 12px;
       @supports(corner-shape: squircle) {

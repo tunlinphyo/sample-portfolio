@@ -63,7 +63,7 @@
 
         font-size: 1rem;
         color: var(--text-color);
-        background-color: var(--surface);
+        background-color: var(--surface-popover);
 
         border-radius: 100vh;
         scale: 0;
@@ -108,9 +108,10 @@
     grid-template-columns: 0 3rem 0;
     align-items: center;
     justify-content: center;
+    background-color: var(--surface-popover);
 
     border-radius: 100vh;
-    padding: 1px;
+    padding: 0;
     width: calc(3rem + 2px);
     will-change: width;
     transition: width .2s var(--ease-3), outline-color 0.1s ease 0.2s;

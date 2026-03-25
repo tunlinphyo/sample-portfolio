@@ -10,7 +10,7 @@
     pointer-events: none;
     width: max-content;
     font-size: var(--font-2);
-    color: var(--text-color);
+    color: var(--text-muted);
     font-weight: 700;
     position: absolute;
     z-index: 0;
